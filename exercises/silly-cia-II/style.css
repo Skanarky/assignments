@@ -11,3 +11,23 @@ h2 {
 .bold {
     font-weight: bold;
 }
+
+p {
+    line-height: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+a:hover {
+    text-decoration-line: underline;
+}
+
+img {
+    float: left;
+}
