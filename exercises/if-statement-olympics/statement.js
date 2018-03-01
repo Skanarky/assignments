@@ -80,9 +80,29 @@ if (dogMood) {
 
 // Letters numbers > = <
 
+// 'a'.charCodeAt(0)
+
+if ("b".charCodeAt(0) > 95) {
+    console.log("'B' is more than 95");
+} else {
+    console.log("'B' is less than 95");
+}
+console.log("b".charCodeAt(0));
+
+
 if ("b" > "a") {
     console.log("'B' is more than 'a'");
 } else {
     console.log("'B' is less than 'a'");
 }
+console.log("a".charCodeAt(0));
+
+var myNum = 11;
+myNum % 2 === 0 ? console.log("My number is even") : console.log("My number is odd"); 
+
+// if (myNum % 2 === 0) {
+//     console.log("My number is even");
+// } else {
+//     console.log("My number is odd");
+// }
 
