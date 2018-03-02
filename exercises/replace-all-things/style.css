@@ -1,3 +1,5 @@
+
+
 body {
     background-color: blanchedalmond;
 }
@@ -35,9 +37,13 @@ h6 {
     font-size: 18px;
     font-weight: normal;
     line-height: 50px;
-    border: dashed;
+    border: dashed red;
     text-align: center;
     text-decoration-line: underline;
+    height: 200px;
+    width: 250px;
+    padding: 15px;
+    margin: 10px;
 }
 
 h6:hover {
@@ -47,15 +53,15 @@ h6:hover {
 h5 {
     text-transform: uppercase;
     font-weight: bolder;
-    border: solid;
-    border-color: red;
     display: inline;
     letter-spacing: 5px;
-    font-size: 25px;
+    font-size: 20px;
+    margin: 2px;
+    margin-left: 15px;
+    text-decoration-line: underline;
 }
 
 footer {
     text-align: center;
     font-weight: bold;
-    font-style: italic;
 }
