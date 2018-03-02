@@ -1,0 +1,46 @@
+body {
+    background-color: blanchedalmond;
+}
+
+.name {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 30px;
+}
+
+.title {
+    text-align: center;
+    font-size: 40px;
+    color: red;
+    background-image: url("./news-tsodotcom.jpg");
+}
+
+span {
+    font-style: italic;
+    font-weight: bold;
+}
+
+img {
+    float: left;
+}
+
+p {
+    line-height: 30px;
+}
+
+h6 {
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 50px;
+    border: dashed;
+}
+
+h5 {
+    text-transform: uppercase;
+    font-weight: bolder;
+    border: solid;
+    border-color: red;
+    display: inline;
+    letter-spacing: 5px;
+    font-size: 25px;
+}
