@@ -15,7 +15,7 @@
 // }
 
 // console.log(compare(7, 5, 3));
-// Or I can use Math.max above
+// Or I could use Math.max for the above fn
 
 
 // function evenOdd (a) {
@@ -36,8 +36,13 @@
 //     }
 // }
 
-// console.log(connect("the Monster Is Very Dangerous When Eats Cakes"));
+// console.log(connect("This monster is very dangerous when it eats cakes"));
 
+
+
+
+// ---------------------------
+// FIBONACCI - in progress
 
 // var calcNumbers = {};
 // function calculateFibonacciSum (num) {
@@ -53,7 +58,23 @@
 //     } else {
 //         var value = calculateFibonacciSum(num-1) + calculateFibonacciSum(num-2);
 //         calcNumbers[num] = value;
+//         return value;
 //     }
-//     for (var i = 0; )
+//THIS IS NOT CORRECT for (var i = 0; )
 // }
+
+// function fibonacci(num){
+//     var a = 1, b = 0, temp;
+  
+//     while (num >= 0){
+//       temp = a;
+//       a = a + b;
+//       b = temp;
+//       num--;
+//     }
+  
+//     return b;
+//   }
+
+// console.log(fibonacci(3));
 
