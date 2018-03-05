@@ -39,7 +39,30 @@
 // console.log(connect("This monster is very dangerous when it eats cakes"));
 
 
+// OPTIONAL
 
+// function quadrEq (a, b, c) {
+//     var varResult1 = (-1 * b + Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / (2 * a);
+//     var varResult2 = (-1 * b - Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / (2 * a);
+//     var arrRes = [varResult1, varResult2];
+//     return arrRes;
+// }
+// var resultVar = quadrEq(1, 1, -2);
+// console.log(resultVar);
+
+
+var findMaxCount = function (wordStr) {
+    var maxCount = 0, maxLetter = '';
+    wordStr.split('').forEach(function(letter) {
+        if (wordStr.split(letter).length > maxCount) {
+            maxCount = wordStr.split(letter).length;
+            maxLetter = letter;
+        }
+    });
+    return maxLetter;
+};
+
+console.log(findMaxCount("albphbabebticabl"));
 
 // ---------------------------
 // FIBONACCI - in progress
@@ -60,7 +83,6 @@
 //         calcNumbers[num] = value;
 //         return value;
 //     }
-//THIS IS NOT CORRECT for (var i = 0; )
 // }
 
 // function fibonacci(num){
@@ -77,4 +99,3 @@
 //   }
 
 // console.log(fibonacci(3));
-
