@@ -1,16 +1,18 @@
 * {
+    margin: 0;
     box-sizing: border-box; 
     font-size: 0px;
 }
 
 body {
-    margin: auto;
+/*    margin: auto;*/
     height: 100vh;
     position: relative;
 }
 .wrapper{
-    /* margin: auto; */
+    /* margin: auto;  WE DON'T NEED IT BECAUSE once we have position (below) it disables margin*/
     position: absolute;
+/*    keep width at 100% so you DON'T get lines aorund content!!!*/
     width: 90%;
     left: 50%;
     top: 50%;

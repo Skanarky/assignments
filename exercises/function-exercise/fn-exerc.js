@@ -68,6 +68,10 @@
 
 // FIBONACCI
 
+function sumFn (c, d) {
+  return c + d;
+}
+
 function fibonacci(n){
     var a = 1, b = 0, temp, arrFib = [];
   
@@ -79,12 +83,9 @@ function fibonacci(n){
       n--;
     }
 
-    function sumArr (c, d) {
-        return c + d;
-    }
-    var finArr = arrFib.reduce(sumArr, 0);
+    var finArr = arrFib.reduce(sumFn, 0);
     return arrFib + "; Sum of Numbers on the Left  = " + finArr;
   }
 
 
-console.log(fibonacci(10));
+console.log(fibonacci(11));
