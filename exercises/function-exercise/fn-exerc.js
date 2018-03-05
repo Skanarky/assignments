@@ -53,7 +53,8 @@
 
 var findMaxCount = function (wordStr) {
     var maxCount = 0, maxLetter = '';
-    wordStr.split('').forEach(function(letter) {
+    var arrFromStr = wordStr.split('');
+    arrFromStr.forEach(function(letter) {
         if (wordStr.split(letter).length > maxCount) {
             maxCount = wordStr.split(letter).length;
             maxLetter = letter;
@@ -62,7 +63,7 @@ var findMaxCount = function (wordStr) {
     return maxLetter;
 };
 
-console.log(findMaxCount("albphbabebticabl"));
+console.log(findMaxCount("albphbcccccvcccvcccvcabebticabl"));
 
 // ---------------------------
 // FIBONACCI - in progress
