@@ -68,24 +68,6 @@
 
 // FIBONACCI
 
-// var calcNumbers = {};
-// function calculateFibonacciSum (num) {
-//     if (calcNumbers[num]) {
-//         return calcNumbers[num];
-//     }
-//     if (('number' === typeof num) && num <= 0) {
-//         return "Fibonnaci series starts with 0. Please, enter any integer greater than or equal to 0";
-//     } else if (('number' === typeof num) && num === 0) {
-//         return 0;
-//     } else if (('number' === typeof num) && (num === 1 || num === 2)) {
-//         return 1;
-//     } else {
-//         var value = calculateFibonacciSum(num-1) + calculateFibonacciSum(num-2);
-//         calcNumbers[num] = value;
-//         return value;
-//     }
-// }
-
 function fibonacci(n){
     var a = 1, b = 0, temp, arrFib = [];
   
