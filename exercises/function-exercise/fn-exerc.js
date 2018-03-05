@@ -51,22 +51,22 @@
 // console.log(resultVar);
 
 
-var findMaxCount = function (wordStr) {
-    var maxCount = 0, maxLetter = '';
-    var arrFromStr = wordStr.split('');
-    arrFromStr.forEach(function(letter) {
-        if (wordStr.split(letter).length > maxCount) {
-            maxCount = wordStr.split(letter).length;
-            maxLetter = letter;
-        }
-    });
-    return maxLetter;
-};
+// var findMaxCount = function (wordStr) {
+//     var maxCount = 0, maxLetter = '';
+//     var arrFromStr = wordStr.split('');
+//     arrFromStr.forEach(function(letter) {
+//         if (wordStr.split(letter).length > maxCount) {
+//             maxCount = wordStr.split(letter).length;
+//             maxLetter = letter;
+//         }
+//     });
+//     return maxLetter;
+// };
 
-console.log(findMaxCount("albphbcccccvcccvcccvcabebticabl"));
+// console.log(findMaxCount("albphbcccccvcccvcccvcabebticabl"));
 
-// ---------------------------
-// FIBONACCI - in progress
+
+// FIBONACCI
 
 // var calcNumbers = {};
 // function calculateFibonacciSum (num) {
@@ -86,17 +86,23 @@ console.log(findMaxCount("albphbcccccvcccvcccvcabebticabl"));
 //     }
 // }
 
-// function fibonacci(num){
-//     var a = 1, b = 0, temp;
+function fibonacci(n){
+    var a = 1, b = 0, temp, arrFib = [];
   
-//     while (num >= 0){
-//       temp = a;
-//       a = a + b;
-//       b = temp;
-//       num--;
-//     }
-  
-//     return b;
-//   }
+    while (n >= 0){
+      temp = a;
+      a = a + b;
+      b = temp;
+      arrFib.push(temp);
+      n--;
+    }
 
-// console.log(fibonacci(3));
+    function sumArr (c, d) {
+        return c + d;
+    }
+    var finArr = arrFib.reduce(sumArr, 0);
+    return arrFib + "; Sum of Numbers on the Left  = " + finArr;
+  }
+
+
+console.log(fibonacci(10));
