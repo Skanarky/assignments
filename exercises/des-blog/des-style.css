@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    /* font-size: 0; */
+}
+
+body,
+nav,
+footer {
+    background-color: rgb(253, 245, 218);
+}
+
+nav,
+footer {
+    border: 5px dotted black;
+}
+
+nav {
+    height: 10vh;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+
+}
+
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* section {
+    height: 85vh;
+    overflow: scroll;
+} */
+
+h1 {
+    font-size: 33px;
+    letter-spacing: 3px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 900;
+}
+
+h2,
+h3,
+time {
+    position: relative;
+    top: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h3,
+time {
+    top: 60px;
+    line-height: 30px;
+}
+
+img {
+    float: left;
+    padding: 20px;
+}
+
+p {
+    line-height: 25px;
+    position: relative;
+    top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+a {
+    display: inline-block;
+    height: 100%;
+    width: 30%;
+    /* position: absolute;
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translateX(-50%) translateY(-50%); */
+    text-decoration: none;
+    /* border: 40px solid transparent; */
+    padding: 20px;
+    color: rgb(46, 157, 248);
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+h4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.blog {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: 90vh;
+    overflow: scroll;
+}
+
+footer {
+    /* margin: 20px auto; */
+    height: 5vh;
+    color: rgb(46, 157, 248);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
