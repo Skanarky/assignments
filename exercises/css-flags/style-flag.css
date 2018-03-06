@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 0;
+}
+
+body{
+    height: 100vh;
+    position: relative;
+}
+
+.content {
+    position: absolute;
+    width: 65%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.rows {
+    height: 200px;
+}
+
+.flag {
+    height: 100%;
+    display: inline-block;
+    padding: 7px;
+    border: 10px solid white;
+    /* background-clip: content-box; */
+    box-shadow: inset 0 0 0 7px black;
+    width: 33%;
+    position: relative;
+}
+
+.colF {
+    position: absolute;
+    top: 7px;
+    height: 92.5%;
+    width: 32%;
+}
+
+.rowG {
+    height: 33.4%;
+}
+
+.blue {
+    background-color: darkblue;
+}
+.red {
+    background-color: red;
+    right: 7px;
+}
+.white {
+    background-color: white;
+    right: 50%;
+    left: 50%;
+}
+
+.black {
+    background-color: black;
+}
+.gred {
+    background-color: rgb(224, 0, 0);
+}
+.yellow {
+    background-color: rgb(241, 185, 2);
+}
+
+.colM {
+    position: absolute;
+    top: 7px;
+    height: 92.5%;
+    width: 33%;
+    background-color: white;
+}
+
+.rowRedM {
+    background-color: red;
+    height: 50%;
+}
+
+.rowGreenM {
+    background-color: darkgreen;
+    height: 50%;
+}
+
+.Swiss {
+    background-color: red;
+}
+
+.colSw {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    height: 100px;
+    width: 30px;
+    transform: translateY(-50%) translateX(50%);
+    background-color: white;
+}
+
+.rowSw {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    background-color: white;
+    height: 30px;
+    width: 100px;
+}
+
+.Sweden {
+    background-color: rgb(14, 136, 185);
+}
+
+.colWe {
+    position: absolute;
+    top: 50%;
+    right: 55%;
+    height: 92.7%;
+    width: 38px;
+    transform: translateY(-50%) translateX(15%);
+    background-color: yellow;
+}
+
+.rowWe {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    background-color: yellow;
+    height: 38px;
+    width: 95%;
+}
+
+.Bluegamb {
+    height: 33.3%;
+    border-top: 8px solid white;
+    border-bottom: 8px solid white;
+    background-color: darkblue;
+}
+
+.Greengamb {
+    background-color: darkgreen;
+}
+
+.TongaBox {
+    position: relative;
+    height: 50%;
+    background-color: white;
+    width: 45%;
+}
+
+.colSwTonga {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    height: 75%;
+    width: 20px;
+    transform: translateY(-50%) translateX(50%);
+    background-color: red;
+}
+
+.rowSwTonga {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    background-color: red;
+    height: 20px;
+    width: 50%;
+}
+
+.Japan {
+    background-color: white;
+}
+
+.dotJ {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.Greece {
+    background-color: white;
+}
+
+.GreeceBox {
+    position: relative;
+    height: 50%;
+    background-color: rgb(0, 195, 255);
+    width: 35%;
+}
+
+.colSwGreece {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    height: 100%;
+    width: 20px;
+    transform: translateY(-49%) translateX(50%);
+    background-color: white;
+}
+
+.rowSwGreece {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    background-color: white;
+    height: 20px;
+    width: 100%;
+}
+
+.rowGreece1 {
+    position: absolute;
+    top: 10%;
+    right: 50%;
+    transform: translateY(-55%) translateX(77%);
+    background-color: rgb(0, 195, 255);
+    height: 11.1%;
+    width: 62%;
+    border-bottom: 2px solid white;
+}
+
+.rowGreece2 {
+    position: absolute;
+    top: 27%;
+    right: 50%;
+    transform: translateY(-50%) translateX(77%);
+    background-color: rgb(0, 195, 255);
+    height: 11.1%;
+    width: 62%;
+}
+
+.rowGreece3 {
+    position: absolute;
+    top: 45%;
+    right: 50%;
+    transform: translateY(-50%) translateX(77%);
+    background-color: rgb(0, 195, 255);
+    height: 11.1%;
+    width: 62%;
+    border-top: 2px solid white;
+}
+
+.rowGreece4 {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translateY(-45%) translateX(-50%);
+    background-color: rgb(0, 195, 255);
+    height: 13%;
+    width: 95%;
+}
+
+.rowGreece5 {
+    position: absolute;
+    top: 91%;
+    left: 50%;
+    transform: translateY(-45%) translateX(-50%);
+    background-color: rgb(0, 195, 255);
+    height: 11.1%;
+    width: 95%;
+}
+
+.dotN {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    background-color: rgb(255, 72, 0);
+    height: 57px;
+    width: 57px;
+    border-radius: 50%;
+}
+
+.orange {
+    background-color: rgb(255, 72, 0);
+    border-bottom: 5px solid white;
+}
+.white {
+    background-color: white;
+}
+.NGreen {
+    background-color: rgb(31, 212, 31);
+    border-top: 5px solid white;
+}
+
+.Maldives {
+    background-color: rgb(207, 4, 31);
+}
+
+.MaldBox {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    height: 50%;
+    width: 60%;
+    background-color: darkgreen;
+}
+
+.dotM {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    background-color: white;
+    height: 59px;
+    width: 59px;
+    border-radius: 50%;
+}
+
+.dotM2 {
+    position: absolute;
+    top: 50%;
+    right: 43%;
+    transform: translateY(-50%) translateX(50%);
+    background-color: darkgreen;
+    height: 59px;
+    width: 59px;
+    border-radius: 50%;
+}
+/* ------------- */
+
+.bl {
+    background-color: blue;
+}
+
+.bl {
+    background-color: blue;
+}
+
+.bl {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.green {
+    background-color: green;
+}
+
+.green {
+    background-color: green;
+}
