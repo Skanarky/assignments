@@ -5,9 +5,27 @@
 }
 
 body {
-    height: 75vh;
+    height: 55vh;
     position: relative;
     background-color: whitesmoke;
+}
+
+.header {
+    height: 100px;
+    width: 95%;
+    position: relative;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.footer {
+    height: 50px;
+    width: 95%;
+    position: relative;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .action {
@@ -27,7 +45,7 @@ body {
     transform: translateX(-50%) translateY(-50%);
 }
 
-.add {
+/* .add {
     background-color: white;
 }
 
@@ -37,7 +55,7 @@ body {
 
 .mult {
     background-color: red;
-}
+} */
 
 /* input,
 span,
@@ -50,6 +68,17 @@ button {
     transform: translateX(-50%) translateY(-50%);
     border: 10px solid transparent;
 } */
+
+h4 {
+    display: inline-block;
+    border: 10px solid transparent;
+}
+
+h4,
+h1 {
+    color: steelblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 button {
     font-weight: bold;
