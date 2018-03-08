@@ -10,39 +10,70 @@
 </head>
 
 <body>
+    <div class="extra"></div>
     <div class="header">
-        <h1>Mario Pest Control</h1>
+        Mario Pest Control
+        <img src="./Art_Mario_Top_100.png" height="90px">
     </div>
-    <div class="action add">
-        <div class="center">
-            <input id="add1" type="number" placeholder="#">
-            <input id="add2" type="number" placeholder="#">
-            <button id="add">Press to '+'</button>
-            <span id="addres"></span>
+    <div class="action">
+        <div class="mult">
+            <div>
+                <ul>
+                    <li>
+                        <img class="bug" src="./Goomba.png" height="70px">
+                    </li>
+                    <li>
+                        <img class="bug" src="./Bob-omb_walk.png" height="70px">
+                    </li>
+                    <li>
+                        <img class="bug" src="./Deep-Cheep.png" height="70px">
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <input class="no" type="text" placeholder="Goomba: 5 Coins" disabled>
+                    </li>
+                    <li>
+                        <input class="no" type="text" placeholder="Bob-Omb: 7 Coins" disabled>
+                    </li>
+                    <li>
+                        <input class="no" type="text" placeholder="Cheep-Cheep: 11 Coins" disabled>
+                    </li>
+                    <li>
+                        <div class="result">$</div>
+                        <div class="result" id="result"></div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <input id="mult1" type="number" placeholder="#">
+                    </li>
+                    <li>
+                        <input id="mult2" type="number" placeholder="#">
+                    </li>
+                    <li>
+                        <input id="mult3" type="number" placeholder="#">
+                    </li>
+                    <li>
+                        <button id="mult">PRESS To Calculate Price</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="multres">RESULT</div>
         </div>
     </div>
-    <div class="action subtr">
-        <div class="center">
-            <input id="subt1" type="number" placeholder="#">
-            <input id="subt2" type="number" placeholder="#">
-            <button id="subtr">Press to '-'</button>
-            <span id="subtrres"></span>
-        </div>
-    </div>
-    <div class="action mult">
-        <div class="center">
-            <input id="mult1" type="number" placeholder="#">
-            <input id="mult2" type="number" placeholder="#">
-            <button id="mult">Press to '/'</button>
-            <span id="multres"></span>
+    <div class="footer">
+        <div class="down">
+            <div class="ftext under">@: Mario.P@MarioPest.com</div>
+            <div class="ftext under">www.MarioPest.com</div>
+            <div class="ftext">Address: 999 Sunny Road Str., Wonder City, XO, 89898</div>
         </div>
     </div>
     <script src="./main.js" type="text/javascript"></script>
-    <div class="footer">
-        <h4>Email: Mario.Pest@MarioKillsPest.com</h3>
-        <h4>Web: MarioKillsPest.com</h3>
-        <h4>Address: 999 Sunny Road, San Diego, CA, 45908</h3>
-    </div>
 </body>
 
 </html>
