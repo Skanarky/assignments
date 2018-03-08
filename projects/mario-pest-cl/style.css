@@ -77,11 +77,6 @@ img {
     border: 3px solid transparent;
 }
 
-.bug {
-    border: 5px solid  steelblue;
-    box-shadow: 5px 5px 9px rgb(35, 109, 170);
-}
-
 .ftext {
     letter-spacing: 1px;
     font-size: 14px;
@@ -91,6 +86,19 @@ img {
     border-left: 30px solid transparent;
     border-top: 15px solid transparent;
     font-weight: bold;
+}
+
+ul {
+    padding-left: 0;
+}
+
+.header img {
+    height: 90px;
+}
+
+.bug {
+    border: 5px solid  steelblue;
+    box-shadow: 5px 5px 9px rgb(35, 109, 170);
 }
 
 button {
@@ -112,10 +120,6 @@ input {
     font-size: 25px;
     font-weight: bold;
     box-shadow: 5px 5px 9px steelblue;
-}
-
-ul {
-    padding-left: 0;
 }
 
 li {
@@ -149,4 +153,226 @@ li {
     color: rgba(231, 38, 38, 0.781);
     border-top: 30px solid  transparent;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media (max-width: 680px) {
+    .extra {
+        /* background-image: url("./mario-enemies.png");
+        background-position: center; */
+        height: 20vh;
+        /* width: 95%;
+        position: fixed;
+        top: 17%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%); */
+    }
+
+    .header {
+        /* height: 10vh;
+        width: 95%;
+        position: absolute;
+        top: 39%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center; */
+        font-size: 35px;
+        letter-spacing: 3px;
+        font-weight: 400;
+        /* color: rgba(66, 132, 187, 0.829);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    }
+
+    .header img {
+        height: 55px;
+    }
+
+    .result {
+        /* display: inline-block; */
+        letter-spacing: 3px;
+        font-size: 30px;
+        font-weight: bold;
+        height: 40px;
+        /* text-align: right;
+        color: rgba(231, 38, 38, 0.781); */
+        border-top: 20px solid  transparent;
+        /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    }
+
+    .ftext {
+        /* letter-spacing: 1px; */
+        font-size: 10px;
+        /* color: rgba(70, 131, 180, 0.924);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        display: inline-block; */
+        border-left: 20px solid transparent;
+        border-top: 10px solid transparent;
+        /* font-weight: bold; */
+    }
+
+    #mult {
+        font-size: 5px;
+    }
+
+    .bug {
+        border: 3px solid  steelblue;
+        box-shadow: 4px 4px 7px rgb(35, 109, 170);
+    }
+    
+    button {
+        /* font-weight: bold; */
+        height: 40px;
+        width: 40px;
+        font-size: 7px;
+        /* background-color: rgba(66, 132, 187, 0.788); */
+        /* border: 20px solid  steelblue;
+        border-radius: 50%; */
+        box-shadow: 4px 4px 7px steelblue;
+    }
+    
+    input {
+        /* text-align: center; */
+        border: 3px solid  steelblue;
+        height: 40px;
+        width: 40px;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: 4px 4px 7px steelblue;
+    }
+    
+    li {
+        height: 50px;
+        line-height: 2px;
+        border: 3px solid transparent;
+        /* font-size: 25px; */
+        /* list-style-type: none; */
+        border: 7px solid  transparent;
+    }
+
+    li .bug {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .no {
+        /* border: none; */
+        /* border: 5px solid  steelblue; */
+        height: 40px;
+        width: 40px;
+        font-size: 15px;
+        /* font-weight: bold; */
+        /* box-shadow: none; */
+        /* background-color: whitesmoke; */
+        width: 180px;
+    }
+}
+
+@media (max-width: 365px) {
+    .extra {
+        /* background-image: url("./mario-enemies.png");
+        background-position: center; */
+        height: 15vh;
+        /* width: 95%;
+        position: fixed;
+        top: 17%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%); */
+    }
+
+    .header {
+        /* height: 10vh;
+        width: 95%;
+        position: absolute;
+        top: 39%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center; */
+        font-size: 30px;
+        letter-spacing: 1px;
+        font-weight: 200;
+        /* color: rgba(66, 132, 187, 0.829);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    }
+
+    .header img {
+        height: 55px;
+    }
+
+    .result {
+        /* display: inline-block; */
+        letter-spacing: 1px;
+        font-size: 25px;
+        font-weight: normal;
+        height: 20px;
+        /* text-align: right;
+        color: rgba(231, 38, 38, 0.781); */
+        border-top: 10px solid  transparent;
+        /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    }
+
+    .ftext {
+        /* letter-spacing: 1px; */
+        font-size: 7px;
+        /* color: rgba(70, 131, 180, 0.924);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        display: inline-block; */
+        border-left: 10px solid transparent;
+        border-top: 5px solid transparent;
+        /* font-weight: bold; */
+    }
+
+    #mult {
+        font-size: 3px;
+    }
+
+    .bug {
+        border: 2px solid  steelblue;
+        box-shadow: 2px 2px 5px rgb(35, 109, 170);
+    }
+
+    li .bug {
+        height: 25px;
+        width: 25px;
+    }
+    
+    button {
+        /* font-weight: bold; */
+        height: 25px;
+        width: 25px;
+        font-size: 5px;
+        /* background-color: rgba(66, 132, 187, 0.788); */
+        /* border: 20px solid  steelblue;
+        border-radius: 50%; */
+        box-shadow: 2px 2px 5px steelblue;
+    }
+    
+    input {
+        /* text-align: center; */
+        border: 2px solid  steelblue;
+        height: 25px;
+        width: 25px;
+        font-size: 14px;
+        font-weight: normal;
+        box-shadow: 2px 2px 5px steelblue;
+    }
+    
+    li {
+        height: 35px;
+        line-height: 1px;
+        border: 2px solid transparent;
+        /* font-size: 25px; */
+        /* list-style-type: none; */
+        border: 5px solid  transparent;
+    }
+    
+    .no {
+        /* border: none; */
+        /* border: 5px solid  steelblue; */
+        height: 25px;
+        width: 25px;
+        font-size: 11px;
+        /* font-weight: bold; */
+        /* box-shadow: none; */
+        /* background-color: whitesmoke; */
+        width: 140px;
+    }
 }
