@@ -1,8 +1,8 @@
 {
-  "name": "adv-rpg",
+  "name": "node-calc",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "calc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

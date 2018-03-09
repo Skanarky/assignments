@@ -1,12 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Travel Form</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
 </head>
+
 <body>
-    
+    <form class="wrap" id="main" name="getinfo">
+        <div id="names" class="names">
+            <h3>Names:</h3>
+            <input id="firstName" name="firstName" type="text" placeholder="First Name">
+            <input id="lastName" name="lastName" type="text" placeholder="Last Name">
+        </div>
+        <div class="age">
+            <h3>Age:</h3>
+            <input id="age" name="ageInput" type="number" placeholder="Enter Your Age">
+        </div>
+        <div class="gender">
+            <h3>Gender:</h3>
+            <label for="male">
+                Male
+                <input name="Male" id="male" type="checkbox">
+            </label>
+            <label for="female">
+                Female
+                <input name="Female" id="female" type="checkbox">
+            </label>
+            <label for="universe">
+                I'm ONE with The Universe
+                <input name="I'm The Universe" id="universe" type="checkbox">
+            </label>
+        </div>
+        <div class="travel">
+            <h3>Location:</h3>
+            <select id="travel" name="location" value="none">
+                <option value="none">Pick a Location</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Paris">Paris</option>
+                <option value="London">London</option>
+                <option value="Sofia">Sofia</option>
+            </select>
+        </div>
+        <div class="diet">
+            <h3>Dietary Restrictions:</h3>
+            <label for="vegetarian">
+                Vegetarian
+                <input name="Vegetarian" id="vegetarian" type="radio">
+            </label>
+            <label for="kosher">
+                Kosher
+                <input name="Kosher" id="kosher" type="radio">
+            </label>
+            <label for="lactoseFree">
+                Lactosefree
+                <input name="LactoseFree" id="lactoseFree" type="radio">
+            </label>
+            <label for="confused">
+                I Don't Know What I like To Eat
+                <input name="I'm Confused What I Eat" id="confused" type="radio">
+            </label>
+        </div>
+        <div class="but">
+            <button>Generate Traveller's Info</button>
+        </div>
+    </form>
+    <script src="./main.js"></script>
 </body>
+
 </html>
