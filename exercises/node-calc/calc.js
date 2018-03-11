@@ -8,22 +8,6 @@ var ask = require("readline-sync");
     // var num2 = ask.question("Pick another whole number?");
 
 //choose operation/function
-var num1 = ask.question("Pick a whole number?");
-var num2 = ask.question("Pick another whole number?");
-var operations = ["add", "subtr", "mult", "divid"];
-var indexFrom = ask.keyInSelect(operations, "Choose an operation to perform");
-
-if (operations[indexFrom] === "add") {
-    console.log(Number(num1) + Number(num2));
-} else if (operations[indexFrom] === "subtr") {
-    console.log(num1 - num2);
-} else if (operations[indexFrom] === "mult") {
-    console.log(num1 * num2);
-} else if (operations[indexFrom] === "divid") {
-    console.log(num1 / num2);
-}   else {
-    console.log("Thanks For Trying Our Calculator!\nBye!");
-}
 
 // chooser fn
 // pick numbers and operators
@@ -33,18 +17,35 @@ if (operations[indexFrom] === "add") {
 
 // create fn-s for the 4 operations: + - / * arithmetic fn-s
 
-// function add (a, b) {
-//     return a + b;
-// }
+var num1 = ask.question("Pick a whole number?");
+var num2 = ask.question("Pick another whole number?");
+var operations = ["+", "-", "*", "/"];
+var indexFrom = ask.keyInSelect(operations, "Choose an operation to perform");
 
-// function subtr (a, b) {
-//     return a - b;
-// }
+if (operations[indexFrom] === "+") {
+    console.log(add(Number(num1), Number(num2)));
+} else if (operations[indexFrom] === "-") {
+    console.log(subtr(num1, num2));
+} else if (operations[indexFrom] === "*") {
+    console.log(mult(num1, num2));
+} else if (operations[indexFrom] === "/") {
+    console.log(divi(num1, num2));
+}   else {
+    console.log("Thanks For Trying Our Calculator!\nBye!");
+}
 
-// function mult (a, b) {
-//     return a * b;
-// }
+function add (a, b) {
+    return a + b;
+}
 
-// function divi (a, b) {
-//     return a / b;
-// }
+function subtr (a, b) {
+    return a - b;
+}
+
+function mult (a, b) {
+    return a * b;
+}
+
+function divi (a, b) {
+    return a / b;
+}
