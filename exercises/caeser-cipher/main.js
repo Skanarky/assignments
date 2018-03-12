@@ -5,13 +5,9 @@
 // have a test string
 
 // fn to receive one param as a STRING and one number (the encrypting parameter)
-    //   Set an empty array (OR string; IN THE fn action below just do, when pushing, newStr += ...);
-    //  MAYBE NOT ???fn will receive str and store it as an new arr;
-    //   Loop trough new arr (OR string input) and do action: get each character of it and replace 
-    //it with another char from the ALPHABET string, COUNTING with the INPUT number (input No. 2)
-    //push these new char into the array from line one of this fn;
-    // (!!!make sure in the action above to ACCOUNT FOR THE SPACES and other CHAR-s - they probably will stay THE SAME?!)
-    //   return the new array, but join("") it to a string
+//   Set an empty array (OR string; IN THE fn action below just do, when pushing, newStr += ...);
+//   Use charCodeAt and loop through each char of input string
+// ...
 
 // MY PSEUDO C ends here
 
@@ -23,26 +19,38 @@
 var ask = require("readline-sync");  
 var userInputPhrase = ask.question("What phrase would you like to encrypt? ").toLowerCase();  
 var userShiftInput = parseInt(ask.question("How many letters would you like to shift? "));
-console.log(`To encrypt: '${userInputPhrase}', with encryption key-value: ${userShiftInput}.`)
+// console.log(`To encrypt: '${userInputPhrase}', with encryption key-value: ${userShiftInput}.`)
 
+var encrStr = function (inpStr, encrValue) {
+    var encrText = "";
+    for (var i = 0; i < inpStr.length; i++) {
+        var plainCharacter = inpStr.charCodeAt(i);
+        if (plainCharacter >= 97 && plainCharacter <= 122) {
+            encrText += String.fromCharCode((plainCharacter - 97 + encrValue) % 26 + 97);
+        } else if (plainCharacter >= 65 && plainCharacter <= 90) {
+            encrText += String.fromCharCode((plainCharacter - 65 + encrValue) % 26 + 65);
+        } else {
+            encrText += String.fromCharCode(plainCharacter);
+        }
+    }
+    return encrText;
+}
 
+console.log(encrStr(userInputPhrase, userShiftInput));
 
+var decrStr = function (inpDecrStr, encrValue) {
+    var decrText = "";
+    for (var i = 0; i < inpDecrStr.length; i++) {
+        var cipherCharacter = inpDecrStr.charCodeAt(i);
+        if (cipherCharacter >= 97 && cipherCharacter <= 122) {
+            decrText += String.fromCharCode((cipherCharacter - 97 - encrValue + 26) % 26 + 97);
+        } else if (cipherCharacter >= 65 && cipherCharacter <= 90) {
+            decrText += String.fromCharCode((cipherCharacter - 65 - encrValue + 26) % 26 + 65);
+        } else {
+            decrText += String.fromCharCode(cipherCharacter);
+        }
+    }
+    return decrText;
+}
 
-
-
-// Fn, finding a char from arr, str, etc.
-// var arrExTwo = ["#jkjk*3", "C%*4!", "$$fad223@(#&$", "Heydaff0!", "$$fad223@(#*&$", "dafdf%64$%^", "%*$rty$%)9]{"];
-
-// var findArrWithChar = function (arrInpTwo, charInp) {
-//     var arrNew = [];
-//     for (var i = 0; i < arrInpTwo.length; i++) {
-//         for (var j = 0; j < arrInpTwo[i].length; j++) {
-//             if (arrInpTwo[i][j] === charInp) {
-//                 arrNew.push(arrInpTwo[i]);
-//             }
-//         }
-//     }
-//     return arrNew;
-// }
-
-// console.log(findArrWithChar(arrExTwo, "*"));
+// console.log(decrStr(encrStr(userInputPhrase, userShiftInput), userShiftInput));
