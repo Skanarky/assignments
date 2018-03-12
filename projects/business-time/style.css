@@ -291,6 +291,15 @@ footer {
     }
 }
 
+@media (min-width: 1350px) {
+    a {
+        font-size: 25px;
+        letter-spacing: 3px;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+    }
+}
+
 @media (min-width: 1800px) {
     h1 {
         top: 25%;
