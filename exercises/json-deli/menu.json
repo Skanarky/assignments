@@ -1,0 +1,58 @@
+{
+    "name": "my deli menu",
+    "appetizers": [{
+            "name": "some",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        },
+        {
+            "name": "some2",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        }
+    ],
+    "cold s": [{
+            "name": "some",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        },
+        {
+            "name": "some2",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        }
+    ],
+    "hot s": [{
+            "name": "some",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        },
+        {
+            "name": "some2",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        }
+    ],
+    "deserts": [{
+            "name": "some",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        },
+        {
+            "name": "some2",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        }
+    ],
+    "drinks": [{
+            "name": "some",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        },
+        {
+            "name": "some2",
+            "ingredients": ["dfdf", "daff"],
+            "description": "here is descr"
+        }
+    ]
+}
