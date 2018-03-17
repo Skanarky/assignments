@@ -10,9 +10,10 @@ xhr.onreadystatechange = function () {
        var morePokemon = pokemonArr;
        for (var i=0; i<pokemonArr.length; i++){
            var parsePokemon = pokemonArr[i].name;
-           var li = document.createElement("li");
-           li.innerHTML = parsePokemon;
-           getPokemon.appendChild(li);
+        //    console.log(parsePokemon);
+           var h3 = document.createElement("h3");
+           h3.innerHTML = parsePokemon;
+           getPokemon.appendChild(h3);
        }
    }
 }

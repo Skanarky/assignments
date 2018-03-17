@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do Notes</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+</head>
+
+<body>
+
+    <form class="wrap" id="main" name="getinfo">
+        <div id="names" class="names">
+            <h3>To Do:</h3>
+            <input id="toDoAction" name="toDoAction" type="text" placeholder="Action">
+        </div>
+        <div id="names" class="names">
+            <h3>Description:</h3>
+            <input id="descr" name="descr" type="text" placeholder="Description">
+        </div>
+        <!-- <div id="names" class="names">
+            <h3>Finished:</h3>
+            <input id="isComplete" name="isComplete" type="text" placeholder="True OR False">
+        </div> -->
+        <div class="but">
+            <button>Generate To Do</button>
+        </div>
+        <ol id="note" class="notes"></ol>
+    </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
