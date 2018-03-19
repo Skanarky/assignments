@@ -1,7 +1,7 @@
 
 var but = document.getElementById("yes");
 var showMe = document.getElementById("show");
-var count = 0;
+var count = localStorage.getItem("clicks") || 0;
 
 but.addEventListener("click", function(event) {
     count++;
