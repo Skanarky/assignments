@@ -1,25 +1,24 @@
-// var axios = require("axios");
+// var axios = require("axios"); DON'T NEED IT, I HAVE A SCRIPT FOR
+// THAT IN THE INDEX.HTML
 
 var urlApi = "https://api.vschool.io/ilian/todo/";
 
 axios.get(urlApi).then(function (response) {
     var putLiOnscr = document.getElementById("note");
-    // console.log(response.data[0]);
+    console.log(response);
     var notesToDo = response.data;
+    console.log(notesToDo);
     for (var i = 0; i < notesToDo.length; i++) {
-        console.log(notesToDo[i]);
+        // console.log(notesToDo[i]);
         let li = document.createElement("li");
-        li.innerHTML = `<strong>To Do:</strong> ${notesToDo[i].title} | <strong>Description:</strong> ${notesToDo[i].description}`;
+        li.innerHTML = `<strong>Title:</strong> ${notesToDo[i].title} | <strong>Description:</strong> ${notesToDo[i].description}`;
         let buttDelete = document.createElement("button");
         buttDelete.style = "font-weight:bold; background-color:white";
         let idFromDataObj = notesToDo[i]._id;
-
         let buttChecked = document.createElement("input");
         buttChecked.type = "checkbox";
         buttChecked.checked = notesToDo[i].completed;
-        // buttChecked.placeholder = notesToDo[i].completed;
         buttDelete.innerHTML = "DELETE";
-        // | <strong>Finished:</strong> ${notesToDo[i].completed}
         putLiOnscr.appendChild(li);
         putLiOnscr.appendChild(buttDelete);
         li.appendChild(buttChecked);
@@ -38,21 +37,6 @@ axios.get(urlApi).then(function (response) {
                 } else if (!event.target.checked) {
                     li.style.textDecoration = "none";
                 }
-                // li.style.textDecoration = "line-through";
-                // var putLiOnscr = document.getElementById("note");
-                // var notesToDo = response.data;
-                // let li = document.createElement("li");
-                // li.innerHTML = `<strong>To Do:</strong> ${notesToDo.title} | <strong>Description:</strong> ${notesToDo.description}`;
-                // li.style.textDecoration = "line-through";
-                // putLiOnscr.appendChild(li);
-                // if (event.target.checked) {
-                //     // let putLiOnscr = document.getElementById("note");
-                //     // let notesToDo = response.data;
-                //     let li = document.createElement("li");
-                //     li.innerHTML = `<strong>To Do:</strong> ${notesToDo.title} | <strong>Description:</strong> ${notesToDo.description}`;
-                //     li.style.textDecoration = "line-through";
-                //     putLiOnscr.appendChild(li);
-                // };
             });
         });
         buttDelete.addEventListener("click", function (event) {
@@ -65,8 +49,12 @@ axios.get(urlApi).then(function (response) {
     }
 });
 
+//form
 var addToDo = document.getElementById("main");
+
+//inputs
 var toDoAction = document.getElementById("toDoAction");
+toDoAction.focus();
 var descr = document.getElementById("descr");
 // var isComplete = document.getElementById("isComplete");
 
@@ -99,7 +87,7 @@ addToDo.addEventListener("submit", function (event) {
         var putLiOnscr = document.getElementById("note");
         var notesToDo = response.data;
         var li = document.createElement("li");
-        li.innerHTML = `<strong>To Do:</strong> ${notesToDo.title} | <strong>Description:</strong> ${notesToDo.description}`;
+        li.innerHTML = `<strong>Title:</strong> ${notesToDo.title} | <strong>Description:</strong> ${notesToDo.description}`;
         putLiOnscr.appendChild(li);
         let buttDelete = document.createElement("button");
         buttDelete.style = "font-weight:bold; background-color:white";
@@ -107,9 +95,7 @@ addToDo.addEventListener("submit", function (event) {
         let buttChecked = document.createElement("input");
         buttChecked.type = "checkbox";
         buttChecked.checked = notesToDo.completed;
-        // buttChecked.placeholder = notesToDo[i].completed;
         buttDelete.innerHTML = "DELETE";
-        // | <strong>Finished:</strong> ${notesToDo[i].completed}
         putLiOnscr.appendChild(li);
         putLiOnscr.appendChild(buttDelete);
         li.appendChild(buttChecked);
