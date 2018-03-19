@@ -1,5 +1,4 @@
 var ask = require("readline-sync");
-// var isGameOver = false;
 
 var player = {
     braveOneName: "",
@@ -42,19 +41,6 @@ Enemy.prototype.makeGoldenPickles = function () {
             return 10;
     }
 };
-
-// Enemy.prototype.genAttackVillain = function () {
-//     switch (this.typeVillain) {
-//         case "The Joker":
-//             return Math.floor(Math.random() * 21) + this.hitPointsVillain / 2;
-//         case "The Mummy":
-//             return Math.floor(Math.random() * 21) + this.hitPointsVillain / 2;
-//         case "The Big, Bad, Ol' Wolf":
-//             return Math.floor(Math.random() * 21) + this.hitPointsVillain / 2;
-//     }
-// };
-
-// console.log(new Enemy ());
 
 // Game HELPER functions
 
@@ -101,6 +87,7 @@ var fight = function () {
             player.hitPointsPlayer += 70;
             player.wonGoldenPickles += villain.goldenPicklesRewardVillain;
             player.enemiesKilled++;
+            console.log(`\nYou received 70 Hit Points and ${villain.goldenPicklesRewardVillain} Golden Pickles as a reward from ${villain.typeVillain}!`);
         }
     } else if (fightOptions === "r") {
         runAfraid(villain);
@@ -133,14 +120,13 @@ var gamePlay = function () {
     }
 };
 
-while (player.hitPointsPlayer > 0 && player.enemiesKilled < 4) {
+// The Brave One has to kill 4 villains AND keep his HP above 0
+while (player.enemiesKilled < 4 && player.hitPointsPlayer > 0) {
     gamePlay();
 };
-
-if (player.hitPointsPlayer <= 0) {
-    console.log(`\nGAME OVER, ${player.braveOneName.toUpperCase()}!!! \nFeel free to try again anytime... loser!`);
-};
-
 if (player.enemiesKilled >= 4) {
     console.log(`\nWo-o-o-o-w, YOU WON THE GAME, you mighty ${player.braveOneName.toUpperCase()}! That's surprising! Now go eat your ${player.wonGoldenPickles} pickles!!! \n`);
+};
+if (player.hitPointsPlayer <= 0) {
+    console.log(`\nGAME OVER, ${player.braveOneName.toUpperCase()}!!! \nFeel free to try again anytime... loser!`);
 };
