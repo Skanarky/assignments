@@ -10,3 +10,7 @@ but.addEventListener("click", function(event) {
 })
 
 showMe.innerHTML = localStorage.getItem("clicks");
+
+
+// localStorage.setItem("obj", JSON.stringify(obj));
+// console.log(JSON.parse(localStorage.getItem("obj")));
