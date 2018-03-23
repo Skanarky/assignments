@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ----------- */
+body {
+    font-family: 'Libre Baskerville', sans-serif;
+    font-size: 70%;
+    background: rgb(255, 255, 255);
+    color: rgb(50, 80, 80);
+}
+
+.container {
+    height: 4335px;
+    display: grid;
+    grid-template-areas: "hdr" "about" "part" "req" "ftr" "art" "men";
+    grid-template-rows: .3fr 1.8fr 1.4fr 1.7fr .5fr .4fr .3fr;
+}
+
+/* ------------1 */
+header {
+    grid-area: hdr;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: rgb(45, 99, 96) 50% 0 url(huntington.jpg) no-repeat;
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url(contours.png), url(noise.png), url(gridlines.png), url(huntington.jpg);
+    background-position: 0 0, 0 0, -5px -25px, 0 50%;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: auto, auto, auto, cover;
+}
+
+.logo {
+    content: "";
+    width: 50px;
+    height: 50px;
+    margin: 24px auto 0px auto;
+    background: url(enso.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.65;
+    
+}
+
+h1,
+h2 {
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+}
+
+h1 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+h2 {
+    border-top: 10px solid transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.hdown {
+    border: 20px solid transparent;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 0.212);
+}
+
+nav div {
+    border-top: 28px solid transparent;
+    border-bottom: 24px solid transparent;
+    text-transform: uppercase;
+    font-family: 'Julius Sans One', sans-serif;
+    width: 25%;
+}
+
+.view {
+    color: rgba(255, 255, 255, 0.698);
+    font-size: 16px;
+    width: 50%;
+}
+
+.arrow {
+    color: rgba(255, 255, 255, 0.555);
+    font-size: 80px;
+    line-height: 20px;
+    font-weight: 700;
+    font-style: normal;
+    width: 25%;
+    text-align: right;
+    padding-right: 5%; 
+}
+
+
+/* ------------ */
+.about {
+    grid-area: about;
+}
+
+.participation {
+    grid-area: part;
+    border: 1px dashed black;
+}
+
+.requirement {
+    grid-area: req;
+    border: 1px dashed black;
+}
+
+footer {
+    grid-area: ftr;
+    border: 1px dashed black;
+}
+
+.artists {
+    grid-area: art;
+    border: 1px dashed black;
+}
+
+.menu {
+    grid-area: men;
+    border: 1px dashed black;
+}
+
+
+@media (min-width: 760px) {
+    .container {
+        height: 3072px;
+        display: grid;
+        grid-template-areas: "hdr" "about" "part" "req" "ftr" "art" "men";
+        grid-template-rows: 0.25fr .75fr .6fr .69fr .35fr .33fr .21fr;
+    }
+
+    header {
+        display: grid;
+        grid-template-areas: 
+        "a b"
+        "c c";
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 2.2fr 0.8fr;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+        margin: 28px 10px -30px auto;
+        grid-area: a;
+    }
+    
+    .hdown {
+        padding-top: 40px;
+        padding-right: 90px;
+        grid-area: b;
+        border-left: 5px solid transparent;
+    }
+    
+    nav {
+        grid-area: c;
+    }
+
+    .arrow {
+        padding-right: 3%;
+    }
+
+    h1 {
+        text-align: left;
+        font-size: 3.2em;
+    }
+    h2 {
+        text-align: left;
+    }
+}
+
+@media (min-width: 1015px) {
+    .container {
+        height: 2663px;
+        display: grid;
+        grid-template-areas: "hdr" "nav" "about" "part" "req" "ftr" "art" "men";
+        grid-template-rows: 0.15fr .068fr .63fr .45fr .52fr .29fr .33fr .2fr;
+    }
+}
+
+@media (min-width: 1135px) {
+    .container {
+        height: 3643px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: .25fr .86fr .695fr .82fr .4fr;
+        grid-template-areas: "hdr nav" "about art" "part men" "req ." "ftr ftr";
+    }
+}
+
+@media (min-width: 2750px) {
+    .container {
+        height: 2445px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: .45fr 1fr .76fr .83fr .6fr;
+        grid-template-areas: "hdr nav" "about art" "part men" "req ." "ftr ftr";
+    }
+}

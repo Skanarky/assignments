@@ -68,3 +68,4 @@ for (var i = 0; i < shopListStoreArray.length; i++) {
         }
     });
 }
+
