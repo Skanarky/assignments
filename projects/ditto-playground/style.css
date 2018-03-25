@@ -3,7 +3,8 @@
     box-sizing: border-box;
 }
 
-/* ----------- */
+/* ---------------------------------------------- */
+
 body {
     font-family: 'Libre Baskerville', sans-serif;
     font-size: 70%;
@@ -12,25 +13,27 @@ body {
 }
 
 .container {
-    height: 4335px;
+    height: 4334px;
     display: grid;
     grid-template-areas: "hdr" "about" "part" "req" "ftr" "art" "men";
-    grid-template-rows: .3fr 1.8fr 1.4fr 1.7fr .5fr .4fr .3fr;
+    grid-template-rows: .3fr 1.8fr 1.4fr 1.7fr .5fr .4fr .32fr;
 }
 
-/* ------------1 */
+/* ---------------------------------------------- */
+
 header {
     grid-area: hdr;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background: rgb(45, 99, 96) 50% 0 url(huntington.jpg) no-repeat;
+    background: rgba(45, 99, 96, 0.767) 50% 0 url(huntington.jpg) no-repeat;
     background-attachment: fixed, fixed, fixed, scroll;
     background-image: url(contours.png), url(noise.png), url(gridlines.png), url(huntington.jpg);
     background-position: 0 0, 0 0, -5px -25px, 0 50%;
     background-repeat: repeat, repeat, repeat, no-repeat;
     background-size: auto, auto, auto, cover;
+    text-align: center;
 }
 
 .logo {
@@ -42,7 +45,6 @@ header {
     background-repeat: no-repeat;
     background-size: 100%;
     opacity: 0.65;
-    
 }
 
 h1,
@@ -90,47 +92,230 @@ nav div {
 }
 
 .arrow {
-    color: rgba(255, 255, 255, 0.555);
-    font-size: 80px;
+    font-family: 'verdemoderna';
+    color: rgba(255, 255, 255, 0.637);
+    font-size: 42px;
     line-height: 20px;
-    font-weight: 700;
+    font-weight: normal;
     font-style: normal;
     width: 25%;
     text-align: right;
-    padding-right: 5%; 
+    padding-right: 5%;
 }
 
+/* ---------------------------------------------- */
 
-/* ------------ */
 .about {
     grid-area: about;
 }
 
+abbr {
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.01em;
+    text-decoration-line: underline;
+}
+
+h3 {
+    margin: 2em 0 0 0;
+    color: #2e484c;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.8em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+p {
+    margin: 0.75em 0;
+    line-height: 2;
+    font-size: 1.2em;
+}
+
+.summary {
+    border-left: 37.5px solid transparent;
+    border-right: 37.5px solid transparent;
+}
+
+.start {
+    border-top: 30px solid transparent;
+}
+
+/* ---------------------------------------------- */
+
 .participation {
     grid-area: part;
-    border: 1px dashed black;
+    background-attachment: scroll, scroll, fixed;
+    background-color: rgba(138, 188, 159, 0.5);
+    background-image: url(bamboo.png);
 }
+
+/* ---------------------------------------------- */
 
 .requirement {
     grid-area: req;
-    border: 1px dashed black;
 }
+
+/* ---------------------------------------------- */
 
 footer {
     grid-area: ftr;
-    border: 1px dashed black;
 }
+
+.fancy {
+    width: auto;
+    padding: 2em 5%;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.4);
+    background: #3e5d67;
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url(contours.png), url(gridlines.png), url(noise.png), url(koi.jpg);
+    background-position: 0 0, -5px -25px, 0 0, 0 50%;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: auto, auto, auto, cover;
+    font-size: 2em;
+    font-style: italic;
+    text-align: center;
+}
+
+.fancy a {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Libre Baskerville', sans-serif;
+    font-style: normal;
+    font-size: 1em;
+}
+
+@font-face {
+    font-family: 'verdemoderna';
+    src: url('verdemoderna.eot');
+    src: url('verdemoderna.eot?#iefix') format('embedded-opentype'), url('verdemoderna.woff') format('woff'), url('verdemoderna.ttf') format('truetype'), url('verdemoderna.svg#verdemoderna') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icons {
+    clear: both;
+    padding: 3em 0%;
+    color: #fff;
+    background: #134347;
+    text-align: center;
+}
+
+.icons a {
+    display: inline-block;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    padding: 40px 0 0 0;
+    margin: 0 0.5em;
+    position: relative;
+    color: rgba(255, 255, 255, 0.5);
+    -webkit-transition: color 0.25s ease-out, box-shadow 0.25s ease-out;
+    -moz-transition: color 0.25s ease-out, box-shadow 0.25s ease-out;
+    transition: color 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.icons a:hover,
+.icons a:focus {
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+}
+
+.icons a:visited {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.icons a::before {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    overflow: visible;
+    font-size: 36px;
+    text-indent: 0;
+    font-family: 'verdemoderna';
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icons a.html::before {
+    content: "5";
+}
+
+.icons a.css::before {
+    content: "3";
+}
+
+.icons a.license::before {
+    content: "c";
+}
+
+.icons a.accessibility::before {
+    content: "a";
+}
+
+.icons a.github::before {
+    content: "g";
+}
+
+/* ---------------------------------------------- */
 
 .artists {
     grid-area: art;
-    border: 1px dashed black;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% 25% 25% 25%;
+    background: rgb(237, 244, 240);
 }
+
+.artists div {
+    padding: 0.9em 0%;
+    color: rgb(192, 202, 195);
+    font-style: italic;
+    border-top: solid 1px hsl(138, 15%, 87%);
+    font-style: italic;
+}
+
+.artists .design,
+div a {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.4em;
+    font-style: normal;
+    color: rgb(87, 124, 97);
+}
+
+.artists .designer {
+    font-family: 'Libre Baskerville', sans-serif;
+    color: rgb(97, 104, 87);
+    font-size: 1em;
+    font-style: normal;
+}
+
+/* ---------------------------------------------- */
 
 .menu {
     grid-area: men;
-    border: 1px dashed black;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: rgba(138, 188, 159, 0.5);
+    background-image: url(bamboo.png);
 }
 
+.menu div {
+    padding-top: 1.4em;
+    border-bottom: solid 1px rgb(160, 185, 173);
+    color: rgb(87, 124, 97);
+}
+
+div .plus {
+    border-bottom: solid 0px #a0b9ad;
+}
+
+/* ---------------------------------------------- */
 
 @media (min-width: 760px) {
     .container {
@@ -139,38 +324,30 @@ footer {
         grid-template-areas: "hdr" "about" "part" "req" "ftr" "art" "men";
         grid-template-rows: 0.25fr .75fr .6fr .69fr .35fr .33fr .21fr;
     }
-
     header {
         display: grid;
-        grid-template-areas: 
-        "a b"
-        "c c";
+        grid-template-areas: "a b" "c c";
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 2.2fr 0.8fr;
     }
-
     .logo {
         width: 80px;
         height: 80px;
         margin: 28px 10px -30px auto;
         grid-area: a;
     }
-    
     .hdown {
         padding-top: 40px;
         padding-right: 90px;
         grid-area: b;
         border-left: 5px solid transparent;
     }
-    
     nav {
         grid-area: c;
     }
-
     .arrow {
         padding-right: 3%;
     }
-
     h1 {
         text-align: left;
         font-size: 3.2em;
@@ -178,24 +355,213 @@ footer {
     h2 {
         text-align: left;
     }
+    .summary {
+        /* width: 80%; */
+        border-left: 75px solid transparent;
+        border-right: 75px solid transparent;
+    }
+    .fancy {
+        padding: 2.6em;
+    }
+    .icons a {
+        width: 70px;
+        height: 50px;
+        padding: 60px 0 0 0;
+    }
+    .icons a::before {
+        font-size: 50px;
+    }
+    .artists div {
+        padding: 1.5em 0%;
+    }
+    .menu div {
+        padding-top: 1.3em;
+    }
 }
+
+/* ---------------------------------------------- */
 
 @media (min-width: 1015px) {
     .container {
         height: 2663px;
         display: grid;
-        grid-template-areas: "hdr" "nav" "about" "part" "req" "ftr" "art" "men";
-        grid-template-rows: 0.15fr .068fr .63fr .45fr .52fr .29fr .33fr .2fr;
+        grid-template-areas: "hdr" "about" "part" "req" "ftr" "art" "men";
+        grid-template-rows: 0.218fr .63fr .45fr .52fr .29fr .33fr .2fr;
+    }
+    .logo {
+        margin: 28px -40px -30px auto;
+    }
+    .hdown {
+        padding-left: 50px;
+    }
+    .summary {
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+    }
+    h3 {
+        margin: 1.2em 0 0 0;
+    }
+    .icons a {
+        width: 80px;
+    }
+    .artists div {
+        padding: 2em 0%;
+    }
+    .menu div {
+        padding-top: 1.7em;
     }
 }
+
+/* ---------------------------------------------- */
 
 @media (min-width: 1135px) {
     .container {
         height: 3643px;
         display: grid;
         grid-template-columns: 2fr 1fr;
-        grid-template-rows: .25fr .86fr .695fr .82fr .4fr;
-        grid-template-areas: "hdr nav" "about art" "part men" "req ." "ftr ftr";
+        grid-template-rows: .26fr .86fr .695fr .82fr .4fr;
+        grid-template-areas: "hdr hdr" "about art" "part men" "req empt" "ftr ftr";
+    }
+    header {
+        display: grid;
+        grid-template-areas: ". . k" "a b c" ". . l";
+        grid-template-columns: 16.71% 49.91% 33.33%;
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+    .logo {
+        width: 125px;
+        height: 125px;
+        opacity: 1;
+        margin: 10px -20px 0px 150px;
+    }
+    .hdown {
+        border: none;
+        padding: 0;
+        border-top: 30px solid transparent;
+        border-left: 70px solid transparent;
+    }
+    .clear1 {
+        grid-area: k;
+        background-color: rgba(0, 0, 0, 0.08);
+    }
+    .clear2 {
+        grid-area: l;
+        background-color: rgba(0, 0, 0, 0.08);
+    }
+    nav {
+        display: grid;
+        grid-template-areas: ". . ." "m n p" ". . .";
+        grid-template-columns: 20% 55% 25%;
+        grid-template-rows: 30% 40% 30%;
+        background-color: rgba(0, 0, 0, 0.08);
+    }
+    .clear3 {
+        grid-area: m;
+    }
+    .view {
+        grid-area: n;
+        color: rgba(255, 255, 255, 0.609);
+        font-size: 19px;
+        border: 27px solid transparent;
+        height: 70px;
+        width: 99.5%;
+        background-color: rgba(255, 255, 255, 0.13);
+    }
+    .arrow {
+        grid-area: p;
+        color: rgba(255, 255, 255, 0.596);
+        background-color: rgba(255, 255, 255, 0.13);
+        height: 70px;
+        width: 70px;
+        padding-left: 10px;
+        text-align: center;
+    }
+    h1 {
+        text-align: left;
+        font-size: 4.5em;
+    }
+    h2 {
+        font-size: 2.3em;
+    }
+    .color {
+        grid-area: empt;
+        background: rgb(237, 244, 240);
+    }
+    h3 {
+        margin: 2em 0 0 0;
+        font-size: 2.5em;
+    }
+    p {
+        font-size: 1.5em;
+    }
+    .summary {
+        border-left: 150px solid transparent;
+        border-right: 90px solid transparent;
+    }
+    .start {
+        border-top: 50px solid transparent;
+    }
+    .artists,
+    .menu {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(8, 1fr);
+    }
+    .artists .summary {
+        border: none;
+        border-left: 100px solid transparent;
+        border-bottom: solid 1px #d9e3dc;
+    }
+    .artists div {
+        padding: 0;
+        padding-top: 3.1em;
+        font-size: 1.5em;
+        width: 70%;
+    }
+    .artists .design,
+    .artists div a {
+        font-size: 1.2em;
+    }
+    .artists .designer {
+        font-size: 0.8em;
+    }
+    .menu {
+        grid-template-rows: repeat(5, 1fr);
+        background-color: rgba(138, 188, 159, 0.65);
+    }
+    .menu .summary {
+        border: none;
+        border-left: 100px solid transparent;
+        border-bottom: solid 1px rgb(160, 185, 173);
+    }
+    .menu div {
+        padding: 0;
+        padding-top: 5em;
+        font-size: 1.3em;
+        width: 70%;
+    }
+    .fancy {
+        font-size: 3em;
+        padding: 3em 5%;
+    }
+    .fancy a {
+        font-size: 1em;
+    }
+    .icons a {
+        width: 150px;
+        height: 80px;
+        padding: 80px 0 0 0;
+    }
+    .icons a::before {
+        font-size: 70px;
+    }
+}
+
+/* ---------------------------------------------- */
+
+@media (min-width: 1830px) {
+    .fancy {
+        padding: 4em 5%;
     }
 }
 
@@ -205,6 +571,21 @@ footer {
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-rows: .45fr 1fr .76fr .83fr .6fr;
-        grid-template-areas: "hdr nav" "about art" "part men" "req ." "ftr ftr";
+        grid-template-areas: "hdr hdr" "about art" "part men" "req empt" "ftr ftr";
+    }
+
+    .logo {
+        margin: 10px -20px 0px 350px;
+    }
+    
+    .artists div {
+        padding: 0;
+        padding-top: 2.1em;
+        font-size: 1.5em;
+        width: 70%;
+    }
+
+    .menu div {
+        padding-top: 3.5em;
     }
 }
