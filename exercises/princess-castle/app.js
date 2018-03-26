@@ -45,7 +45,7 @@ class Player {
 const mario = new Player();
 mario.setName("Mario");
 
-function genNo () {
+function genNo() {
     let randNo = Math.floor(Math.random() * 3);
     if (randNo === 0) {
         mario.gotHit();
@@ -56,14 +56,39 @@ function genNo () {
     }
 }
 
+// 1--------------------------------------------------
+// console.log(`\n---NEW GAME---\n\nInitial Status:`);
+// mario.print();
+// console.log(`\n---START---`);
+// genNo();
+// mario.print();
+// genNo();
+// mario.print();
+// genNo();
+// mario.print();
+// console.log(mario.gameActive);
+
+// 1--------------------------------------------------
+
+
+// 2--------------------------------------------------
+let count = 0;
+
 console.log(`\n---NEW GAME---\n\nInitial Status:`);
 mario.print();
 console.log(`\n---START---`);
-genNo();
-mario.print();
-genNo();
-mario.print();
-console.log(mario.gameActive);
-// genNo();
+while (mario.gameActive !== false && count < 5) {
+    count++;
+    genNo();
+    mario.print();
+}
 
-// mario.print();
+if (mario.gameActive === false && count <= 5) {
+    console.log(`Player died!`);
+    mario.print();
+} else if (mario.gameActive !== false) {
+    console.log(`Player SURVIVED!`);
+    mario.print();
+}
+
+// 2--------------------------------------------------
