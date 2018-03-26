@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    height: 100vh;
+    background-color: bisque;
+
+    border: 1px solid black;
+}
+
+.head {
+    color: red;
+
+    border: 1px solid black;
+}
+
+.cont {
+    border: 1px solid black;
+}
+
+.foot {
+    border: 1px solid black;
+}
