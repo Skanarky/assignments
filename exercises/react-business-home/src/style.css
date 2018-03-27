@@ -72,7 +72,6 @@ main {
     text-align: center;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
 }
 
 .home,
@@ -83,10 +82,6 @@ main {
 
 .home h1 {
     text-align: center;
-    /* position: relative;
-    top: 5%;
-    left: 15%; */
-    /* transform: translateX(-50%) translateY(-50%); */
     height: 15vh;
     width: 100%;
     font-size: 45px;
@@ -94,16 +89,11 @@ main {
     font-weight: 200;
     color: rgba(252, 252, 252, 0.8);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    /* border: 5px solid transparent; */
     text-transform: uppercase;
 }
 
 .list p {
-    /* display: flex; */
-    /* position: relative;
-    top: 80%;
-    right: 45%;
-    transform: translateX(-50%) translateY(-25%); */
+
     height: 9vh;
     width: 100%;
     font-size: 15px;
@@ -143,14 +133,12 @@ footer {
 
 @media (min-width: 750px) {
     header {
-        /* top: 11%; */
         height: 12vh;
     }
     a {
         font-size: 25px;
         letter-spacing: 2px;
         font-weight: 400;
-        /* border: 5px solid transparent; */
     }
     .home h1 {
         font-size: 70px;
@@ -164,8 +152,6 @@ footer {
         letter-spacing: 3px;
         color: rgba(252, 252, 252, 0.9);
         text-align: center;
-        /* height: 10vh;
-        background: rgba(0, 0, 0, 0.2); */
         border: 10px solid transparent;
     }
     .ftext {
@@ -197,7 +183,6 @@ footer {
 @media (min-width: 1800px) {
     .home h1 {
         top: 25%;
-        /* transform: translateX(-50%) translateY(-50%); */
         border: 20px solid transparent;
         background: rgba(0, 0, 0, 0.3);
         height: 12vh;
@@ -206,8 +191,6 @@ footer {
 
     .large {
         top: 50%;
-        /* transform: translateX(-50%) translateY(-50%); */
-        /* border: 15px solid transparent; */
         background: rgba(0, 0, 0, 0.3);
         height: 10vh;
         width: 35%;
@@ -215,8 +198,6 @@ footer {
     }
     .last {
         top: 50%;
-        /* transform: translateX(-50%) translateY(-50%); */
-        /* border: 15px solid transparent; */
         background: rgba(0, 0, 0, 0.3);
         height: 16vh;
         width: 50%;
