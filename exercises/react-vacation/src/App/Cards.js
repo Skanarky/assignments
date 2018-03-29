@@ -32,12 +32,3 @@ const Cards = (props) => {
 }
 
 export default Cards;
-
-
-{/* if (props.vacSpot.price < 500) {
-    return "$";
-} else if (props.vacSpot.price < 1000) {
-    return "$$";
-} else if (props.vacSpot.price > 1000) {
-    return "$$$";
-} */}
