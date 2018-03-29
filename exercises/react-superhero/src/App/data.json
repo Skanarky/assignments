@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Batman",
+        "voice": "G-r-r-r",
+        "img": "https://orig00.deviantart.net/cc4e/f/2016/170/6/4/gotham_s_dark_knight_by_hyb1rd_1982-da6spox.png"
+    }, {
+        "name": "The Punisher",
+        "voice": "B-r-r-r",
+        "img": "https://vignette.wikia.nocookie.net/deathbattlefanon/images/3/3e/The_Punisher.png/revision/latest?cb=20140816134954"
+    }, {
+        "name": "Daredevil",
+        "voice": "Ro-a-ar",
+        "img": "http://www.pngmart.com/files/2/Daredevil-PNG-Photo.png"
+    }, {
+        "name": "Madame Hydra",
+        "voice": "Hh-h-h-h-h",
+        "img": "https://i.pinimg.com/originals/a7/4c/4d/a74c4de729bd3c6839e92289eb6e564b.jpg"
+    }, {
+        "name": "Magneto",
+        "voice": "Magn-n-n-n-n",
+        "img": "https://vignette.wikia.nocookie.net/marvelvscapcom/images/5/5e/Magneto.png/revision/latest?cb=20110720195237"
+    }, {
+        "name": "Titanium Man",
+        "voice": "Ti-t-a-a-a-a",
+        "img": "https://static.giantbomb.com/uploads/scale_small/1/15955/1990140-titaniumman.png"
+    }
+]

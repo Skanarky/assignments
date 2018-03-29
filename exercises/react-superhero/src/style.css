@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.wrap {
+    height: auto;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.wrap div {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    line-height: 50px;
+    letter-spacing: 2px;
+}
+
+
+h3 {
+    border-top: 20px solid transparent;
+}
