@@ -1,14 +1,14 @@
-
 import React from "react";
 
-// import ComponChild from "./ComponChild/ComponChild";
+import Form from "./Form/Form";
 
-const Compon = (props) => {
+const App = () => {
     return (
-        <div>
+        <div  className="wrapper">
+            <Form></Form>
             {/* tags and/or comp and/or destructing data + comp HERE */}
         </div>
     )
 }
 
-export default Compon;
+export default App;

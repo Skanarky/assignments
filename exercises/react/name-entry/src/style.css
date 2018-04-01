@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.place {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+} 
+
+form {
+    border-top: 15px solid transparent;
+}
+
+form div {
+    border: 30px solid transparent;
+}
+
+div input {
+    border: 10px solid whitesmoke;
+    height: 50px;
+    width: 280px;
+    text-align: center;
+}
+
+button {
+    font-weight: bold;
+    height: 30px;
+    width: 100px;
+    background: rgba(10, 71, 240, 0.37);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+ol {
+    text-align: left;
+    border-top: 1px solid rgba(128, 128, 128, 0.342);
+    line-height: 50px;
+}
+
+.fixit {
+    border-top: 20px solid transparent;
+}
+
+li {
+    font-style: italic;
+    text-align: left;
+    line-height: 20px;
+}
