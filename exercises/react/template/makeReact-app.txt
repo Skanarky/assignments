@@ -1,6 +1,6 @@
 how to make a new react app:
 1) make new project folder and `cd` into it
-2) run `create-react-app .`
+2) run `create-react-app .` // `create-react-native-app .`
 3) run `rm -rf src/*` / OR JUST select the files in VS Code and delete them manually
 
 4) npm start (to display V DOM) --> watch IN WHICH TAB of the TERMINAL you ARE (node, bash...)
