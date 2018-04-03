@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.wrapper {
+    height: 100vh;
+    background-color: whitesmoke;
+    display: grid;
+    grid-template-areas: "h" "m" "f";
+    grid-template-rows: 20% 70% 10%;
+    /* grid-template-columns: 1fr; */
+    text-align: center;
+}
+
+header {
+    grid-area: h;
+    background-image: url("http://dorsetplumbing.hadenspropertymaintenance.co.uk/wp-content/uploads/2018/03/dorsetplumbing.png");
+    background-color: rgba(128, 128, 128, 0.767);
+    background-blend-mode: darken;
+}
+
+footer {
+    grid-area: f;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: whitesmoke;
+    background-color: slategrey;
+    background-color: rgba(128, 128, 128, 0.897);
+    background-blend-mode: darken;
+    /* border: 2px solid black; */
+}
+
+footer h4 {
+    border-top: 30px solid transparent;
+}
+
+nav {
+    background-color: rgba(128, 128, 128, 0.705);
+    background-blend-mode: darken;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.noline {
+    color: whitesmoke;
+    text-decoration-line: none;
+    font-weight: bold;
+}
+
+header h1 {
+    border-top: 30px solid transparent;
+    color: whitesmoke;
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+section {
+    grid-area: m;
+    height: 100%;
+    color: whitesmoke;
+    background-color: slategrey;
+    background-color: rgba(128, 128, 128, 0.685);
+    text-align: center;
+}
+
+section h2 {
+    padding-top: 50px;
+}
+
+section article {
+    padding-top: 50px;
+    border-top: 30px solid transparent;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    text-align: left;
+}
