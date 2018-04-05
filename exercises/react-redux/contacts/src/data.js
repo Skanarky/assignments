@@ -31,9 +31,14 @@ const reducer = (state = initialState, action) => {
     }
 }
 
+
+// set the store
 const store = redux.createStore(reducer);
 
+
+//subscribe + getState
 store.subscribe(() => console.log(store.getState()));
+
 
 const addContact = contact => {
     store.dispatch({
@@ -42,6 +47,8 @@ const addContact = contact => {
     })
 }
 
+
+// define action --> it's BASICALLY a SET of INSTRUCTIONS
 const removeContact = name => {
     store.dispatch({
         type: "REMOVE_CONTACT",
@@ -78,3 +85,5 @@ addContact({
 
 changeContact("Ben", {phone: "999-111-8800", email: "bennnnn@gmail.com"});
 changeContact("ben", {phone: "999-222-8811", email: "benW@gmail.com"});
+
+// console.log(redux);

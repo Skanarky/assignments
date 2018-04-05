@@ -1,6 +1,10 @@
-how to make a new react app:
+
+How to make a new react app:
+
 1) make new project folder and `cd` into it
+
 2) run `create-react-app .` // `create-react-native-app .`
+
 3) run `rm -rf src/*` / OR JUST select the files in VS Code and delete them manually
 
 4) npm start (to display V DOM) --> watch IN WHICH TAB of the TERMINAL you ARE (node, bash...)
@@ -9,8 +13,13 @@ how to make a new react app:
 
 6) for router 'npm install --save react-router-dom'
 
-5) 6) are local for EACH prj
+7) for redux 'npm install --save redux'
 
+8) for react-redux 'npm install --save react-redux'
+
+
+
+5) 6) are local for EACH prj
 
 rsc
 rcc
