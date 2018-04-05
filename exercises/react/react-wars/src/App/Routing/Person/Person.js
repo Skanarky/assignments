@@ -14,10 +14,10 @@ class Person extends React.Component {
         }
     }
     
-    componentDidMount() {
+    getInfoFn = (num) => {
         // console.log(this.props.match);
-        const personUrl = this.props.match.params.num;
-        axios.get(swApiUrl.concat(personUrl))
+        // const personUrl = this.props.match.params.num;
+        axios.get(swApiUrl.concat(num))
             .then(response => {
                 // console.log(response.data);
                 const { data } = response;
@@ -32,7 +32,24 @@ class Person extends React.Component {
                 })
             })
     }
+
+    componentDidMount() {
+        this.getInfoFn(this.props.match.params.num);
+    }
+
+    componentWillReceiveProps(newProps) {
+        // console.log(this.props.match);
+        if (this.props.match.params.num !== newProps.match.params.num) {
+            this.setState({
+                loading: true
+            });
+            this.getInfoFn(newProps.match.params.num);
+        }  
+    }
+
+
     
+    //1
     render() {
         // console.log(this.state);
         // console.log(this.props);
