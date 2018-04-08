@@ -14,8 +14,9 @@ How to make a new react app:
 6) for router 'npm install --save react-router-dom'
 
 7) for redux 'npm install --save redux'
-
 8) for react-redux 'npm install --save react-redux'
+
+OR just `npm i -S redux react-redux` together
 
 
 
