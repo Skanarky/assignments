@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 350px;
+}
+
+.wrapper button {
+    width: 60px;
+    font-size: 2em;
+    background-color: rgba(74, 107, 206, 0.801);
+    border: 8px solid rgba(74, 107, 206, 0.2);
+    border-radius: 30%;
+}
+
+.wrapper button:hover {
+    cursor: pointer;
+}
+
+.wrapper h2 {
+    /* height: 60px; */
+    font-size: 2.5em;
+    color: rgba(74, 107, 206, 0.945);
+}

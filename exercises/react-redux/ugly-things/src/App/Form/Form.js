@@ -1,6 +1,6 @@
 import React from "react";
 
-import { addCar } from "./../../redux/cars";
+import { addCar, reset } from "./../../redux/cars";
 
 import { connect } from "react-redux";
 
@@ -18,12 +18,9 @@ class Form extends React.Component {
         }
 
         this.state = this.initialState;
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         //take the value from the input, and set state accordingly
         // console.log(event);
         const { value, name } = event.target;
@@ -40,7 +37,7 @@ class Form extends React.Component {
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         // console.log(event);
 
@@ -54,20 +51,22 @@ class Form extends React.Component {
         // console.log(this.props);
         // console.log(this.state);
         return (
-            <div>
+            <div className="smallWrap">
                 <form onSubmit={this.handleSubmit}>
+                    <h2>Ugly Things</h2>
                     <div>
-                        <input onChange={this.handleChange} name="imgUrl" type="text" placeholder="Car Image URl" value={imgUrl} />
-                        <input onChange={this.handleChange} name="caption" type="text" placeholder="Caption" value={caption} />
-                        <input onChange={this.handleChange} name="description" type="text" placeholder="Why It's Ugly" value={description} />
+                        <input onChange={this.handleChange} name="imgUrl" type="url" placeholder="Ugly Thing Image URL" value={imgUrl} />
+                        <input onChange={this.handleChange} name="caption" type="text" placeholder="Caption for This Ugly Thing" value={caption} />
+                        <input onChange={this.handleChange} name="description" type="text" placeholder="Why The 'Thing' Is A Waste of Resources" value={description} />
                     </div>
                     <div>
                         <button>Submit</button>
                     </div>
                 </form>
+                <button className="resButton" onClick={this.props.reset}>Reset Form</button>
             </div>
         )
     }
 }
 
-export default connect(null, { addCar })(Form);
+export default connect(null, { addCar, reset })(Form);
