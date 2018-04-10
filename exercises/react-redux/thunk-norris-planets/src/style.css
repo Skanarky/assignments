@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.wrapper {
+    background-color: whitesmoke;
+}
+
+li {
+    font-size: 1.5em;
+    width: 50%;
+    padding: 60px;
+    margin: auto;
+    border: 4px dashed rgba(128, 128, 128, 0.767);
+    border-radius: 40%;
+    line-height: 25px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    padding: 35px;
+}

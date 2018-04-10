@@ -1,5 +1,16 @@
+***
 
-How to make a new react app:
+Tips on how to make an app:
+1) Plan ahead! Start with the big picture and narrow down from there. Brainstorm -> Wireframe -> user story -> folder structure -> pseudocode -> code
+2) Work toward small milestones. Don't try to build the entire thing all at once
+3) If you get frustrated, go on a walk or do something else for a little bit
+4) takes lots of breaks
+5) collaborate with your classmates, this isn't a competition, you're here to help each other succeed :slightly_smiling_face:
+
+***
+
+
+New react app:
 
 1) make new project folder and `cd` into it
 
@@ -15,8 +26,9 @@ How to make a new react app:
 
 7) for redux 'npm install --save redux'
 8) for react-redux 'npm install --save react-redux'
+9) for thunk `npm install --save redux-thunk`
 
-OR just `npm i -S redux react-redux` together
+OR just  `npm i -S redux react-redux redux-thunk`  together
 
 
 

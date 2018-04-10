@@ -17,11 +17,12 @@ const Compon = (props) => {
 //  1. Does this component needs a data from the store
 //  2. Does this component needs to dispatch actions
 
-// This is 1.
 // function mapStateToProps(entireStateInstanceImput) {
 //     return {
 //         counter: entireStateInstanceImput
 //     }
 // }
+
+// export default connect(mapStateToProps, {increment, decrement, multi, dev})(App);
 
 export default Compon;
