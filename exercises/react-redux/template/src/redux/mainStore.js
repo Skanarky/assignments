@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from "redux";
+import thunk from "redux-thunk";
 
 // GATHER reducers and cram them togehter in a store, and EXPORT the STORE:
 
@@ -8,7 +9,7 @@ import carReducer from "./cars";
 
 // !!! CREATE STORE here BELOW:
 
-//const store = createStore(combineReducers({cars: carReducer, trucks: truckReducer}));
+//const store = createStore(combineReducers({cars: carReducer, trucks: truckReducer}), applyMiddleware(thunk));
 
 
 //-------
