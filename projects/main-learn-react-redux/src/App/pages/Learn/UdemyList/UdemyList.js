@@ -14,7 +14,7 @@ class UdemyList extends React.Component {
 
     componentDidMount = () => {
         let intervalId = setInterval(this.timer, 400);
-        // store intervalId in the state so it can be accessed later:
+        // intervalId for later access
         this.setState({ intervalId: intervalId });
     }
 
@@ -23,7 +23,7 @@ class UdemyList extends React.Component {
     }
 
     timer = () => {
-        // setState method is used to update the state
+        // updating the state
         this.setState({ currentCount: this.state.currentCount + 1 });
     }
 
@@ -35,19 +35,19 @@ class UdemyList extends React.Component {
         const presentCourses = data.map((course, i) => <UdemyCourse key={course.id} id={course.id} index={i} {...course}></UdemyCourse>);
         if (loading && currentCount % 3 === 0) {
             return (
-                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: "1.1em" }}>. . . loading</div>
+                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: ".9em" }}>. . . loading Udemy</div>
             )
         } else if (loading && currentCount % 2 === 0) {
             return (
-                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: "1.1em" }}>. .   load</div>
+                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: ".9em" }}>. .   load Udemy</div>
             )
         } else if (loading && loading && currentCount % 1 === 0) {
             return (
-                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: "1.1em" }}>.     lo</div>
+                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: ".9em" }}>.     lo Udemy</div>
             )
         } else if (errMsg) {
             return (
-                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: "1.1em" }}>{errMsg}</div>
+                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: ".9em" }}>{errMsg}</div>
             )
         } else {
             return (
