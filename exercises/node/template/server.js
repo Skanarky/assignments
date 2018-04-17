@@ -45,7 +45,12 @@ app.route("/cats/:id")
         const { id } = req.params;
         const foundCat = cats.filter(cat => cat._id === id)[0];
         // send cat back
-        res.status(200).send(foundCat);
+        if (foundCat) {
+            res.status(200).send(foundCat);
+        } else if (!foundCat) {
+            //404
+            res.status(404).send({message: `cat with id:${id} wasn't found!`});
+        }
     })
     .delete((req, res) => {
         const { id } = req.params;

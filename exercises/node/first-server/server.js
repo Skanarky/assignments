@@ -12,7 +12,6 @@ const port = 8080;
 
 app.use(bodyParser.json());
 
-
 // routes
 
 app.route("/cats")
@@ -48,7 +47,7 @@ app.route("/cats/:id")
     })
     .delete((req, res) => {
         const { id } = req.params;
-        cats = cats.filter(cat => cat._id === id);
+        cats = cats.filter(cat => cat._id !== id);
         res.status(200).send({message: `cat with id:${id} was deleted!`});
         //OR req.status(204).send(); // No Content Message from Status 204  ...means deleted!
     })
