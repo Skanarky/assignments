@@ -7,6 +7,15 @@ let cats = require("./cats.js");
 
 const port = 8080;
 
+// format
+// {
+//     "name": "The name",
+//     "description": "The description of the todo"
+//     "imageUrl": "http://www.myimage...."
+//     "completed": false
+    // generated bt the uuid():
+//     "_id": "23k4lh23h2"
+// }
 
 // middleware... like the conveir LINE on the SERVER (from class example) 
 
