@@ -1,0 +1,7 @@
+npm init -y
+
+npm install --save express
+
+npm install --save body-parser
+
+npm install --save uuid (for id gen... won't need it with the databases)

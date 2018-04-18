@@ -10,14 +10,18 @@ const port = 8080;
 // format
 // {
 //     "name": "The name",
-//     "description": "The description of the todo"
-//     "imageUrl": "http://www.myimage...."
+//     "description": "The description of the todo",
+//     "imageUrl": "http://www.myimage....",
 //     "completed": false
     // generated bt the uuid():
 //     "_id": "23k4lh23h2"
 // }
 
-// middleware... like the conveir LINE on the SERVER (from class example) 
+// !!! req methods
+// req.body / req.params / req.query
+
+
+// MIDDLEWARE... like the conveir LINE on the SERVER (from class example) 
 
 app.use(bodyParser.json());
 
@@ -25,8 +29,23 @@ app.use(bodyParser.json());
 // routes
 
 app.route("/cats")
+    // get ALL
+    // .get((req, res) => {
+    //     res.status(200).send(cats);
+    // })
+    // get ALL with query
     .get((req, res) => {
-        res.status(200).send(cats);
+        console.log(req.query);
+        const {query} = req;
+        const queryCats = cats.filter((cat => {
+            for(let key in query) {
+                if (!cat.hasOwnProperty(key) || String(cat[key]).toLowerCase() !== query[key].toLowerCase()) {
+                    return false;
+                }
+            }
+            return true;
+        }));
+        res.status(200).send(queryCats);
     })
     // post req
 // convert req body from JSON
