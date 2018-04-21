@@ -1,6 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
+import Video from "./Video/Video";
+
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 
@@ -11,6 +13,7 @@ import Learn from "./pages/Learn/Learn";
 const App = () => {
     return (
         <div className="wrapper">
+            <Video></Video>
             <Header></Header>
             <Switch>
                 <Route exact path="/" component={Home}></Route>

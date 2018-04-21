@@ -1,11 +1,8 @@
 import React from "react";
 
-import Video from "./Video/Video";
-
 const About = (props) => {
     return (
         <section className="about-wrap">
-            <Video></Video>
             <div>
                 <h5>Learning is lifelong!</h5>
                 <h4>It helps us stay aware of all 

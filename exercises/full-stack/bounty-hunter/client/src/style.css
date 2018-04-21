@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.wrapper {
+    text-align: center;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 30% 70%;
+}
+
+.smallWrap {
+    height: 100%;
+    border-top: 30px solid transparent;
+    border: 10px solid rgba(150, 165, 202, 0.521);
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.smallWrap form {
+    padding-top: 10px;
+}
+
+.smallWrap form h2 {
+    color: rgba(150, 165, 202, 0.76);
+}
+
+.smallWrap div input {
+    border: 10px solid whitesmoke;
+    border-top: 10px solid whitesmoke;
+    height: 50px;
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Firefox */
+
+::placeholder {
+    color: black;
+    opacity: .35;
+}
+
+/* Internet Explorer 10-11 */
+
+:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.35);
+}
+
+/* Microsoft Edge */
+
+::-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.35);
+}
+
+div button {
+    border-radius: 30%;
+}
+
+button {
+    padding: 10px;
+    font-weight: bold;
+    background: rgba(150, 165, 202, 0.521);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgba(245, 245, 245, 0.863);
+}
+
+.resButton {
+    width: 120px;
+    margin: auto;
+}
+
+.order {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 10px solid rgba(150, 165, 202, 0.521);
+    border-top: 5px solid rgba(150, 165, 202, 0.521);
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    color: rgba(10, 71, 240, 0.548);
+}
+
+.box button {
+    border: 5px solid whitesmoke;
+    color: rgba(245, 245, 245, 0.863);
+}
+
+.box div {
+    border: 5px solid rgba(150, 165, 202, 0.521);
+    border-radius: 10%;
+    padding: 10px;
+}
+
+.box div div {
+    border: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.boxTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: rgba(10, 71, 240, 0.548);
+    border: 5px solid rgba(150, 165, 202, 0.521);
+    height: 60%;
+    width: 80%;
+    border-radius: 10%;
+}
+
+.boxTwo form div input {
+    border: 10px solid whitesmoke;
+    height: 50px;
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+}

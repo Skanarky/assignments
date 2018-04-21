@@ -4,4 +4,11 @@ npm install --save express
 
 npm install --save body-parser
 
-npm install --save uuid (for id gen... won't need it with the databases)
+npm install --save mongoose
+
+
+OR npm install --save express mongoose body-parser
+
+
+
+// npm install --save uuid

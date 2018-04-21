@@ -34,7 +34,7 @@ export const getCoCourse = () => {
     return dispatch => {
         axios.get(courseraUrl)
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 dispatch({
                     type: "GET_COURSE_CO",
                     coCourse: response.data

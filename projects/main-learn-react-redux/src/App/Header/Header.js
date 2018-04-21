@@ -50,7 +50,6 @@ class Header extends React.Component {
                             <Link className="noline" to="/learn"><span>Let's Learn</span></Link>
                             <Link className="noline" to="/about"><span>About</span></Link>
                         </div>
-                        {/* LogIn will be a little form that opens when clicked  */}
                         <div className="formlog">
                             <form onSubmit={this.handleSubmit}>
                                 <div>
@@ -75,9 +74,8 @@ class Header extends React.Component {
                         <Link className="noline" to="/learn"><span>Let's Learn</span></Link>
                         <Link className="noline" to="/about"><span>About</span></Link>
                     </div>
-                    {/* LogIn will be a little form that opens when clicked  */}
                     <div className="login">
-                        <buton onClick={this.toggleEdit}>Login</buton>
+                        <button onClick={this.toggleEdit}>Login</button>
                     </div>
                 </nav>
             </header>

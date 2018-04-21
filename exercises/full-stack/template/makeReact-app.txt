@@ -32,6 +32,7 @@ New react app:
 
 OR just `npm install --save axios redux react-redux redux-thunk react-router-dom`
 
+!!! ADD in the .json file, after, scripts, "proxy": "http..."
 
 rsc
 rcc

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 class CourseraCourse extends React.Component {
     render = () => {
-        console.log(this.props);
-        const { id, name, photo } = this.props;
+        // console.log(this.props);
+        const { /*id*/ name, photo } = this.props;
         const searchCoursera = name.toLowerCase().split(" ").join("+");
         return (
             <div className="singleItem">

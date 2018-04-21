@@ -1,31 +1,26 @@
 const express = require("express");
-const app = express();
-
-const toDoRouter = require("./routes/toDos.js")
-
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
 const logger = require("./middleware/logger.js");
-const port = 3005;
 
-// format
-// {
-//     "name": "The name",
-//     "description": "The description of the todo",
-//     "imageUrl": "http://www.myimage....",
-//     "completed": false
-//     after MY id maker... uniqueIdGen()
-//     "_id": "23k4lh23h2"
-// }
+const catRouter = require("./routes/cats.js");
+const agencyRouter = require("./routes/agencies.js");
 
-//MIDDLEWARE handling parsing info ->  middlewareFn(req, res, next) !
+const app = express();
+const port = 8080;
+
+//middleware
 app.use(bodyParser.json());
-app.use(logger)
+app.use(logger);
 
 //routes
+app.use("/cats", catRouter);
+app.use("/agencies", agencyRouter);
 
-app.use("/todos", toDoRouter);
+mongoose.connect("mongodb://localhost:27017/animals", (err) => {
+    if (err) console.error(err);
+    console.log("Connected to MongoDB");
+})
+app.listen(port, () => console.log("Server running on port " + port));
 
-
-
-//server
-app.listen(port, () => console.log(`The ToDos Server is listening on port: ${port}`));

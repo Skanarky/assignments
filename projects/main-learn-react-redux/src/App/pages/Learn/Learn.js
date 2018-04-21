@@ -2,7 +2,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Switch, Route, Link } from "react-router-dom";
-import Video from "./../Video/Video";
 
 import { getVideos } from "./../../../redux/youtube";
 import { getCourses } from "./../../../redux/udemy";
@@ -11,7 +10,6 @@ import { getCoCourse } from "./../../../redux/coursera";
 import UdemyList from "./UdemyList/UdemyList";
 import YoutubeList from "./YoutubeList/YoutubeList";
 import CourseraList from "./CourseraList/CourseraList";
-
 
 class Learn extends React.Component {
     constructor(props) {
@@ -67,7 +65,6 @@ class Learn extends React.Component {
 
         return (
             <section className="learn-wrap">
-                <Video></Video>
                 <div className="buttons">
                     <form className="searches">
                         <div>
