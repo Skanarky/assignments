@@ -166,9 +166,10 @@ p {
 }
 
 img {
-    /* border-radius: 5%; */
+    border-radius: 5%;
     width: 260px;
     height: 146.3px;
+    opacity: 0.85;
 }
 
 .singleItem .fa {
@@ -177,18 +178,18 @@ img {
 }
 
 .singleItem .fa:hover {
-    font-size: 2em;
+    font-size: 1.7em;
     cursor: pointer;
     color: rgba(240, 110, 4, 0.9);
 }
 
 .buttons button:disabled {
-    background-color: rgba(240, 110, 4, 0.35);
+    background-color: rgba(100, 202, 100, 0.5);
     color: rgba(0, 0, 0, 0.5);
 }
 
 .buttons button:disabled:hover {
-    background-color: rgba(240, 110, 4, 0.35);
+    background-color: rgba(100, 202, 100, 0.5);
     width: 100px;
     height: 35px;
 }
@@ -297,6 +298,9 @@ h5 {
 .view-comments {
     padding-left: 20px;
     padding-right: 20px;
+    background-color: rgba(240, 110, 4, 0.85);
+    border-radius: 5%;
+    max-width: 320px;
 }
 
 ol {
@@ -304,16 +308,17 @@ ol {
     text-align: left;
     line-height: 30px;
     padding-bottom: 20px;
+    color: rgb(245, 245, 245);
 }
 
 li {
-    font-size: .9em;
+    font-size: 1em;
     line-height: 10px;
     padding-bottom: 5px;
 }
 
 h6 {
-    font-size: .3em;
+    font-size: .8em;
     text-align: left;
     border: 1px solid whitesmoke;
     padding: 2px;
@@ -332,12 +337,12 @@ h6 {
 }
 
 .view-comments button:disabled {
-    background-color: rgba(240, 110, 4, 0.35);
+    background-color: rgba(100, 202, 100, 0.5);
     color: rgba(0, 0, 0, 0.5);
 }
 
 .view-comments button:disabled:hover {
-    background-color: rgba(240, 110, 4, 0.35);
+    background-color: rgba(100, 202, 100, 0.5);
 }
 
 .fa {
@@ -403,7 +408,6 @@ h6 {
     nav {
         grid-template-columns: 85% 15%;
     }
-
     .learn-wrap {
         grid-template-rows: 35% 65%;
     }
@@ -430,7 +434,6 @@ h6 {
     .wrapper {
         grid-template-rows: 12% 76% 12%;
     }
-
     .learn-wrap {
         grid-template-rows: 20% 80%;
     }
@@ -439,20 +442,17 @@ h6 {
         padding-right: 60px;
         font-size: 1.7em;
     }
-
     .noline span {
         border: 5px solid rgba(240, 110, 4, 0.85);
         border-radius: 50%;
         padding: 12px;
     }
-
     .fa {
         font-size: 3.6em;
         border: 5px solid rgba(240, 110, 4, 0.85);
         border-radius: 50%;
         padding: 8px;
     }
-
     .fa:hover {
         font-size: 3.9em;
     }
@@ -516,6 +516,10 @@ h6 {
     h1 {
         line-height: 150px;
         font-size: 2.5em;
+    }
+    .view-comments {
+        position: absolute;
+        z-index: +5;
     }
 }
 

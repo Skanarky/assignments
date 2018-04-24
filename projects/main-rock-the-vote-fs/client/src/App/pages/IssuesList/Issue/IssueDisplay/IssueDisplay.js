@@ -45,9 +45,9 @@ class IssueDisplay extends React.Component {
         this.setState({ ...this.state, isCommenting: !this.state.isCommenting });
         // getComments(id);
     }
-    // toggleCommentBack = (event) => {
-    //     this.setState({ ...this.state, isCommenting: false });
-    // }
+    toggleCommentBack = (event) => {
+        this.setState({ ...this.state, isCommenting: false });
+    }
 
     handleClickUpVote = (event) => {
         const { editIssue, id } = this.props;
@@ -103,7 +103,7 @@ class IssueDisplay extends React.Component {
                 </div>
                 {isCommenting ?
                     <div onLoad={getComments(id)} className="view-comments">
-                        {/* <button onClick={this.toggleCommentBack}>Go Back</button> */}
+                        <button onClick={this.toggleCommentBack}>Go Back</button>
                         <form onSubmit={this.handleSubmit}>
                             <input onChange={this.handleChange} name="container"
                                 value={container} type="text" placeholder="Add a Comment" />
