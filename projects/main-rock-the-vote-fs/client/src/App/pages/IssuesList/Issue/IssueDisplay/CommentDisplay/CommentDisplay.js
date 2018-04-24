@@ -33,8 +33,4 @@ class CommentDisplay extends React.Component {
     }
 }
 
-// function stateToProps(globalState) {
-//     return globalState.comments;
-// }
-
 export default connect(null, { deleteComment })(CommentDisplay);

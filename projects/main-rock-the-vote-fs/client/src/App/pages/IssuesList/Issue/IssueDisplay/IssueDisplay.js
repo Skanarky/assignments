@@ -83,7 +83,6 @@ class IssueDisplay extends React.Component {
         const { title, description, imgUrl, upVotes, downVotes } = this.props;
         return (
             <div className="singleItem">
-                {/* <Link to={urlCourse} target="_blank" className="nolineThree"> */}
                 <div className="small">
                     <p>{title.charAt(0).toUpperCase().concat(title.substr(1))}</p>
                     <button onClick={this.handleClick}>Delete</button>

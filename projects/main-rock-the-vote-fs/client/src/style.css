@@ -79,7 +79,6 @@ nav {
     flex-direction: column;
     justify-content: space-evenly;
     background-image: url("./pics/picture-3.png");
-    background-position: center;
 }
 
 .about-wrap div {
@@ -96,6 +95,7 @@ nav {
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
+    border-bottom: 4px solid rgba(240, 110, 4, 0.7);
 }
 
 .contain {
@@ -115,6 +115,7 @@ nav {
     font-weight: bold;
     line-height: 50px;
     padding-top: 15px;
+    border: 4px solid rgba(240, 110, 4, 0.7);
 }
 
 .votes {
@@ -152,6 +153,7 @@ p {
     font-weight: bold;
     font-size: .5em;
 }
+
 .small button:hover {
     cursor: pointer;
     background-color: rgba(25, 243, 18, 0.973);
@@ -164,7 +166,7 @@ p {
 }
 
 img {
-    border-radius: 10%;
+    /* border-radius: 5%; */
     width: 260px;
     height: 146.3px;
 }
@@ -184,6 +186,7 @@ img {
     background-color: rgba(240, 110, 4, 0.35);
     color: rgba(0, 0, 0, 0.5);
 }
+
 .buttons button:disabled:hover {
     background-color: rgba(240, 110, 4, 0.35);
     width: 100px;
@@ -280,6 +283,8 @@ h3 {
 h1 {
     text-align: center;
     font-size: 1.4em;
+    border: 8px solid rgba(240, 110, 4, 0.7);
+    padding: 5px;
 }
 
 h1,
@@ -290,7 +295,6 @@ h5 {
 }
 
 .view-comments {
-    border: 3px solid rgba(25, 202, 19, 0.8);
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -301,6 +305,7 @@ ol {
     line-height: 30px;
     padding-bottom: 20px;
 }
+
 li {
     font-size: .9em;
     line-height: 10px;
@@ -320,6 +325,7 @@ h6 {
     /* font-weight: bold; */
     font-size: .5em;
 }
+
 .view-comments button:hover {
     cursor: pointer;
     background-color: rgba(25, 243, 18, 0.973);
@@ -329,6 +335,7 @@ h6 {
     background-color: rgba(240, 110, 4, 0.35);
     color: rgba(0, 0, 0, 0.5);
 }
+
 .view-comments button:disabled:hover {
     background-color: rgba(240, 110, 4, 0.35);
 }
@@ -358,7 +365,6 @@ h6 {
         {
         padding: 50px;
     }
-
     .buttons button {
         width: 90px;
         height: 40px;
@@ -385,11 +391,9 @@ h6 {
     .fa:hover {
         font-size: 2.3em;
     }
-
     .contain {
         padding-top: 20px;
     }
-
     .singleItem {
         padding: 0;
     }
@@ -398,6 +402,10 @@ h6 {
 @media (min-width: 750px) {
     nav {
         grid-template-columns: 85% 15%;
+    }
+
+    .learn-wrap {
+        grid-template-rows: 35% 65%;
     }
     .contain {
         padding: 15px;
@@ -413,18 +421,38 @@ h6 {
     h1 {
         text-align: center;
         font-size: 1.7em;
+        border: 12px solid rgba(240, 110, 4, 0.7);
+        padding: 15px;
     }
 }
 
 @media (min-width: 1015px) {
+    .wrapper {
+        grid-template-rows: 12% 76% 12%;
+    }
+
+    .learn-wrap {
+        grid-template-rows: 20% 80%;
+    }
     .noline {
         padding-left: 60px;
         padding-right: 60px;
         font-size: 1.7em;
     }
+
+    .noline span {
+        border: 5px solid rgba(240, 110, 4, 0.85);
+        border-radius: 50%;
+        padding: 12px;
+    }
+
     .fa {
         font-size: 3.6em;
+        border: 5px solid rgba(240, 110, 4, 0.85);
+        border-radius: 50%;
+        padding: 8px;
     }
+
     .fa:hover {
         font-size: 3.9em;
     }
@@ -441,12 +469,10 @@ h6 {
         grid-template-columns: 50% 50%;
         padding: 0px;
     }
-
     .singleItem {
         font-size: 0.45em;
         padding: 0;
     }
-
     h4,
     h5 {
         font-size: 0.6em;
@@ -462,6 +488,8 @@ h6 {
     }
     h1 {
         font-size: 2.1em;
+        border: 15px solid rgba(240, 110, 4, 0.7);
+        padding: 25px;
     }
     .searches input {
         width: 170px;
@@ -523,6 +551,8 @@ h6 {
     h1 {
         line-height: 250px;
         font-size: 3em;
+        border: 25px solid rgba(240, 110, 4, 0.7);
+        padding: 35px;
     }
 }
 
