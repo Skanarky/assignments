@@ -54,16 +54,13 @@ class IssuesList extends React.Component {
         return (
             <section className="learn-wrap">
                 <div className="buttons">
-                    <form className="searches">
+                    <form onSubmit={this.handleSubmit} className="searches">
                         <div>
                             <input onChange={this.handleChange} name="title" value={title} type="text" placeholder="Title (min 3 char.)" />
                             <input onChange={this.handleChange} name="description" value={description} type="text" placeholder="Description (min 10 char.)" />
-                            <input onChange={this.handleChange} name="imgUrl" value={imgUrl} type="url" placeholder="Image URL" />
+                            <input onChange={this.handleChange} name="imgUrl" value={imgUrl} required type="url" placeholder="Image URL" />
                         </div>
-                        {title.length < 3 || description.length < 10 || imgUrl.length < 10
-                            ? <button disabled>Post</button>
-                            : <button onClick={this.handleSubmit}>Post</button>
-                        }
+                        <button disabled={title.length < 3 || description.length < 10 || imgUrl.length < 10}>Post</button> 
                     </form>
                 </div>
                 <Issue></Issue>

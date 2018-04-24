@@ -11,7 +11,7 @@ const commentReducer = (state = initialState, action) => {
         case "GET_COMMENTS":
             return {
                 ...state,
-                data: action.comments,
+                data: [...state.data, ...action.comments],
                 loading: false
             }
         case "ADD_COMMENT":

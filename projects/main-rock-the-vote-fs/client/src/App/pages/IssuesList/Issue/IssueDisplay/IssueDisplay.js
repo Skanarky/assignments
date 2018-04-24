@@ -3,7 +3,7 @@ import React from "react";
 
 import { connect } from "react-redux";
 import { deleteIssue, editIssue } from "./../../../../../redux/issues.js";
-import { addComment, getComments } from "./../../../../../redux/comments.js";
+import { addComment, getComments, deleteComment } from "./../../../../../redux/comments.js";
 
 import CommentDisplay from "./CommentDisplay/CommentDisplay.js";
 
@@ -11,16 +11,18 @@ class IssueDisplay extends React.Component {
     constructor(props) {
         super(props);
         this.initialState = {
-            upVotes: props.upVotes,
-            downVotes: props.downVotes,
             isCommenting: false,
             comment: {
-                container: "",
-                issueId: props.id
+                container: ""
             }
         }
         this.state = this.initialState;
     };
+
+    componentDidMount() {
+        const { getComments, id } = this.props;
+        getComments(id);
+    }
 
     handleChange = (event) => {
         // console.log(event);
@@ -36,37 +38,37 @@ class IssueDisplay extends React.Component {
     }
 
     handleClick = (event) => {
-        const { deleteIssue, id } = this.props;
+        const { deleteIssue, deleteComment, id } = this.props;
+        const { data } = this.props;
         deleteIssue(id);
+        data.filter(comment => comment.issueId === id).map((comment, i) => deleteComment(comment._id));
     }
 
     toggleComment = (event) => {
-        // const { getComments, id } = this.props;
         this.setState({ ...this.state, isCommenting: !this.state.isCommenting });
-        // getComments(id);
     }
+
     toggleCommentBack = (event) => {
         this.setState({ ...this.state, isCommenting: false });
     }
 
     handleClickUpVote = (event) => {
-        const { editIssue, id } = this.props;
-        let { upVotes } = this.state;
-        upVotes++;
-        editIssue(id, {upVotes});
+        const { editIssue, id, upVotes } = this.props;
+        editIssue(id, { upVotes: upVotes + 1 });
     }
     handleClickDownVote = (event) => {
-        const { editIssue, id } = this.props;
-        let { downVotes } = this.state;
-        downVotes++;
-        editIssue(id, {downVotes});
+        const { editIssue, id, downVotes } = this.props;
+        editIssue(id, { downVotes: downVotes + 1 });
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const { comment } = this.state;
-        const { addComment } = this.props;
-        addComment(comment);
+        const { container } = this.state.comment;
+        const { addComment, id } = this.props;
+        addComment({
+            container,
+            issueId: id
+        });
         this.setState({ ...this.state, comment: this.initialState.comment });
     }
 
@@ -74,11 +76,14 @@ class IssueDisplay extends React.Component {
         // console.log(this.props);
         const { isCommenting } = this.state;
         const { container } = this.state.comment;
+
         // comments
-        const { data, loading, errMsg, getComments, id } = this.props;
-        const presentComments = data.map((comment, i) => <CommentDisplay key={comment._id}
-            idComment={comment._id} index={i} loadingComment={loading} errMsgComment={errMsg}
-            {...comment}></CommentDisplay>);
+        const { data, loading, errMsg, id } = this.props;
+        const presentComments = data.filter(comment => comment.issueId === id).map((comment, i) =>
+            <CommentDisplay key={comment._id + i}
+                idComment={comment._id} index={i} loadingComment={loading} errMsgComment={errMsg}
+                {...comment}></CommentDisplay>);
+
         // issues
         const { title, description, imgUrl, upVotes, downVotes } = this.props;
         return (
@@ -102,15 +107,12 @@ class IssueDisplay extends React.Component {
                     </div>
                 </div>
                 {isCommenting ?
-                    <div onLoad={getComments(id)} className="view-comments">
+                    <div className="view-comments">
                         <button onClick={this.toggleCommentBack}>Go Back</button>
                         <form onSubmit={this.handleSubmit}>
                             <input onChange={this.handleChange} name="container"
                                 value={container} type="text" placeholder="Add a Comment" />
-                            {container.length < 3 ?
-                                <button disabled>Post</button>
-                                : <button>Post</button>
-                            }
+                            <button disabled={container.length < 3}>Post</button>
                         </form>
                         <ol>Comments:
                         {presentComments}
@@ -126,4 +128,4 @@ function stateToProps(globalState) {
     return globalState.comments;
 }
 
-export default connect(stateToProps, { deleteIssue, editIssue, addComment, getComments })(IssueDisplay);
+export default connect(stateToProps, { deleteIssue, editIssue, addComment, getComments, deleteComment })(IssueDisplay);

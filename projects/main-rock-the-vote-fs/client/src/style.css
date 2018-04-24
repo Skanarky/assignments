@@ -519,6 +519,7 @@ h6 {
     }
     .view-comments {
         position: absolute;
+        width: 320px;
         z-index: +5;
     }
 }
