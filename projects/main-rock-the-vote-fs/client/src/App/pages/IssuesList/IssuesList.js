@@ -14,7 +14,9 @@ class IssuesList extends React.Component {
             inputs: {
                 title: "",
                 description: "",
-                imgUrl: ""
+                imgUrl: "",
+                upVotes: 0,
+                downVotes: 0
             }
         }
         this.state = this.initialState;
@@ -59,8 +61,8 @@ class IssuesList extends React.Component {
                             <input onChange={this.handleChange} name="imgUrl" value={imgUrl} type="url" placeholder="Image URL" />
                         </div>
                         {title.length < 3 || description.length < 10 || imgUrl.length < 10
-                            ? <button disabled>Post Issue</button>
-                            : <button onClick={this.handleSubmit}>Post Issue</button>
+                            ? <button disabled>Post</button>
+                            : <button onClick={this.handleSubmit}>Post</button>
                         }
                     </form>
                 </div>

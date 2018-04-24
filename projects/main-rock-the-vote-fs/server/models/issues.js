@@ -10,8 +10,7 @@ const issueSchema = new Schema({
     description: String,
     imgUrl: String,
     upVotes: Number,
-    downVotes: Number,
-    totalVotes: Number
+    downVotes: Number
 })
 
 const IssueModel = mongoose.model("issues", issueSchema);

@@ -9,10 +9,10 @@ class Issue extends React.Component {
         // console.log(this.props);
         const { data, loading, errMsg } = this.props;
 
-        const presentIssues = data.map((issue, i) => <IssueDisplay key={issue._id} id={issue._id} index={i} {...issue}></IssueDisplay>);
+        const presentIssues = data.sort((issueOne, issueTwo) => issueOne.upVotes < issueTwo.upVotes).map((issue, i) => <IssueDisplay key={issue._id} id={issue._id} index={i} {...issue}></IssueDisplay>);
         if (loading) {
             return (
-                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: ".9em" }}>... loading Udemy</div>
+                <div style={{ color: "rgba(218, 238, 253, 0.95)", paddingLeft: "15px", fontSize: ".9em" }}>... loading Issues</div>
             )
         } else if (errMsg) {
             return (
