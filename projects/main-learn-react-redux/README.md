@@ -32,6 +32,7 @@ The requirements for the assignment can be found at [Personal React Redux Site](
 
 -> [git](https://git-scm.com/doc)
 
+Front end:
 -> [html5](https://www.w3.org/html/)
 
 -> [css](https://www.w3.org/Style/CSS/)
@@ -46,12 +47,11 @@ The requirements for the assignment can be found at [Personal React Redux Site](
 
 -> [redux-thunk](https://github.com/gaearon/redux-thunk)
 
+Back end:
 (server was provided for Udemy API)
 -> [express.js](https://expressjs.com/)
 
 -> [node.js](https://nodejs.org/en/)
-
--> Others.
 
 
 

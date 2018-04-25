@@ -32,6 +32,7 @@ The requirements for the assignment can be found at [Rock the Vote](https://cour
 
 -> [git](https://git-scm.com/doc)
 
+Front end:
 -> [html5](https://www.w3.org/html/)
 
 -> [css](https://www.w3.org/Style/CSS/)
@@ -46,6 +47,7 @@ The requirements for the assignment can be found at [Rock the Vote](https://cour
 
 -> [redux-thunk](https://github.com/gaearon/redux-thunk)
 
+Back end:
 -> [express.js](https://expressjs.com/)
 
 -> [node.js](https://nodejs.org/en/)
@@ -53,8 +55,6 @@ The requirements for the assignment can be found at [Rock the Vote](https://cour
 -> [MongoDB](https://www.mongodb.com/)
 
 -> [mongoose.js](http://mongoosejs.com/)
-
--> Others.
 
 
 
