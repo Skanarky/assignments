@@ -24,18 +24,25 @@ nav {
 }
 
 .login {
-    text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
-.login button,
+.login div {
+    color: whitesmoke;
+    border: 2px solid rgba(240, 110, 4, 0.85);
+    width: 50px;
+    height: 70%;
+    text-align: center;
+}
+.login div:hover {
+    color: rgba(240, 110, 4, 0.85);
+    cursor: pointer;
+}
+
 .formlog button {
     background-color: rgba(240, 110, 4, 0.85);
-    /* font-weight: bold; */
-}
-
-.login button:hover {
-    cursor: pointer;
-    background-color: rgb(231, 229, 229);
 }
 
 .formlog button:hover {

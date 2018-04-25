@@ -13,7 +13,7 @@ class Header extends React.Component {
         }
         this.state = this.initialState;
     };
-    
+
     toggleEdit = () => this.setState({ inputs: {}, isEditing: !this.state.isEditing });
 
     handleChange = (event) => {
@@ -74,8 +74,10 @@ class Header extends React.Component {
                         <Link className="noline" to="/issues"><span>Issues</span></Link>
                         <Link className="noline" to="/about"><span>About</span></Link>
                     </div>
-                    <div className="login">
-                        <button onClick={this.toggleEdit}>Login</button>
+                    <div onClick={this.toggleEdit} className="login">
+                        <div>
+                            Login
+                        </div>
                     </div>
                 </nav>
             </header>
