@@ -19,7 +19,9 @@
 ## Description
 
 Front end project with minor back end implementation.
-This is the file associated with 'Personal React/Redux Site' project from my time at V School.
+
+It is associated with 'Personal React/Redux Site' project from my time at V School.
+
 The requirements for the assignment can be found at [Personal React Redux Site](https://coursework.vschool.io/personal-react-redux-site/)
 
 
@@ -66,6 +68,7 @@ On the 'Let's Learn' page a user can find three learning resources:
 - Udemy 
 - YouTube
 - Coursera.
+
 Choose which one you want to browse first.
 Search-by-key-word is implemented for Udemy and YouTube resources.
 

@@ -19,7 +19,9 @@
 ## Description
 
 Full stack project.
-This is the file associated with 'Rock the Vote' project from my time at V School.
+
+It is associated with 'Rock the Vote' project from my time at V School.
+
 The requirements for the assignment can be found at [Rock the Vote](https://coursework.vschool.io/rock-the-vote-with-db/)
 
 
@@ -61,14 +63,17 @@ The requirements for the assignment can be found at [Rock the Vote](https://cour
 ## About
 
 This is a fun web app for debates.
+
 It helps collecting public opinions on different issues/subjects. People can then vote and 
 comment on the topics so they can find a solution or select the more important social issue.
 
 
 ## How to Use
 
-On the 'Issues' page a user can -Post- a topic for discussion and start a debate. 
+On the 'Issues' page a user can -Post- a topic for discussion and start a debate.
+
 An issue/subject should have a title, description and supporting image.
+
 Once the 'Issue' is posted the visitors of the web app can vote and downvote the topic and provide their personal opinions and/or possible solutions.
 
 Have fun and ROCK the vote!!!
