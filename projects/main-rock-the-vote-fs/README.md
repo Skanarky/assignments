@@ -30,31 +30,11 @@ The requirements for the assignment can be found at [Rock the Vote](https://cour
 
 ## Technologies Used
 
--> [git](https://git-scm.com/doc)
+-> [git](https://git-scm.com/doc);
 
-Front end:
--> [html5](https://www.w3.org/html/)
+Front end: [html5](https://www.w3.org/html/); [css](https://www.w3.org/Style/CSS/), [css grid](https://www.w3.org/TR/css-grid/), [css flex-box](https://www.w3.org/TR/css-flexbox/); [javascript](https://www.javascript.com/), [react.js](https://reactjs.org/), [redux](https://redux.js.org/), [redux-thunk](https://github.com/gaearon/redux-thunk);
 
--> [css](https://www.w3.org/Style/CSS/)
--> [css grid](https://www.w3.org/TR/css-grid/)
--> [css flex-box](https://www.w3.org/TR/css-flexbox/)
-
--> [javascript](https://www.javascript.com/)
-
--> [react.js](https://reactjs.org/)
-
--> [redux](https://redux.js.org/)
-
--> [redux-thunk](https://github.com/gaearon/redux-thunk)
-
-Back end:
--> [express.js](https://expressjs.com/)
-
--> [node.js](https://nodejs.org/en/)
-
--> [MongoDB](https://www.mongodb.com/)
-
--> [mongoose.js](http://mongoosejs.com/)
+Back end: [express.js](https://expressjs.com/), [node.js](https://nodejs.org/en/), [MongoDB](https://www.mongodb.com/), [mongoose.js](http://mongoosejs.com/);
 
 
 
