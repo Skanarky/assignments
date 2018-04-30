@@ -3,6 +3,468 @@
     box-sizing: border-box;
 }
 
-.wrapper {
-    background-color: whitesmoke;
+.welcome {
+    background-color: rgb(128, 128, 128);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.centerOne {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.phone,
+.oldCamera,
+.camera {
+    background-size: auto 55px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 58px;
+    height: 58px;
+}
+
+.phone {
+    background-image: url("./pics/twovisualizationoptionsforcomputerdevices_79796.png");
+}
+
+.oldCamera {
+    background-image: url("./pics/48898-instagram-social-network-logo-of-photo-camera-icon-vector-icon-vector-eps.png");
+}
+
+.camera {
+    background-image: url("./pics/img_76244.png");
+    width: 80px;
+}
+
+.phone:hover,
+.oldCamera:hover,
+.camera:hover {
+    cursor: pointer;
+    background-size: auto 58px;
+}
+
+.wrapper {
+    background-color: rgb(245, 245, 245);
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.topLeft,
+.topRight,
+.bottomLeft,
+.bottomRight {
+    position: absolute;
+    width: 17%;
+    height: 10%;
+}
+
+.topLeft {
+    border-left: 4px solid black;
+    border-top: 4px solid black;
+    left: 7px;
+    top: 7px;
+}
+
+.topRight {
+    border-right: 4px solid black;
+    border-top: 4px solid black;
+    right: 7px;
+    top: 7px;
+}
+
+.bottomLeft {
+    border-left: 4px solid black;
+    border-bottom: 4px solid black;
+    left: 7px;
+    bottom: 7px;
+}
+
+.bottomRight {
+    border-right: 4px solid black;
+    border-bottom: 4px solid black;
+    right: 7px;
+    bottom: 7px;
+}
+
+.noLine,
+.lessons,
+.circle {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.noLine,
+.lessons {
+    color: rgb(128, 128, 128);
+    text-align: center;
+    text-decoration-line: none;
+    font-weight: bold;
+    border: 3px solid black;
+    padding: 2px;
+    width: 67px;
+    height: 27px;
+}
+
+.circle,
+.lessons {
+    top: 50%;
+    left: 50%;
+}
+
+.circle {
+    width: 90px;
+    height: 90px;
+    border: 3px solid black;
+    border-radius: 50%;
+}
+
+.login {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    text-decoration-line: none;
+    font-weight: bold;
+    top: 7%;
+    left: 85%;
+    color: rgba(218, 38, 38, 0.952);
+}
+
+.others,
+.contact {
+    left: 50%;
+}
+
+.about,
+.masters {
+    top: 50%;
+}
+
+.others {
+    top: 25%;
+}
+
+.contact {
+    top: 75%;
+}
+
+.about {
+    left: 80%;
+}
+
+.masters {
+    left: 20%;
+}
+
+.aboutWrap {
+    background-color: rgb(245, 245, 245);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    top: 20px;
+    left: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .1fr .15fr .15fr .3fr .3fr;
+    line-height: 20px;
+    overflow: scroll;
+}
+
+.red {
+    text-transform: uppercase;
+    color: rgba(199, 55, 55, 0.952);
+    font-weight: bold;
+}
+.boldy {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+h3,
+h5,
+p {
+    padding: 10px;
+}
+
+h5 {
+    font-style: italic;
+}
+
+h3 {
+    /* padding-top: 10px; */
+    text-align: center;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+.viewfinder {
+    color: rgb(128, 128, 128);
+    text-align: center;
+    text-decoration-line: none;
+    font-weight: bold;
+    border: 3px solid black;
+    padding: 2px;
+    width: 92px;
+    height: 27px;
+}
+
+.mastersWrap {
+    background-color: rgb(245, 245, 245);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    top: 20px;
+    left: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .1fr .25fr .55fr;
+    line-height: 20px;
+    text-align: center;
+}
+
+.mastersWrap h3 {
+    font-size: 1.5em;
+    line-height: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.mastersWrap div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.mastersPage {
+    text-decoration-line: none;
+    color: rgb(128, 128, 128);
+    font-weight: bold;
+    letter-spacing: 3px;
+    width: 40%;
+    margin: auto;
+}
+
+.fatali {
+    font-style: italic;
+    font-family: cursive;
+}
+
+.mastersPage:hover {
+    color: rgba(199, 55, 55, 0.952);
+}
+
+footer {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    top: 90%;
+    left: 50%;
+    width: 70%;
+}
+
+.fa {
+    color: rgb(128, 128, 128);
+    font-size: 2em;
+    text-decoration-line: none;
+    padding: 10px;
+}
+
+.fa:hover {
+    color: rgba(199, 55, 55, 0.952);
+}
+
+/* the rest are positioned absolute or fixed */
+
+/* .wrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+} */
+
+@media (max-width: 320px) {
+    p {
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 560px) {
+    .topLeft,
+    .topRight,
+    .bottomLeft,
+    .bottomRight {
+        position: absolute;
+        width: 10%;
+        height: 15%;
+    }
+    .login {
+        font-size: 1em;
+        top: 12%;
+        left: 90%;
+    }
+}
+
+@media (min-width: 750px) {
+    .login {
+        font-size: 1em;
+        top: 11%;
+        left: 90%;
+    }
+    .circle {
+        width: 120px;
+        height: 120px;
+    }
+    .aboutWrap {
+        grid-template-rows: .1fr .15fr .15fr .15fr .3fr;
+    }
+    h3,
+    h5,
+    p {
+        padding: 20px;
+    }
+    .mastersWrap h3 {
+        font-size: 2em;
+    }
+    .mastersPage {
+        font-size: 1.5em;
+        width: 25%;
+    }
+}
+
+@media (min-width: 1015px) {
+    footer {
+        width: 50%;
+    }
+    .fa {
+        padding: 40px;
+        font-size: 3em;
+    }
+    .aboutWrap h3 {
+        font-size: 1.4em;
+        letter-spacing: 1px;
+    }
+    .mastersWrap h3 {
+        font-size: 2.5em;
+        letter-spacing: 2px;
+    }
+}
+
+@media (min-width: 1367px) {
+    .topLeft {
+        border-left: 7px solid black;
+        border-top: 7px solid black;
+        left: 9px;
+        top: 9px;
+    }
+    .topRight {
+        border-right: 7px solid black;
+        border-top: 7px solid black;
+        right: 9px;
+        top: 9px;
+    }
+    .bottomLeft {
+        border-left: 7px solid black;
+        border-bottom: 7px solid black;
+        left: 9px;
+        bottom: 9px;
+    }
+    .bottomRight {
+        border-right: 7px solid black;
+        border-bottom: 7px solid black;
+        right: 9px;
+        bottom: 9px;
+    }
+    .noLine,
+    .lessons {
+        font-size: 0em;
+        width: 20px;
+        height: 20px;
+    }
+    .login {
+        top: 9%;
+        left: 90%;
+    }
+    .login:hover {
+        font-size: 1.15em;
+    }
+    .noLine:hover,
+    .lessons:hover {
+        font-size: 1.2em;
+        width: 80px;
+        height: 32px;
+    }
+    .circle {
+        width: 150px;
+        height: 150px;
+        border: 5px solid black;
+    }
+    .others {
+        top: 32%;
+    }
+    .contact {
+        top: 68%;
+    }
+    .about {
+        left: 67%;
+    }
+    .masters {
+        left: 33%;
+    }
+    .aboutWrap,
+    .mastersWrap {
+        right: 40px;
+        bottom: 40px;
+        top: 40px;
+        left: 40px;
+    }
+    .viewfinder:hover {
+        color: rgba(199, 55, 55, 0.952);
+    }
+    .mastersWrap {
+        grid-template-rows: .1fr .25fr .45fr;
+    }
+    .mastersPage {
+        width: 15%;
+    }
+    h3,
+    h5,
+    p,
+    ul {
+        padding-left: 50px;
+    }
+}
+
+@media (min-width: 2000px) {
+    h3,
+    h5,
+    p,
+    ul {
+        text-align: center;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+}
+
+/* @media (min-width: 2800px) {
+
+} */

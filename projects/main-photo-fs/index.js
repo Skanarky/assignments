@@ -12,7 +12,7 @@ const imageRouter = require("./routes/images.js");
 const commentRouter = require("./routes/comments.js");
 const noteRouter = require("./routes/notes.js");
 const favoriteRouter = require("./routes/favorites.js");
-const exampleUserRouter = require("./routes/examplesUsers.js");
+// const exampleUserRouter = require("./routes/examplesUsers.js");
 const userRouter = require("./routes/users.js");
 
 const app = express();
@@ -32,7 +32,7 @@ app.use("/images", imageRouter);
 app.use("/comments", commentRouter);
 app.use("/notes", noteRouter);
 app.use("/favorites", favoriteRouter);
-app.use("/examples", exampleUserRouter);
+// app.use("/examples", exampleUserRouter);
 app.use("/users", userRouter);
 
 //db

@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const lessonSchema = new Schema({
+    mainSubject: {
+        required: true,
+        type: String
+    },
     title: {
         required: true,
         type: String

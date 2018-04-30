@@ -5,7 +5,7 @@ const ImageModel = require("../models/images.js");
 
 imageRouter.route("/")
     .get((req, res) => {
-        ImageModel.find(req.query).populate("assignId").exec((err, foundImages) => {
+        ImageModel.find(req.query).populate("assignId").populate("lessonId", "title")/*.populate("userId", ("firstName", "lastName"))*/.exec((err, foundImages) => {
             if (err) return res.send(err);
             res.status(200).send(foundImages);
         });
@@ -20,7 +20,6 @@ imageRouter.route("/")
             });
         });
     });
-
 
 imageRouter.route("/:id")
     .get((req, res) => {

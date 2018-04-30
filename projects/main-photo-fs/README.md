@@ -44,12 +44,12 @@ Back end: [express.js](https://expressjs.com/), [node.js](https://nodejs.org/en/
 
 This is a web app for photography enthusiasts who have no time and money to waste!
 
-It helps people to quickly gain solid skills in creating amazing pictures and art with required only a phone or any old camera.
+It helps people to quickly gain solid skills in creating amazing pictures and art, with required only a phone or any old camera.
 
 
 ## How to Use
 
-On the 'Lessons' page a user can select a lesson based on two categories - light and composition.
+On the 'Lessons' page a user can select lesson based on two categories - light or composition.
 
 Users can then enroll in any of the 16 specialized lessons. Each lesson has clear instructions and many specific examples. 'Notes' section is also provided to enhance the learning process.
 

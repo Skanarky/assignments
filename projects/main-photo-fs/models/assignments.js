@@ -14,8 +14,8 @@ const assignmentSchema = new Schema({
         ref: "lessons"
     },
     dateEnrolled: {
-        required: true,
-        type: String
+        // required: true,
+        type: Date
     }
 })
 
