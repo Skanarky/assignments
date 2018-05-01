@@ -162,13 +162,23 @@
     left: 20%;
 }
 
-.aboutWrap {
+.aboutWrap,
+.mastersWrap,
+.othersWrap,
+.lessonsLandingWrap,
+.lessonsArrangeWrap,
+.viewOneLesson {
     background-color: rgb(245, 245, 245);
     position: fixed;
     right: 20px;
     bottom: 20px;
     top: 20px;
     left: 20px;
+}
+
+/* ----------------------------- */
+
+.aboutWrap {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: .1fr .15fr .15fr .3fr .3fr;
@@ -181,6 +191,7 @@
     color: rgba(199, 55, 55, 0.952);
     font-weight: bold;
 }
+
 .boldy {
     font-weight: bold;
     font-size: 1.1em;
@@ -208,6 +219,7 @@ ul {
 
 .viewfinder {
     color: rgb(128, 128, 128);
+    box-shadow: 0px 2px 5px 2px rgba(128, 128, 128);
     text-align: center;
     text-decoration-line: none;
     font-weight: bold;
@@ -217,13 +229,14 @@ ul {
     height: 27px;
 }
 
+.viewfinder:hover {
+    color: rgba(199, 55, 55, 0.952);
+    box-shadow: 0px 1px 4px 1px rgba(128, 128, 128);
+}
+
+/* ----------------------------- */
+
 .mastersWrap {
-    background-color: rgb(245, 245, 245);
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    top: 20px;
-    left: 20px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: .1fr .25fr .55fr;
@@ -250,6 +263,7 @@ ul {
     letter-spacing: 3px;
     width: 40%;
     margin: auto;
+    text-shadow: 7px 5px 8px rgba(128, 128, 128);
 }
 
 .fatali {
@@ -259,7 +273,256 @@ ul {
 
 .mastersPage:hover {
     color: rgba(199, 55, 55, 0.952);
+    text-shadow: 2px 2px 8px rgba(128, 128, 128);
 }
+
+/* ----------------------------- */
+
+.othersWrap {
+    display: grid;
+    grid-template-rows: 10% 30% 60%;
+}
+
+.othersSearches {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.othersSearches button {
+    box-shadow: 0px 5px 8px 3px rgba(128, 128, 128);
+    border-radius: 10%;
+    width: 86px;
+    height: 36px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1em;
+}
+
+.othersSearches button:hover {
+    box-shadow: 0px 1px 4px 1px rgba(128, 128, 128);
+    width: 90px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.noLineTwo {
+    text-decoration-line: none;
+    width: 86px;
+    height: 36px;
+    color: rgb(128, 128, 128);
+}
+
+.othersForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.othersForm div {
+    padding: 10px;
+}
+
+.othersForm input {
+    text-align: center;
+    width: 90px;
+    height: 30px;
+}
+
+::placeholder {
+    color: rgba(199, 30, 30);
+    font-weight: bold;
+    opacity: .35;
+}
+
+/* Internet Explorer 10-11 */
+
+:-ms-input-placeholder {
+    color: rgba(199, 30, 30, .35);
+    font-weight: bold;
+}
+
+/* Microsoft Edge */
+
+::-ms-input-placeholder {
+    color: rgba(199, 30, 30., .35);
+    font-weight: bold;
+}
+
+/* -------------- */
+
+.othersContain {
+    text-align: center;
+    padding-top: 15px;
+    padding-left: 28px;
+    padding-right: 28px;
+    overflow: scroll;
+}
+
+.noLineThree {
+    text-decoration-line: none;
+    color: rgb(128, 128, 128);
+}
+
+.noLineThree img,
+iframe {
+    box-shadow: 0px 6px 25px 4px rgba(128, 128, 128);
+    width: 260px;
+    height: 146.3px;
+}
+
+.noLineThree img:hover,
+iframe:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.noLineThree p:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+.singleItemOthers {
+    font-weight: bold;
+    line-height: 50px;
+    padding-bottom: 30px;
+}
+
+.singleItemOthers .fa {
+    font-size: 2.5em;
+    font-weight: normal;
+    padding: 0;
+}
+
+.singleItemOthers .fa:hover {
+    cursor: pointer;
+    color: rgba(199, 2, 2, 0.63);
+}
+
+.singleItemOthers p {
+    line-height: 20px;
+    text-align: left;
+    width: auto;
+}
+
+/* ----------------------------- */
+
+.lessonsLandingWrap {
+    display: grid;
+}
+
+.centerTwo {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    left: 50%;
+}
+.composition,
+.prism {
+    color: rgb(128, 128, 128);
+    text-align: center;
+    text-decoration-line: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: auto 80px;
+    width: 150px;
+    height: 120px;
+}
+
+.composition {
+    background-image: url("./pics/goldenspiraloverlay4-2x3.png");
+}
+
+.prism {
+    background-image: url("./pics/Prism.png");
+}
+
+.composition:hover,
+.prism:hover {
+    color: rgba(199, 55, 55, 0.952);
+}
+
+
+/* ----------------------------- */
+
+
+.lessonsView {
+    background-color: rgb(245, 245, 245);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    left: 50%;
+}
+
+.lessonsArrangeWrap,
+.viewOneLesson {
+    text-align: center;
+    padding-top: 15px;
+    padding-left: 28px;
+    padding-right: 28px;
+    overflow: scroll;
+}
+
+.lessonsArrange {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.9fr;
+}
+
+.navRoom {
+    padding-top: 5px;
+}
+
+.viewOneLesson {
+    background-color: rgb(128, 128, 128, 1);
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+    text-align: center;
+    /* overflow: visible; */
+}
+
+.viewOneLesson button {
+    box-shadow: 0px 2px 4px 2px rgb(204, 201, 201);
+    text-align: center;
+    font-weight: bold;
+    width: 86px;
+    height: 36px;
+    margin: auto;
+    text-transform: uppercase;
+    color: black;
+}
+
+.viewOneLesson button:hover {
+    box-shadow: 0px 1px 2px 1px rgb(204, 201, 201);
+    cursor: pointer;
+}
+
+.viewOneLesson h2 {
+    padding-bottom: 10px;
+}
+
+.imgLesson {
+    width: 210px;
+    height: 140px;
+    padding: 5px;
+    border: 3px solid rgb(245, 245, 245);
+}
+
+.exampleStudents:hover {
+    color: rgba(199, 55, 55, 0.952);
+    cursor: pointer;
+}
+
+
+/* ----------------------------- */
 
 footer {
     position: absolute;
@@ -281,28 +544,35 @@ footer {
     color: rgba(199, 55, 55, 0.952);
 }
 
-/* the rest are positioned absolute or fixed */
-
-/* .wrapper {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-
-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-} */
 
 @media (max-width: 320px) {
     p {
         font-size: 0.9em;
+    }
+    .othersSearches button {
+        width: 70px;
+        height: 32px;
+        font-size: .8em;
+    }
+    .othersSearches button:hover {
+        width: 73px;
+        height: 34px;
+    }
+    .noLineTwo {
+        width: 70px;
+        height: 32px;
+    }
+    .othersForm input {
+        width: 75px;
+        height: 25px;
+    }
+    .othersContain {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .lessonsArrangeWrap {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
@@ -319,6 +589,19 @@ video {
         font-size: 1em;
         top: 12%;
         left: 90%;
+    }
+    .othersSearches {
+        flex-direction: row;
+    }
+    .singleItemOthers p {
+        text-align: center;
+    }
+    .composition,
+    .prism {
+        font-size: 1.5em;
+        background-size: auto 150px;
+        width: 300px;
+        height: 200px;
     }
 }
 
@@ -347,6 +630,13 @@ video {
         font-size: 1.5em;
         width: 25%;
     }
+    .othersWrap {
+        grid-template-rows: 5% 15% 80%;
+    }
+    .othersContain,
+    .lessonsArrangeWrap {
+        padding: 15px;
+    }
 }
 
 @media (min-width: 1015px) {
@@ -364,6 +654,67 @@ video {
     .mastersWrap h3 {
         font-size: 2.5em;
         letter-spacing: 2px;
+    }
+    .othersContain {
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 50% 50%;
+        padding-top: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .lessonsArrangeWrap {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    .lessonsArrangeInside {
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 50% 50%;
+    }
+
+    .singleItemOthers {
+        /* font-size: 0.45em; */
+        padding-left: 30px;
+        padding-right: 30px;
+        line-height: 80px;
+    }
+    .singleItemOthers p {
+        line-height: 28px;
+        text-align: left;
+    }
+
+    .lessonsArrange {
+        grid-template-rows: 0.25fr 0.75fr;
+    }
+
+    .navRoom {
+        text-align: left;
+    }
+
+    .viewOneLesson {
+        justify-content: space-evenly;
+        line-height: 25px;
+    }
+    .imgLesson {
+        width: 300px;
+        height: 200px;
+        padding: 10px;
+    }
+    .viewOneLesson span {
+        text-align: left;
+    }
+    .viewOneLesson h2 {
+        padding-bottom: 0px;
+    }
+
+    .imgLessonWrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
     }
 }
 
@@ -429,14 +780,14 @@ video {
         left: 33%;
     }
     .aboutWrap,
-    .mastersWrap {
+    .mastersWrap,
+    .othersWrap,
+    .lessonsLandingWrap,
+    .lessonsArrangeWrap {
         right: 40px;
         bottom: 40px;
         top: 40px;
         left: 40px;
-    }
-    .viewfinder:hover {
-        color: rgba(199, 55, 55, 0.952);
     }
     .mastersWrap {
         grid-template-rows: .1fr .25fr .45fr;
@@ -450,6 +801,16 @@ video {
     ul {
         padding-left: 50px;
     }
+    .othersContain {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 25%);
+        padding: 25px;
+    }
+    .singleItemOthers p {
+        line-height: 22px;
+        height: 130px;
+    }
 }
 
 @media (min-width: 2000px) {
@@ -459,12 +820,22 @@ video {
     ul {
         text-align: center;
     }
-
     ul {
         list-style-type: none;
     }
+    .othersContain {
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(5, 20%);
+        padding: 30px;
+    }
+    .singleItemOthers p {
+        line-height: 22px;
+        height: 95px;
+    }
 }
 
-/* @media (min-width: 2800px) {
-
-} */
+@media (min-width: 2800px) {
+    .singleItemOthers p {
+        text-align: center;
+    }
+}

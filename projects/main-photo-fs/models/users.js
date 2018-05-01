@@ -18,12 +18,8 @@ const userSchema = new Schema({
     password: {
         required: true,
         type: String
-    },
-    dateSignUp: {
-        required: true,
-        type: String
     }
-})
+}, { timestamps: true })
 
 const UserModel = mongoose.model("users", userSchema);
 module.exports = UserModel;

@@ -45,4 +45,5 @@ export const getCourses = (searchWord) => {
         });
     }
 }
+
 export default udemyReducer;

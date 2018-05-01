@@ -13,15 +13,11 @@ const commentSchema = new Schema({
         required: true,
         ref: "images"
     },
-    dateCommented: {
-        required: true,
-        type: String
-    },
     textComment: {
         required: true,
         type: String
     }
-})
+}, { timestamps: true })
 
 const CommentModel = mongoose.model("comments", commentSchema);
 module.exports = CommentModel;

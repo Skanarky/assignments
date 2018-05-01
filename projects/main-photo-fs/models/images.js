@@ -22,12 +22,8 @@ const imageSchema = new Schema({
         required: true,
         type: String
     },
-    likes: Number,
-    dateUpload: {
-        required: true,
-        type: String
-    }
-})
+    likes: Number
+}, { timestamps: true })
 
 const ImageModel = mongoose.model("images", imageSchema);
 module.exports = ImageModel;

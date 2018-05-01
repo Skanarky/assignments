@@ -12,12 +12,8 @@ const assignmentSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: "lessons"
-    },
-    dateEnrolled: {
-        // required: true,
-        type: Date
     }
-})
+}, { timestamps: true });
 
 const AssignmentModel = mongoose.model("assignments", assignmentSchema);
 module.exports = AssignmentModel;

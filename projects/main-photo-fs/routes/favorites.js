@@ -19,6 +19,11 @@ favoriteRouter.route("/")
                 res.status(201).send(popFavorite);
             });
         });
+        // const newFavorite = new FavoriteModel(req.body);
+        // newFavorite.save((err, addedFavorite) => {
+        //     if (err) return res.send(err);
+        //     res.status(201).send(addedFavorite);
+        // });
     });
 
 

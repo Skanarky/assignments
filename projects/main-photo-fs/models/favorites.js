@@ -15,7 +15,7 @@ const favoriteSchema = new Schema({
     },
     videoInfo: Object,
     courseInfo: Object
-})
+}, { timestamps: true })
 
 const FavoriteModel = mongoose.model("favorites", favoriteSchema);
 module.exports = FavoriteModel;
