@@ -6,12 +6,12 @@ const initialState = {
     errMsg: ""
 }
 
-const assignmentReducer = (state = initialState, action) => {
+const imageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "GET_ASSIGNMENT":
+        case "GET_IMAGES":
             return {
                 ...state,
-                data: [...state.data, action.assignment],
+                data: [...state.data, ...action.images],
                 loading: false
             }
         // case "ADD_ISSUE":
@@ -53,14 +53,14 @@ const assignmentReducer = (state = initialState, action) => {
 // action creators:
 
 //provide lessonId AND userId
-export const getAssignment = (lessonId) => {
+export const getImages = (lessonId) => {
     return dispatch => {
-        axios.get(`/assignments/?lessonId=${lessonId} `)
+        axios.get(`/images/?lessonId=${lessonId} `)
         .then(response => {
             // console.log(response.data);
             dispatch({
-                type: "GET_ASSIGNMENT",
-                assignment: response.data[0]
+                type: "GET_IMAGES",
+                images: response.data
             });
         }).catch(err => {
             dispatch({

@@ -1,21 +1,26 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Assignment from "./Assignment/Assignment.js";
+import Examples from "./Examples/Examples.js";
+import { getAssignment } from "./../../../../../../redux/assignments.js";
 
 class Composition extends React.Component {
     constructor(props) {
         super(props);
         this.initialState = {
             isViewingLesson: false,
-            isViewingExamples: false
+            isViewingExamples: false,
+            isViewingAssignment: false
         }
         this.state = this.initialState;
     };
 
     componentDidMount = () => {
+        //provide lessonId AND userId
         const { getAssignment, idLessonComposition/*, userId*/ } = this.props;
-        getAssignment();
+        getAssignment(idLessonComposition);
     }
 
     toggleViewLesson = (event) => {
@@ -23,16 +28,21 @@ class Composition extends React.Component {
         this.setState({ ...this.state, isViewingLesson: !this.state.isViewingLesson });
         toggleViewBelow();
     }
+
     toggleViewingExamples = (event) => {
         this.setState({ ...this.state, isViewingExamples: !this.state.isViewingExamples });
+    }
+
+    toggleViewingAssignment = (event) => {
+        this.setState({ ...this.state, isViewingAssignment: !this.state.isViewingAssignment });
     }
 
     render = () => {
         // console.log(this.props);
         const { title, shortDescription, exampleImgOneUrl
             , exampleImgTwoUrl, exampleImgThreeUrl, instructions
-            , googleLink } = this.props;
-        const { isViewingLesson, isViewingExamples } = this.state;
+            , googleLink, data, loading, errMsg, idLessonComposition } = this.props;
+        const { isViewingLesson, isViewingExamples, isViewingAssignment } = this.state;
         const styleP = {
             textAlign: "center",
             height: "auto",
@@ -40,13 +50,27 @@ class Composition extends React.Component {
             padding: "0",
             paddingBottom: "20px"
         };
+
+        const styleEx = {
+            backgroundColor: "rgba(245, 245, 245)",
+            maxWidth: "608px",
+            border: "3px solid black"
+        }
+
+        const presentAssignment = data.filter(assignment =>
+            assignment.lessonId._id === idLessonComposition)
+            .map((assignment, i) =>
+                <Assignment idAssignment={assignment._id} index={i}
+                    key={assignment._id + i} {...assignment}
+                    loadingAssignment={loading} idLessonComposition={idLessonComposition} errMsgAssignment={errMsg} />);
+
         return (
-            <div className="singleItemOthers">
+            <div className="singleItemOthers" >
                 <div onClick={this.toggleViewLesson} className="noLineThree"><p style={styleP}>{title}: <span>{shortDescription}</span></p></div>
                 <div onClick={this.toggleViewLesson} className="noLineThree"><img src={exampleImgOneUrl} alt="Lesson for Composition" /></div>
 
                 {isViewingLesson ?
-                    <div className="viewOneLesson">
+                    <div className="viewOneLesson" >
                         <h2>{title}</h2>
                         <span>{instructions}</span>
                         <div className="imgLessonWrap">
@@ -54,28 +78,36 @@ class Composition extends React.Component {
                             <img className="imgLesson" src={exampleImgTwoUrl} alt="Lesson for Composition" />
                             <img className="imgLesson" src={exampleImgThreeUrl} alt="Lesson for Composition" />
                         </div>
-                        <div  className="exampleStudents" to="#">Examples from Other Students</div>
-                        {/* {isViewingExamples ? <Examples /> : ""} */}
-                        <Link to={googleLink} target="_blank">Examples from the Web</Link>
+                        <div style={{width:"210px", margin: "0 auto", fontSize: "1.2em"}} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Actual Students</div>
+                        {isViewingExamples ?
+                            <div className="bigViewExample" style={styleEx} >
+                                <button onClick={this.toggleViewingExamples}>Close Examples</button>
+                                <div>
+                                    <Examples key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
+                                </div>
+                            </div> : ""}
+                        <Link style={{width:"190px", margin: "0 auto"}} to={googleLink} target="_blank">Examples from the Web</Link>
                         <div>
                             <button onClick={this.toggleViewLesson}>back</button>
-                            <button onClick={this.toggleViewLesson}><Link to="/lessons/composition/assignment" className="noLineThree" style={{color: "black"}}>enroll</Link></button>
+                            <button onClick={this.toggleViewingAssignment}>exercise</button>
+                            {/* <button onClick={this.toggleViewLesson}><Link to="/lessons/composition/assignment" className="noLineThree" style={{ color: "black" }}>enroll</Link></button> */}
                         </div>
-
-                    </div>
+                        {isViewingAssignment ? presentAssignment : ""}
+                    </div >
                     : ""}
 
-
-
-
-                {/* <Link to=path="/lessons/composition/assignment" className="noLineThree"><p style={styleP}>{title}: <span>{shortDescription}</span></p></Link>
-                <Link to={`/lessons/composition/${idComposition}`} className="noLineThree"><img src={exampleImgOneUrl} alt="Lesson for Composition" /></Link> */}
-                <Switch>
-                    <Route path="/lessons/composition/assignment" component={Assignment}></Route>
-                </Switch>
-            </div>
+                {/* <Switch>
+                    <Route path="/lessons/composition/assignment"
+                        component={presentAssignment}
+                    ></Route>
+                </Switch> */}
+            </div >
         )
     }
 }
 
-export default Composition;
+function stateToProps(globalState) {
+    return globalState.assignments;
+}
+
+export default connect(stateToProps, { getAssignment })(Composition);

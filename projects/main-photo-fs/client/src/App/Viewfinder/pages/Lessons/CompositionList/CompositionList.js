@@ -32,11 +32,12 @@ class CompositionList extends React.Component {
         const { isBelow } = this.state;
 
         const presentCompositions = data.map((composition, i) => <Composition key={composition._id + i}
-            idLessonComposition={composition._id} index={i} toggleViewBelow={this.toggleViewBelow} {...composition}></Composition>);
+            idLessonComposition={composition._id} index={i} toggleViewBelow={this.toggleViewBelow} 
+            {...composition}></Composition>);
 
         if (loading) {
             return (
-                <div style={{ color: "rgba(199, 2, 2, 0.63)", paddingLeft: "15px", fontSize: ".9em" }}>... loading YouTube</div>
+                <div style={{ color: "rgba(199, 2, 2, 0.63)", paddingLeft: "15px", fontSize: ".9em" }}>... loading Lesson</div>
             )
         } else if (errMsg) {
             return (
