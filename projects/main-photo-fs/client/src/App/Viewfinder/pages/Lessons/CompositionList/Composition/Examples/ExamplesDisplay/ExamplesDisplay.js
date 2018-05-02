@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import { addFavorite } from "../../../.././../../../../redux/favorites.js";
 import { addComment, getComments } from "../../../.././../../../../redux/comments.js";
-import { editImage } from "../../../.././../../../../redux/images.js";
+// import { editImage } from "../../../.././../../../../redux/images.js";
 // import { addComment, getComments, deleteComment } from "./../../../../../redux/comments.js";
 
 import Comment from "./Comment/Comment.js";
@@ -44,13 +44,13 @@ class ExamplesDisplay extends React.Component {
         // getNotes();
     }
 
-    componentWillReceiveProps = (newProps) => {
-        // console.log(newProps.likes)
-        if (this.props.likes !== newProps.likes) {
-            const { editImage, exampleImageId, likes } = newProps;
-            editImage(exampleImageId, { likes: likes + 1 });
-        }
-    }
+    // componentWillReceiveProps = (newProps) => {
+    //     // console.log(newProps.likes)
+    //     if (this.props.likes !== newProps.likes) {
+    //         const { editImage, exampleImageId, likes } = newProps;
+    //         editImage(exampleImageId, { likes: likes + 1 });
+    //     }
+    // }
 
     toggleComment = (event) => {
         this.setState({ ...this.state, isCommenting: !this.state.isCommenting });
@@ -62,10 +62,8 @@ class ExamplesDisplay extends React.Component {
 
     handleClickLike = (event) => {
         // console.log(event);
-        const { editImage, exampleImageId, likes, toggleViewingExamples } = this.props;
-        editImage(exampleImageId, { likes: likes + 1 });
-        // toggleViewingExamples();
-        // toggleViewingExamples();
+        const { editImageTrigger, exampleImageId, likes } = this.props;
+        editImageTrigger(exampleImageId, { likes: likes + 1 });
     }
 
     favoritize = (event) => {
@@ -133,4 +131,4 @@ function stateToProps(globalState) {
     return globalState.comments;
 }
 
-export default connect(stateToProps, { addFavorite, addComment, getComments, editImage })(ExamplesDisplay);
+export default connect(stateToProps, { addFavorite, addComment, getComments })(ExamplesDisplay);

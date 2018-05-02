@@ -62,7 +62,8 @@ class Composition extends React.Component {
             .map((assignment, i) =>
                 <Assignment idAssignment={assignment._id} index={i}
                     key={assignment._id + i} {...assignment}
-                    loadingAssignment={loading} idLessonComposition={idLessonComposition} errMsgAssignment={errMsg} />);
+                    loadingAssignment={loading} idLessonComposition={idLessonComposition}
+                    toggleViewLesson={this.toggleViewLesson} errMsgAssignment={errMsg} />);
 
         return (
             <div className="singleItemOthers" >
@@ -72,21 +73,21 @@ class Composition extends React.Component {
                 {isViewingLesson ?
                     <div className="viewOneLesson" >
                         <h2>{title}</h2>
-                        <span>{instructions}</span>
                         <div className="imgLessonWrap">
                             <img className="imgLesson" src={exampleImgOneUrl} alt="Lesson for Composition" />
                             <img className="imgLesson" src={exampleImgTwoUrl} alt="Lesson for Composition" />
                             <img className="imgLesson" src={exampleImgThreeUrl} alt="Lesson for Composition" />
                         </div>
-                        <div style={{width:"210px", margin: "0 auto", fontSize: "1.2em"}} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Actual Students</div>
+                        <span>{instructions}</span>
+                        <div style={{width:"210px", margin: "0 auto", fontSize: "1.2em"}} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Students</div>
                         {isViewingExamples ?
                             <div className="bigViewExample" style={styleEx} >
                                 <button onClick={this.toggleViewingExamples}>Close</button>
                                 <div>
-                                    <Examples toggleViewingExamples={this.toggleViewingExamples} key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
+                                    <Examples key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
                                 </div>
                             </div> : ""}
-                        <Link style={{width:"190px", margin: "0 auto"}} to={googleLink} target="_blank">Examples from the Web</Link>
+                        <Link style={{width:"190px", margin: "0 auto", textDecoration: "none"}} to={googleLink} target="_blank">Examples from the Web</Link>
                         <div>
                             <button onClick={this.toggleViewLesson}>back</button>
                             <button onClick={this.toggleViewingAssignment}>exercise</button>

@@ -31,7 +31,7 @@ class Viewfinder extends React.Component {
                 <div className="bottomRight"></div>
                 <Link className="login" to="/login"><span>Login</span></Link>
                 <div className="circle">
-                    <Link className="lessons" to="/lessons"><span>Lessons</span></Link>
+                    <Link className="lessons" to="/lessons"><span>Course</span></Link>
                 </div>
                 <Link className="noLine others" to="/others"><span>Others</span></Link>
                 <Link onClick={this.toggleContactView} className="noLine contact" to="#"><span>Contact</span></Link>

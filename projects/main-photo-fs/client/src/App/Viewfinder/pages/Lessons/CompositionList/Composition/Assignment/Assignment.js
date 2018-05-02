@@ -91,7 +91,9 @@ class Assignment extends React.Component {
         const { isViewingExamples } = this.state;
 
         // loading, err, id
-        const { data, loading, errMsg, loadingAssignment, errMsgAssignment, idAssignment, idLessonComposition } = this.props;
+        const { data, loading, errMsg, loadingAssignment, 
+            errMsgAssignment, idAssignment, 
+            idLessonComposition, toggleViewLesson } = this.props;
 
         const styleEx = {
             backgroundColor: "rgba(245, 245, 245)",
@@ -143,18 +145,21 @@ class Assignment extends React.Component {
                             <div>
                                 <div className="viewOneLesson" style={styleContain}>
                                     <div style={{ paddingBottom: "15px" }} className="navRoom">
-                                        <Link className="viewfinder" to="/"><span>Viewfinder</span></Link>
-                                        <Link className="viewfinder" to="/lessons"><span>Lessons</span></Link>
+                                        <Link className="viewfinder" to="/"><span className="stubbornFour">Viewfinder</span></Link>
+                                        <Link className="viewfinder" to="/lessons"><span className="stubbornThree">Lessons</span></Link>
+                                        <div  onClick={toggleViewLesson} className="viewfinder"><span className="stubbornTwo">Compositions</span></div>
+                                        <div className="stubbornOne" style={{color: "rgb(128, 128, 128)"}}>Progress: <span style={{
+                                            color: "rgba(218, 38, 38, 0.952)", fontSize: "2em"}}>{presentImages.length / 10 * 100}%</span></div>
                                     </div>
                                     <div>
                                         <h2>Assignment {title}</h2>
-                                        <span>{instructions}</span>
                                         <div className="imgLessonWrap">
                                             <img className="imgLesson" src={exampleImgOneUrl} alt="Lesson for Composition" />
                                             <img className="imgLesson" src={exampleImgTwoUrl} alt="Lesson for Composition" />
                                             <img className="imgLesson" src={exampleImgThreeUrl} alt="Lesson for Composition" />
                                         </div>
-                                        <div style={{ lineHeight: "30px", width: "210px", margin: "0 auto", fontSize: "1.2em" }} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Actual Students</div>
+                                        <span>{instructions}</span>
+                                        <div style={{ lineHeight: "30px", width: "210px", margin: "0 auto", fontSize: "1.2em" }} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Students</div>
                                         {isViewingExamples ?
                                             <div className="bigViewExample" style={styleEx} >
                                                 <button onClick={this.toggleViewingExamples}>Close</button>
@@ -162,19 +167,19 @@ class Assignment extends React.Component {
                                                     <Examples shortDescription={shortDescription} key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
                                                 </div>
                                             </div> : ""}
-                                        <Link style={{ width: "190px", margin: "0 auto" }} to={googleLink} target="_blank">Examples from the Web</Link>
+                                        <Link style={{ width: "190px", margin: "0 auto", textDecoration: "none" }} to={googleLink} target="_blank">Examples from the Web</Link>
                                         <div style={{ margin: "auto", display: "flex", flexDirection: "row", width: "210px", justifyContent: "space-evenly" }}>
                                             <form onSubmit={this.handleSubmitUpload}>
                                                 <input style={{ textAlign: "center" }} onChange={this.handleChange} name="imgUrlUpload"
                                                     value={imgUrlUpload} type="url" placeholder="Add a Picture" />
-                                                <button style={{height: "30px", width: "90px"}} disabled={imgUrlUpload.length < 5}>Upload</button>
+                                                <button style={{ height: "30px", width: "90px" }} disabled={imgUrlUpload.length < 5}>Upload</button>
                                             </form>
                                             <form onSubmit={this.handleSubmitNote}>
                                                 <input style={{ textAlign: "center" }} onChange={this.handleChange} name="noteText"
                                                     value={noteText} type="url" placeholder="Note" />
-                                                <div style={{display: "flex", flexDirection: "row"}}>
-                                                    <button style={{height: "35px", width: "65px"}} disabled={noteText.length < 5}>Add Note</button>
-                                                    <button style={{height: "35px", width: "65px"}}>View Notes</button>
+                                                <div style={{ display: "flex", flexDirection: "row" }}>
+                                                    <button style={{ height: "35px", width: "65px" }} disabled={noteText.length < 5}>Add Note</button>
+                                                    <button style={{ height: "35px", width: "65px" }}>View Notes</button>
                                                 </div>
                                             </form>
                                         </div>

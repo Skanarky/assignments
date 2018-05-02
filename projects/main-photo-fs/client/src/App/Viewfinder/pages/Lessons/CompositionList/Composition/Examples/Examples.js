@@ -34,16 +34,47 @@ class Examples extends React.Component {
             })
     }
 
+    editImageTrigger = (id, imageEdited) => {
+        //  shoot off put request
+        //replace old image with new image
+        const { images } = this.state;
+        axios.put(`/images/${id}`, imageEdited)
+            .then(response => {
+                // console.log(response.data);
+                const { data } = response;
+                // console.log(data);
+                this.setState({
+                    images: images.map(image => {
+                        if (image._id === id) {
+                            return data;
+                        } else {
+                            return image;
+                        }
+                    }),
+                    loading: false
+                })
+            })
+            .catch(err => {
+                this.setState({
+                    errMsg: err.message
+                })
+            })
+    }
+
+
     render = () => {
         const { images, errMsg, loading } = this.state;
-        const { shortDescription, toggleViewingExamples  } = this.props;
+        const { shortDescription } = this.props;
 
         const presentExamples = images.sort((exampleOne, exampleTwo) =>
-        exampleOne.likes < exampleTwo.likes).map((example, i) =>
-            <ExamplesDisplay toggleViewingExamples={toggleViewingExamples} 
-            key={example._id + i} 
-            exampleImageFull={example} {...example} exampleImageId={example._id} index={i} shortDescription={shortDescription}></ExamplesDisplay>
-        );
+            exampleOne.likes < exampleTwo.likes).map((example, i) =>
+                <ExamplesDisplay
+                    key={example._id + i}
+                    exampleImageFull={example} {...example} 
+                    exampleImageId={example._id} index={i} 
+                    shortDescription={shortDescription} 
+                    editImageTrigger={this.editImageTrigger}></ExamplesDisplay>
+            );
 
         if (loading) {
             return <h1 style={{ color: "green" }}>... Loading</h1>
@@ -64,6 +95,7 @@ class Examples extends React.Component {
         }
     }
 }
+
 
 
 
