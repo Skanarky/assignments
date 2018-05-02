@@ -11,33 +11,39 @@ const imageReducer = (state = initialState, action) => {
         case "GET_IMAGES":
             return {
                 ...state,
-                data: [...state.data, ...action.images],
+                data: action.images,
                 loading: false
             }
-        // case "ADD_ISSUE":
+        // case "GET_IMAGES_ASSIGN":
         //     return {
         //         ...state,
-        //         data: [...state.data, action.issue],
+        //         data: [...state.data, ...action.images],
         //         loading: false
         //     }
-        // case "EDIT_ISSUE":
-        //     return {
-        //         ...state,
-        //         data: state.data.map(issue => {
-        //             if (issue._id === action.id) {
-        //                 return {...issue, ...action.editedIssue};
-        //             } else {
-        //                 return issue;
-        //             }
-        //         }),
-        //         loading: false
-        //     }
-        // case "DELETE_ISSUE":
-        //     return {
-        //         ...state,
-        //         data: state.data.filter((issue) => issue._id !== action.id),
-        //         loading: false
-        //     }
+        case "ADD_IMAGE":
+            return {
+                ...state,
+                data: [...state.data, action.image],
+                loading: false
+            }
+        case "EDIT_IMAGE":
+            return {
+                ...state,
+                data: state.data.map(image => {
+                    if (image._id === action.id) {
+                        return { ...image, ...action.editedImage };
+                    } else {
+                        return image;
+                    }
+                }),
+                loading: false
+            }
+        case "DELETE_IMAGE":
+            return {
+                ...state,
+                data: state.data.filter((image) => image._id !== action.id),
+                loading: false
+            }
         case "ERR_MSG":
             return {
                 ...state,
@@ -53,49 +59,32 @@ const imageReducer = (state = initialState, action) => {
 // action creators:
 
 //provide lessonId AND userId
-export const getImages = (lessonId) => {
+export const getImages = () => {
     return dispatch => {
-        axios.get(`/images/?lessonId=${lessonId} `)
-        .then(response => {
-            // console.log(response.data);
-            dispatch({
-                type: "GET_IMAGES",
-                images: response.data
+        axios.get(`/images/`)
+            .then(response => {
+                // console.log(response.data);
+                dispatch({
+                    type: "GET_IMAGES",
+                    images: response.data
+                });
+            }).catch(err => {
+                dispatch({
+                    type: "ERR_MSG",
+                    errMsg: "Sorry, data unavailable!"
+                });
             });
-        }).catch(err => {
-            dispatch({
-                type: "ERR_MSG",
-                errMsg: "Sorry, data unavailable!"
-            });
-        });
     }
 }
 
-// export const addIssue = (issue) => {
+// export const getImagesByAssign = (assignId) => {
 //     return dispatch => {
-//         axios.post(`/issues/`, issue)
+//         axios.get(`/images/?assignId=${assignId} `)
 //         .then(response => {
 //             // console.log(response.data);
 //             dispatch({
-//                 type: "ADD_ISSUE",
-//                 issue: response.data
-//             });
-//         }).catch(err => {
-//             dispatch({
-//                 type: "ERR_MSG",
-//                 errMsg: "Sorry, data unavailable!"
-//             });
-//         });
-//     }
-// }
-// export const deleteIssue = (id) => {
-//     return dispatch => {
-//         axios.delete(`/issues/${id}`)
-//         .then(response => {
-//             // console.log(response.data);
-//             dispatch({
-//                 type: "DELETE_ISSUE",
-//                 id
+//                 type: "GET_IMAGES_ASSIGN",
+//                 images: response.data
 //             });
 //         }).catch(err => {
 //             dispatch({
@@ -106,23 +95,60 @@ export const getImages = (lessonId) => {
 //     }
 // }
 
-// export const editIssue = (id, issue) => {
-//     return dispatch => {
-//         axios.put(`/issues/${id}`, issue)
-//         .then(response => {
-//             // console.log(response.data);
-//             dispatch({
-//                 type: "EDIT_ISSUE",
-//                 id,
-//                 editedIssue: response.data
-//             });
-//         }).catch(err => {
-//             dispatch({
-//                 type: "ERR_MSG",
-//                 errMsg: "Sorry, data unavailable!"
-//             });
-//         });
-//     }
-// }
+export const addImage = (image) => {
+    return dispatch => {
+        axios.post(`/images/`, image)
+            .then(response => {
+                // console.log(response.data);
+                dispatch({
+                    type: "ADD_IMAGE",
+                    image: response.data
+                });
+            }).catch(err => {
+                dispatch({
+                    type: "ERR_MSG",
+                    errMsg: "Sorry, data unavailable!"
+                });
+            });
+    }
+}
 
-export default assignmentReducer;
+
+export const deleteImage = (id) => {
+    return dispatch => {
+        axios.delete(`/images/${id}`)
+            .then(response => {
+                // console.log(response.data);
+                dispatch({
+                    type: "DELETE_IMAGE",
+                    id
+                });
+            }).catch(err => {
+                dispatch({
+                    type: "ERR_MSG",
+                    errMsg: "Sorry, data unavailable!"
+                });
+            });
+    }
+}
+
+export const editImage = (id, editedImage) => {
+    return dispatch => {
+        axios.put(`/images/${id}`, editedImage)
+            .then(response => {
+                // console.log(response.data);
+                dispatch({
+                    type: "EDIT_IMAGE",
+                    id,
+                    editedImage: response.data
+                });
+            }).catch(err => {
+                dispatch({
+                    type: "ERR_MSG",
+                    errMsg: "Sorry, data unavailable!"
+                });
+            });
+    }
+}
+
+export default imageReducer;

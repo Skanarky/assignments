@@ -1,10 +1,10 @@
 
 import React from "react";
 
-// import { connect } from "react-redux";
-// import { deleteComment } from "./../../../../../../redux/comments.js";
+import { connect } from "react-redux";
+import { deleteComment } from "./../../../../../../../../../redux/comments.js";
 
-class CommentDisplay extends React.Component {
+class Comment extends React.Component {
 
     handleClick = (event) => {
         const { deleteComment, idComment } = this.props;
@@ -13,7 +13,7 @@ class CommentDisplay extends React.Component {
 
     render = () => {
         // console.log(this.props);
-        const { container, loadingComment, errMsgComment } = this.props;
+        const { textComment, loadingComment, errMsgComment } = this.props;
         if (loadingComment) {
             return (
                 <div style={{ color: "rgba(218, 238, 253, 0.95)" }}>... loading Comments</div>
@@ -25,7 +25,7 @@ class CommentDisplay extends React.Component {
         } else {
             return (
                 <li>
-                    <h6> {container} </h6>
+                    <h6> {textComment} </h6>
                     <button onClick={this.handleClick}>Delete</button>
                 </li>
             )
@@ -33,5 +33,5 @@ class CommentDisplay extends React.Component {
     }
 }
 
-// export default connect(null, { deleteComment })(CommentDisplay);
-export default CommentDisplay;
+export default connect(null, { deleteComment })(Comment);
+// export default Comment;

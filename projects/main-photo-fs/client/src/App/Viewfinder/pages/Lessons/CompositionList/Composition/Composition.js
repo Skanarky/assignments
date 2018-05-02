@@ -81,9 +81,9 @@ class Composition extends React.Component {
                         <div style={{width:"210px", margin: "0 auto", fontSize: "1.2em"}} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Actual Students</div>
                         {isViewingExamples ?
                             <div className="bigViewExample" style={styleEx} >
-                                <button onClick={this.toggleViewingExamples}>Close Examples</button>
+                                <button onClick={this.toggleViewingExamples}>Close</button>
                                 <div>
-                                    <Examples key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
+                                    <Examples toggleViewingExamples={this.toggleViewingExamples} key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
                                 </div>
                             </div> : ""}
                         <Link style={{width:"190px", margin: "0 auto"}} to={googleLink} target="_blank">Examples from the Web</Link>

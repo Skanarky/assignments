@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import ExamplesDisplay from "./ExamplesDisplay/ExamplesDisplay.js";
+
 class Examples extends React.Component {
 
     constructor(props) {
@@ -16,7 +18,7 @@ class Examples extends React.Component {
     componentDidMount = () => {
         const { idLessonComposition } = this.props;
         // console.log(this.props.match);
-        axios.get(`/images/?lessonId=${idLessonComposition} `)
+        axios.get(`/images/?lessonId=${idLessonComposition}`)
             .then(response => {
                 // console.log(response.data);
                 const { data } = response;
@@ -34,29 +36,35 @@ class Examples extends React.Component {
 
     render = () => {
         const { images, errMsg, loading } = this.state;
+        const { shortDescription, toggleViewingExamples  } = this.props;
 
-        const presentExamples = images.map((example, i) =>
-            <div>
-                <div>User Name {example._id.charAt(example._id.length - 1)}</div>
-                <img className="imgLesson" src={example.imageUrl} alt={example.lessonId.title} />
-            </div>
+        const presentExamples = images.sort((exampleOne, exampleTwo) =>
+        exampleOne.likes < exampleTwo.likes).map((example, i) =>
+            <ExamplesDisplay toggleViewingExamples={toggleViewingExamples} 
+            key={example._id + i} 
+            exampleImageFull={example} {...example} exampleImageId={example._id} index={i} shortDescription={shortDescription}></ExamplesDisplay>
         );
 
         if (loading) {
             return <h1 style={{ color: "green" }}>... Loading</h1>
+        } else if (errMsg) {
+            return <p>Sorry, data is not availble right now!</p>
+        } else if (images.length === 0) {
+            return (
+                <div className="exampleImgs">
+                    No Images Available
+                </div>
+            )
         } else {
-            if (errMsg) {
-                return <p>Sorry, data is not availble right now!</p>
-            } else {
-                return (
-                    <div className="exampleImgs">
-                        {presentExamples}
-                    </div>
-                )
-            }
+            return (
+                <div className="exampleImgs">
+                    {presentExamples}
+                </div>
+            )
         }
     }
 }
+
 
 
 // export default connect(stateToProps, { getImages, editIssue, addComment, getComments, deleteComment })(Assignment);

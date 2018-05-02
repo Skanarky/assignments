@@ -1,41 +1,40 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 
-// import { deleteIssue, editIssue } from "./../../../../../redux/issues.js";
+import { addImage, getImages } from "./../../.././../../../../redux/images.js";
 // import { addComment, getComments, deleteComment } from "./../../../../../redux/comments.js";
 
 import Examples from "../Examples/Examples.js";
-import CommentDisplay from "./CommentDisplay/CommentDisplay.js";
+// import CommentDisplay from "./CommentDisplay/CommentDisplay.js";
+import ImagesList from "./ImagesList/ImagesList.js";
 
 class Assignment extends React.Component {
     constructor(props) {
         super(props);
         this.initialState = {
-            isViewingExamples: false
+            isViewingExamples: false,
+            input: {
+                imgUrlUpload: "",
+                noteText: ""
+            }
         }
         this.state = this.initialState;
     };
 
-    // componentDidMount() {
-    //     const { getComments, id } = this.props;
-    //     getComments(id);
-    // }
-
-    // handleChange = (event) => {
-    //     // console.log(event);
-    //     const { value, name } = event.target;
-    //     this.setState(prevState => {
-    //         return {
-    //             comment: {
-    //                 ...prevState.comment,
-    //                 [name]: value
-    //             }
-    //         }
-    //     });
-    // }
+    handleChange = (event) => {
+        // console.log(event);
+        const { value, name } = event.target;
+        this.setState(prevState => {
+            return {
+                input: {
+                    ...prevState.input,
+                    [name]: value
+                }
+            }
+        });
+    }
 
     // handleClick = (event) => {
     //     const { deleteIssue, deleteComment, id } = this.props;
@@ -61,16 +60,25 @@ class Assignment extends React.Component {
     //     editIssue(id, { downVotes: downVotes + 1 });
     // }
 
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const { container } = this.state.comment;
-    //     const { addComment, id } = this.props;
-    //     addComment({
-    //         container,
-    //         issueId: id
-    //     });
-    //     this.setState({ ...this.state, comment: this.initialState.comment });
-    // }
+    componentDidMount = () => {
+        const { getImages } = this.props;
+        getImages();
+    }
+
+    handleSubmitUpload = (event) => {
+        event.preventDefault();
+        const { imgUrlUpload } = this.state.input;
+        // need userId later
+        const { addImage, idAssignment, idLessonComposition } = this.props;
+        const imgUpload = {
+            assignId: idAssignment,
+            lessonId: idLessonComposition,
+            imageUrl: imgUrlUpload,
+            likes: 0
+        }
+        addImage(imgUpload);
+        this.setState({ ...this.state, input: this.initialState.input });
+    }
 
     toggleViewingExamples = (event) => {
         this.setState({ ...this.state, isViewingExamples: !this.state.isViewingExamples });
@@ -79,11 +87,11 @@ class Assignment extends React.Component {
     render = () => {
         // console.log(this.props);
         // const { isCommenting } = this.state;
-        // const { container } = this.state.comment;
+        const { imgUrlUpload, noteText } = this.state.input;
         const { isViewingExamples } = this.state;
 
         // loading, err, id
-        const { loadingAssignment, errMsgAssignment, idAssignment, idLessonComposition } = this.props;
+        const { data, loading, errMsg, loadingAssignment, errMsgAssignment, idAssignment, idLessonComposition } = this.props;
 
         const styleEx = {
             backgroundColor: "rgba(245, 245, 245)",
@@ -95,6 +103,11 @@ class Assignment extends React.Component {
         const { title, shortDescription, exampleImgOneUrl
             , exampleImgTwoUrl, exampleImgThreeUrl, instructions
             , googleLink } = this.props.lessonId;
+
+        const presentImages = data.filter(image => image.assignId._id === idAssignment).map((image, i) =>
+            <ImagesList shortDescription={shortDescription} errMsg={errMsg} loading={loading} key={image._id + i} index={i} idImage={image._id} {...image}
+                idAssignment={idAssignment}></ImagesList>
+        );
         //comments?!    
         // const presentComments = data.filter(comment => comment.issueId === id).map((comment, i) =>
         //     <CommentDisplay key={comment._id + i}
@@ -107,12 +120,13 @@ class Assignment extends React.Component {
             flexDirection: "column",
             position: "fixed"
         }
-
         const styleContain = {
             backgroundColor: "rgb(245, 245, 245)", display: "grid",
             gridTemplateColumns: "1fr",
-            gridTemplateRows: ".1fr .5fr",
+            gridTemplateRows: ".1fr .9fr",
+            lineHeight: "50px"
         }
+
         if (loadingAssignment) {
             return (
                 <div style={{ color: "rgba(199, 2, 2, 0.63)", paddingLeft: "15px", fontSize: ".9em" }}>... loading Assignment</div>
@@ -132,65 +146,68 @@ class Assignment extends React.Component {
                                         <Link className="viewfinder" to="/"><span>Viewfinder</span></Link>
                                         <Link className="viewfinder" to="/lessons"><span>Lessons</span></Link>
                                     </div>
-                                    <h2>Assignment {title}</h2>
-                                    <span>{instructions}</span>
-                                    <div className="imgLessonWrap">
-                                        <img className="imgLesson" src={exampleImgOneUrl} alt="Lesson for Composition" />
-                                        <img className="imgLesson" src={exampleImgTwoUrl} alt="Lesson for Composition" />
-                                        <img className="imgLesson" src={exampleImgThreeUrl} alt="Lesson for Composition" />
+                                    <div>
+                                        <h2>Assignment {title}</h2>
+                                        <span>{instructions}</span>
+                                        <div className="imgLessonWrap">
+                                            <img className="imgLesson" src={exampleImgOneUrl} alt="Lesson for Composition" />
+                                            <img className="imgLesson" src={exampleImgTwoUrl} alt="Lesson for Composition" />
+                                            <img className="imgLesson" src={exampleImgThreeUrl} alt="Lesson for Composition" />
+                                        </div>
+                                        <div style={{ lineHeight: "30px", width: "210px", margin: "0 auto", fontSize: "1.2em" }} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Actual Students</div>
+                                        {isViewingExamples ?
+                                            <div className="bigViewExample" style={styleEx} >
+                                                <button onClick={this.toggleViewingExamples}>Close</button>
+                                                <div>
+                                                    <Examples shortDescription={shortDescription} key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
+                                                </div>
+                                            </div> : ""}
+                                        <Link style={{ width: "190px", margin: "0 auto" }} to={googleLink} target="_blank">Examples from the Web</Link>
+                                        <div style={{ margin: "auto", display: "flex", flexDirection: "row", width: "210px", justifyContent: "space-evenly" }}>
+                                            <form onSubmit={this.handleSubmitUpload}>
+                                                <input style={{ textAlign: "center" }} onChange={this.handleChange} name="imgUrlUpload"
+                                                    value={imgUrlUpload} type="url" placeholder="Add a Picture" />
+                                                <button style={{height: "30px", width: "90px"}} disabled={imgUrlUpload.length < 5}>Upload</button>
+                                            </form>
+                                            <form onSubmit={this.handleSubmitNote}>
+                                                <input style={{ textAlign: "center" }} onChange={this.handleChange} name="noteText"
+                                                    value={noteText} type="url" placeholder="Note" />
+                                                <div style={{display: "flex", flexDirection: "row"}}>
+                                                    <button style={{height: "35px", width: "65px"}} disabled={noteText.length < 5}>Add Note</button>
+                                                    <button style={{height: "35px", width: "65px"}}>View Notes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div style={{ margin: "auto", display: "flex", flexWrap: "wrap" }}>
+                                            {presentImages}
+                                        </div>
                                     </div>
-                                    <div style={{width:"210px", margin: "0 auto", fontSize: "1.2em"}} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Actual Students</div>
-                                    {isViewingExamples ?
-                                        <div className="bigViewExample" style={styleEx} >
-                                            <button onClick={this.toggleViewingExamples}>Close Examples</button>
-                                            <div>
-                                                <Examples key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
-                                            </div>
-                                        </div> : ""}
-                                    <Link style={{width:"190px", margin: "0 auto"}} to={googleLink} target="_blank">Examples from the Web</Link>
                                 </div>
                             </div>
-                            {/* <h2>{title}</h2>
-                    <span>{instructions}</span>
-                    <div>
-                        <img className="imgLesson" src={exampleImgOneUrl} alt="Lesson for Composition" />
-                        <img className="imgLesson" src={exampleImgTwoUrl} alt="Lesson for Composition" />
-                        <img className="imgLesson" src={exampleImgThreeUrl} alt="Lesson for Composition" />
-                    </div>
-                    <Link to={googleLink} target="_blank">Examples from Other Students</Link>
-                    <Link to={googleLink} target="_blank">Examples from the Web</Link> */}
 
-                            {/* <div className="small">
-                        <p>{title.charAt(0).toUpperCase().concat(title.substr(1))}</p>
-                        <button onClick={this.handleClick}>Delete</button>
-                    </div>
-                    <p className="description">{description.charAt(0).toUpperCase().concat(description.substr(1))}</p>
-    
-                    <img src={imgUrl} alt={title} />
-    
-                    <div className="votes">
-                        <div>
-                            Votes: {(upVotes + downVotes) > 0 ? (upVotes + downVotes) : 0}
-                        </div>
-                        <div>
-                            <i onClick={this.handleClickUpVote} className="fa fa-thumbs-up"></i>
-                            <i onClick={this.handleClickDownVote} className="fa fa-thumbs-down"></i>
-                            <i onClick={this.toggleComment} className="fa fa-comment"></i>
-                        </div>
-                    </div>
-                    {isCommenting ?
-                        <div className="view-comments">
-                            <button onClick={this.toggleCommentBack}>Go Back</button>
-                            <form onSubmit={this.handleSubmit}>
-                                <input onChange={this.handleChange} name="container"
-                                    value={container} type="text" placeholder="Add a Comment" />
-                                <button disabled={container.length < 3}>Post</button>
-                            </form>
-                            <ol>Comments:
+                            {/* <div className="votes">
+                                <div>
+                                    Votes: {(upVotes + downVotes) > 0 ? (upVotes + downVotes) : 0}
+                                </div>
+                                <div>
+                                    <i onClick={this.handleClickUpVote} className="fa fa-thumbs-up"></i>
+                                    <i onClick={this.handleClickDownVote} className="fa fa-thumbs-down"></i>
+                                    <i onClick={this.toggleComment} className="fa fa-comment"></i>
+                                </div>
+                            </div>
+                            {isCommenting ?
+                                <div className="view-comments">
+                                    <button onClick={this.toggleCommentBack}>Go Back</button>
+                                    <form onSubmit={this.handleSubmit}>
+                                        <input onChange={this.handleChange} name="container"
+                                            value={container} type="text" placeholder="Add a Comment" />
+                                        <button disabled={container.length < 3}>Post</button>
+                                    </form>
+                                    <ol>Comments:
                             {presentComments}
-                            </ol>
-                        </div>
-                        : ""} */}
+                                    </ol>
+                                </div>
+                                : ""} */}
                         </div>
                     </div>
                 </div>
@@ -199,5 +216,8 @@ class Assignment extends React.Component {
     }
 }
 
-// export default connect(stateToProps, { deleteIssue, editIssue, addComment, getComments, deleteComment })(Assignment);
-export default Assignment;
+function stateToProps(globalState) {
+    return globalState.images;
+}
+
+export default connect(stateToProps, { addImage, getImages })(Assignment);

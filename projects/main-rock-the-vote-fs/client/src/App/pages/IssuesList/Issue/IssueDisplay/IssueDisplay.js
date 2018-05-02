@@ -20,8 +20,8 @@ class IssueDisplay extends React.Component {
     };
 
     componentDidMount() {
-        const { getComments, id } = this.props;
-        getComments(id);
+        const { getComments} = this.props;
+        getComments();
     }
 
     handleChange = (event) => {
