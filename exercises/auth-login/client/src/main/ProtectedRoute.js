@@ -10,7 +10,7 @@ class ProtectedRoute extends Component {
             isAuthenticated ?
                 <Route path = {path} component = {Component} />
                 :
-                <Redirect to= "/" />
+                <Redirect to= "/"/>
         )
     }
 }

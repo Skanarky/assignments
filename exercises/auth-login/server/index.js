@@ -11,7 +11,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 //connect to db
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise; //not necessary
 mongoose.connect("mongodb://localhost/todo-auth-example",
     {useMongoClient: true},  // helps get rid of deprecation warnings
     (err) => {
