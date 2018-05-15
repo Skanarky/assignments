@@ -1,13 +1,8 @@
 //this route's only responsibility is to make it so user doesn't need to login every time the window refreshes
 const express = require("express");
-const expressJwt = require("express-jwt");
 const User = require("../models/user.js");
 
 const profileRoute = express.Router();
-
-// const auth = expressJwt({secret: process.env.SECRET});
-
-// profileRoute.use(auth);
 
 profileRoute.get("/", (req, res) => {
     User.findById(req.user._id, (err, user) => {

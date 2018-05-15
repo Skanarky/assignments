@@ -71,7 +71,6 @@ export function verify() {
                     type: "STOP_LOADING"
                 })
             })
-
     }
 }
 
