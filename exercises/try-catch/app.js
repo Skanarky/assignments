@@ -20,14 +20,16 @@ function login (objInp, username, password){
     if (objInp.username !== username) {
         throw "Invalid Username!";
     } else if (objInp.password !== password) {
-        throw "Invalid Password!";
+        throw {message: "Invalid Password!"};
     } else {
         console.log("Login successful!")
     }
 }
 
 try {
-    login (userOneObj, "sam", "123abc");
+    login (userOneObj, "sam", "123");
 } catch (err) {
-    console.log(err);
+    // console.log(err);
+    // console.log(err.message);
+    throw err.message;
 }
