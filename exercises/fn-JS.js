@@ -14,7 +14,8 @@ function add(x, y) {
 
 console.log(add(5, 2));
 
-// 2. immutability
+// 2. immutability - nobody or nothing can change state
+// see also library Immutable.js
 
 var x = 1;
 x = x + 1; // illegal in FN programming
@@ -46,8 +47,25 @@ function tenPlusParams(x, y) {
 }
 
 var a = tenPlusParams(0, 0);
-var b = tenPlusParams(1, 0);
-var c = tenPlusParams(1, 2);
+
+console.log(tenPlusParams(0, 0));
 console.log(a);
-console.log(b);
-console.log(c);
+console.log(tenPlusParams(1, 0));
+console.log(tenPlusParams(1, 2));
+
+// 3. use recusions instead of looping - part of 2. above
+// !!! Recusrion may be expensive tho!
+
+// loop construct
+let acc = 0;
+for (var i = 1; i <= 10; ++i) {
+    acc += i;
+}
+console.log(acc);
+// without loop construct or variables
+function sumRange(start, end, acc) {
+    if (start > end)
+        return acc;
+    return sumRange(start + 1, end, acc + start)
+}
+console.log(sumRange(1, 10, 0)); // prints 55
