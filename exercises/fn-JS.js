@@ -130,5 +130,26 @@ console.log(add10To(20));
 console.log(add5To(20));
 console.log(add10To20);
 console.log(add5To20);
+// console.log(add10To); // -> [Fuction]
 
-console.log(add10To); // -> [Fuction]
+// 6. closure -> a function’s scope that’s kept alive by a reference to that function
+
+function printNames(str1) {
+    const type1 = 'First: ';
+    return (str2) => {
+        const type2 = 'Middle: ';
+        return (str3) => {
+            const type3 = 'Last: ';
+            return type1 + str1 + ', ' + type2 + str2 + ', ' + type3 + str3;
+        }
+    };
+}
+
+const firstNameToMiddle = printNames('ILIAN');
+const middleNameToLast = firstNameToMiddle('MILENOV');
+const lastNameToAll = middleNameToLast('KUTKUROV');
+
+console.log(lastNameToAll);
+// console.log(firstNameToMiddle); // -> [Fuction]
+// console.log(middleNameToLast); // -> [Fuction]
+console.log(middleNameToLast('KUTKUROV'));
