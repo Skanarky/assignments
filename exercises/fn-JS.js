@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // FN Programming:
 // The goal is to minimize the amount of impure 
@@ -62,10 +62,73 @@ for (var i = 1; i <= 10; ++i) {
     acc += i;
 }
 console.log(acc);
-// without loop construct or variables
+// without loop construct or !!!variables
 function sumRange(start, end, acc) {
     if (start > end)
         return acc;
     return sumRange(start + 1, end, acc + start)
 }
 console.log(sumRange(1, 10, 0)); // prints 55
+
+// 4. refactoring
+
+function validateSsn(ssn) {
+    if (/^\d{3}-\d{2}-\d{4}$/.exec(ssn))
+        console.log('Valid SSN');
+    else
+        console.log('Invalid SSN');
+}
+function validatePhone(phone) {
+    if (/^\(\d{3}\)\d{3}-\d{4}$/.exec(phone))
+        console.log('Valid Phone Number');
+    else
+        console.log('Invalid Phone Number');
+}
+
+validateSsn('123-123-123');
+validateSsn('123-12-1234');
+
+function validSmthg(val, expr, type) {
+    if (expr.exec(val))
+        console.log(`Valid ${type}`);
+    else
+        console.log(`Invalid ${type}`);
+}
+
+validSmthg('(123)123-12', /^\(\d{3}\)\d{3}-\d{4}$/, 'Phone');
+validSmthg('(123)123-1234', /^\(\d{3}\)\d{3}-\d{4}$/, 'Phone');
+
+// 5. refactoring and higher order fn-s
+
+const phNo = /^\(\d{3}\)\d{3}-\d{4}$/.exec.bind(/^\(\d{3}\)\d{3}-\d{4}$/);
+const ssNo = /^\d{3}-\d{2}-\d{4}$/.exec.bind(/^\d{3}-\d{2}-\d{4}$/);
+const isStr = (val) => typeof val === 'string';
+
+function validSmthgHigherOrder(val, checkFn, type) {
+    if (checkFn(val))
+        console.log(`Valid ${type}`);
+    else
+        console.log(`Invalid ${type}`);
+}
+
+validSmthgHigherOrder('123-12-1234', ssNo, 'SSN');
+validSmthgHigherOrder('(123)123-1234', phNo, 'Phone');
+validSmthgHigherOrder('bla bla', isStr, 'String');
+validSmthgHigherOrder(123456, isStr, 'String');
+
+function makeAdder(initVal) {
+    return (secVal) => initVal + secVal;
+}
+
+const add10To = makeAdder(10);
+const add5To = makeAdder(5);
+// with some currying
+const add10To20 = makeAdder(10)(20);
+const add5To20 = makeAdder(5)(20);
+
+console.log(add10To(20));
+console.log(add5To(20));
+console.log(add10To20);
+console.log(add5To20);
+
+console.log(add10To); // -> [Fuction]
