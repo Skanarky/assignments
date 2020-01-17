@@ -132,7 +132,7 @@ console.log(add10To20);
 console.log(add5To20);
 // console.log(add10To); // -> [Fuction]
 
-// 6. closure -> a function’s scope that’s kept alive by a reference to that function
+// 6. closure -> a function’s scope that is kept alive by a reference to that function
 
 function printNames(str1) {
     const type1 = 'First: ';
@@ -153,3 +153,93 @@ console.log(lastNameToAll);
 // console.log(firstNameToMiddle); // -> [Fuction]
 // console.log(middleNameToLast); // -> [Fuction]
 console.log(middleNameToLast('KUTKUROV'));
+
+// 7. function composition - functions as building blocks
+
+function addAValTo5(val) {
+    return val + 5;
+}
+
+function multAValBy5(val) {
+    return val * 5;
+}
+
+// then we can compose / create ->
+function addAValTo5AndMultBy5(val) {
+    return multAValBy5(addAValTo5(val));
+}
+
+console.log(addAValTo5AndMultBy5(5));
+
+// 8. point-free notation - in point 7. above 'val' is specified twice (in parameter and when used)
+// when point free no need to specify it at all - supposedly easier to read and reason (less verbose), and
+// no need to come up with names for those variables since we don't specify them
+
+// 9. currying - a curried function is a function that only takes a single parameter at a time.
+// ! using example in point 7. but make it more flexible
+
+// two very simple fns that do one think only vvv
+// replace addValTo5 with just add fn
+// function addAValToVal(val) {
+//     return (val2) => val + val2;
+// }
+const addAValToVal = (val) => (val2) => val + val2;
+
+// replace multAValBy5 with just mult fn
+// function multAValByVal(val) {
+//     return (val2) => val * val2;
+// }
+const multAValByVal = (val) => (val2) => val * val2;
+
+// this vvv function can be point free notated and
+// we always pass only one parameter at a time (reusable, composable, ...)
+// function addValToValAndMultByVal(val) {
+//     return (val2) => (val3) => multAValByVal(val3)(addAValToVal(val)(val2));
+// }
+const addValToValAndMultByVal = (val1) => (val2) => (val3) => multAValByVal(val3)(addAValToVal(val1)(val2));
+
+console.log(addValToValAndMultByVal(5)(3)(9));
+
+// this ^^^ can be broken down like this vvv (passing one param at a time)
+
+const initNum5ToAddTo = addValToValAndMultByVal(5);
+
+const val8ToMultBy = initNum5ToAddTo(3);
+const val11ToMultBy = initNum5ToAddTo(6);
+
+const multBy9AndFinalResult72 = val8ToMultBy(9);
+const multBy9AndFinalResult99 = val11ToMultBy(9);
+
+console.log(multBy9AndFinalResult72);
+console.log(multBy9AndFinalResult99);
+
+// or with passing functions as params vvv
+// one param at a time
+const composedMultByValAndAddValToVal = (fn1) => (fn2) => (val1) => fn1(fn2(val1));
+console.log('curr 1: ', composedMultByValAndAddValToVal(multAValByVal(9))(addAValToVal(5))(3));
+
+const composedMultAndThenAddFnsForValbyVal = fn1 => val1 => fn2 => val2 => val3 => fn1(val1)(fn2(val2)(val3));
+console.log('curr 2: ', composedMultAndThenAddFnsForValbyVal(multAValByVal)(9)(addAValToVal)(5)(3));
+
+// two then one param
+const composeFn = (fn1, fn2) => x => fn1(fn2(x));
+console.log(composeFn(multAValByVal(9), addAValToVal(5))(3));
+
+// !
+// in order to reuse - more static params should go at the beginning, and params most likely to cahnge at the end
+// parameter order is important to fully leverage currying.
+// !
+
+// 10. .filter, .map, .reduce ...
+
+// 11. referential transparency <=> reverse refactoring
+// a pure function can safely be replaced by its expression
+
+// 12. execution order
+// two things must be true for independence and possible better performace and to take advantage of modern multi core platforms
+// first, functions must be pure; this is important because they must not be affected by the execution of the other / eachother
+// second, the output of one function is not used as the input of the other
+
+// * some libs:
+// Immutable.js
+// Ramda (currying, point-free notation, etc.)
