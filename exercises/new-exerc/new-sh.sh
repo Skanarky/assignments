@@ -34,3 +34,5 @@ echo "9. if file is executable (must have the shebang tho) can run with just './
 echo "10. look at the backup script file for more uses of vars with '$', '(', '{' or without the '(', '{'"
 echo "11. redirect to /dev/null if you want to discard any data or output, see man null"
 echo "12. use '<' to get input - see backup script for an example (pulling string from a  file)"
+echo "13. functions + functions with vars"
+echo "14. using arithmetic expansion '((number here...))' to do arithmetics"

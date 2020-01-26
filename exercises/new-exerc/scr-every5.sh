@@ -1,6 +1,6 @@
 #!/bin/bash
 
-theNum=1
+theNum=0
 
 checkNumAndDoActn () {
 
@@ -13,10 +13,8 @@ else
   echo "Number is odd."
 fi
 
-((++theNum))
-
-echo $theNum
+((theNum+=5))
 
 }
 
-checkNumAndDoActn
+while true; do checkNumAndDoActn; sleep 5; done
