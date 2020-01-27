@@ -9,8 +9,10 @@ echo $theNum
 if [ $((theNum%2)) -eq 0 ]
 then
   echo "Number is even."
+  open -a Safari
 else
   echo "Number is odd."
+  killall Safari
 fi
 
 ((theNum+=5))
