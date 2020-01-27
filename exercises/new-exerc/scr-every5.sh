@@ -15,6 +15,10 @@ fi
 
 ((theNum+=5))
 
+echo "var state after incr OR decr: $theNum"
+
 }
 
-while true; do checkNumAndDoActn; sleep 5; done
+# while true; do checkNumAndDoActn; sleep 5; done
+
+while [ $theNum -le 25 ]; do checkNumAndDoActn; sleep 5; done

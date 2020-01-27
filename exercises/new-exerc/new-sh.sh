@@ -36,3 +36,4 @@ echo "11. redirect to /dev/null if you want to discard any data or output, see m
 echo "12. use '<' to get input - see backup script for an example (pulling string from a  file)"
 echo "13. functions + functions with vars"
 echo "14. using arithmetic expansion '((number here...))' to do arithmetics"
+echo "15. functions CAN NOT return values, they dump their execution msg into the '$?' variable"
