@@ -6,6 +6,10 @@ user=$(whoami)
 input=/Users/$user/Music
 output=/Users/$user/Desktop/${user}_music_$(date +%Y-%m-%d_%H%M%S).tar.gz
 
+function total_directories {
+    find $1 -type d | wc -l
+}
+
 echo "- - - - -"
 echo "Start of backing up - $input - with recording script output in file outp-backup.txt"
 echo "- - - - -"
@@ -18,6 +22,8 @@ echo "$(< date-for-bup.txt)"
 
 echo "Backup of - $input - folder for user - $user - done!"
 echo "- - - - -"
-echo "File details:"
+echo "Number of directories added: $(total_directories $input)"
+echo "- - - - -"
+echo "Archive details:"
 ls -al $output
 echo "- - - - -"
