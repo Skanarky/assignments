@@ -10,6 +10,11 @@ function total_directories {
     find $1 -type d | wc -l
 }
 
+function total_archived_directories {
+        tar -tzf $1 | grep  /$ | wc -l
+}
+
+echo " *** START - - - - -"
 echo "- - - - -"
 echo "Start of backing up - $input - with recording script output in file outp-backup.txt"
 echo "- - - - -"
@@ -20,10 +25,20 @@ echo "--- On $(date +%Y-%m-%d_%H%M%S) ---" >> outp-backup.txt
 # PRINT  date from file - an example for terminal input from another file
 echo "$(< date-for-bup.txt)"
 
-echo "Backup of - $input - folder for user - $user - done!"
 echo "- - - - -"
-echo "Number of directories added: $(total_directories $input)"
+echo "Number of directories to be archived: $(total_directories $input)"
 echo "- - - - -"
-echo "Archive details:"
-ls -al $output
-echo "- - - - -"
+
+if [ $(total_archived_directories $output) -eq $(total_directories $input) ]
+then
+    echo "Number of archived directories: $(total_archived_directories $output)"
+    echo "- - - - -"
+    echo "Backup of - $input - directory for user - $user - was successful!"
+    echo "- - - - -"
+    echo "Archive details:"
+    ls -al $output
+else
+    echo "Backup of - $input - directory for user - $user - failed!"
+fi
+
+echo " *** END - - - - -"
