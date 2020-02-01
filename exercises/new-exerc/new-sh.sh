@@ -45,3 +45,8 @@ echo "20. use ';' to separate and execute multiple, independent on the output or
 echo "21. use 'grep <file-repo-app-you-look-for>' to find things; also 'find <file-name>' kind of similar"
 echo "22. you can open or close apps by using 'osascript' or 'open -a' and 'killall' with the name of the app OR 'kil' but then you need the PID of the running app that you can get with the 'pgrep' command and pass it"
 echo "23. 'wc' command can count files, dirs, etc.; see 'man wc'"
+
+
+echo "- - - - -"
+echo "Execute script Backup for user 'owner'"
+./backup-exerc.sh owner

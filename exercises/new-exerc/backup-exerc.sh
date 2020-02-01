@@ -2,7 +2,9 @@
 
 # this, script will backup the Music folder for ANY user of this computer and output it to desktop
 
-user=$(whoami)
+# user=$(whoami)
+# using a positional param for user
+user=$1
 input=/Users/$user/Music
 output=/Users/$user/Desktop/${user}_music_$(date +%Y-%m-%d_%H%M%S).tar.gz
 
