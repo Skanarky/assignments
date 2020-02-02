@@ -1,10 +1,19 @@
 #!/bin/bash
 
-# this, script will backup the Music folder for ANY user of this computer and output it to desktop
+# this, script will backup the Music folder for any (if permission OK) user of this computer and output it to desktop
 
-# user=$(whoami)
-# using a positional param for user
-user=$1
+if [ -z $1 ]
+then
+    user=$(whoami)
+else
+    if [ ! -d "/Users/$1/Music" ]
+    then
+        echo "Requested - $1 - user Music directory doesn't exist."
+        exit 1
+    fi
+    user=$1
+fi
+
 input=/Users/$user/Music
 output=/Users/$user/Desktop/${user}_music_$(date +%Y-%m-%d_%H%M%S).tar.gz
 
@@ -13,7 +22,7 @@ function total_directories {
 }
 
 function total_archived_directories {
-        tar -tzf $1 | grep  /$ | wc -l
+    tar -tzf $1 | grep  /$ | wc -l
 }
 
 echo " *** START - - - - -"
