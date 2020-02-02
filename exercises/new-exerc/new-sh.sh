@@ -50,4 +50,4 @@ echo "24. 'DollarSign*' contains all the passed params in a fn or script file"
 
 echo "- - - - -"
 echo "Execute script Backup for user 'owner'"
-#./backup-exerc.sh owner
+./backup-exerc.sh owner
