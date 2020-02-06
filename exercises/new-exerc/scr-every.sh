@@ -3,7 +3,7 @@
 # VARIABLES
 theNum=0
 # needs to be odd num
-delayTimeInSecs=5
+delayTimeInSecs=35
 # timesToRun var needs to be even num so Safari can be closed at the end
 timesToRun=4
 
