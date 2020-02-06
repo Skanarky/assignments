@@ -54,33 +54,38 @@ theBackupFn () {
     lsit_directories_names
     echo "- - - - -"
 
-    tar -czf  $output $input &> outp-backup.txt
-    # OR
-    # tar -czf  $output $input 2> /dev/null 
-    echo "--- On $(date +%Y-%m-%d_%H%M%S) ---" >> outp-backup.txt
-    echo "- - - - -"
-    echo "Msg from within outp-backup.txt file:"
-    cat outp-backup.txt
-    echo "- - - - -"
-
-    # PRINT  date from file - an example for input from another file
-    # Can use with constant or similar
-    # echo "$(< date-for-bup.txt)"
-    # echo "- - - - -"
-
-    if [ $(total_archived_directories $output) -gt 0  -a  $(total_directories $input) -gt 0  -a  $(total_archived_directories $output) -eq $(total_directories $input) ]
-    then
-        echo "Number of archived directories: $(total_archived_directories $output)"
+    if [ $(total_directories $input) -gt 0 ]
+    then 
+        tar -czf  $output $input &> outp-backup.txt
+        # OR
+        # tar -czf  $output $input 2> /dev/null 
+        echo "--- On $(date +%Y-%m-%d_%H%M%S) ---" >> outp-backup.txt
         echo "- - - - -"
-        echo "Backup of - $input - directory for user - $user - was successful!"
+        echo "Msg from within outp-backup.txt file:"
+        cat outp-backup.txt
         echo "- - - - -"
-        echo "Archive details:"
-        ls -al $output
+
+        # PRINT  date from file - an example for input from another file
+        # Can use with constant or similar
+        # echo "$(< date-for-bup.txt)"
+        # echo "- - - - -"
+
+        if [ $(total_archived_directories $output) -gt 0  -a  $(total_archived_directories $output) -eq $(total_directories $input) ]
+        then
+            echo "Number of archived directories: $(total_archived_directories $output)"
+            echo "- - - - -"
+            echo "Backup of - $input - directory for user - $user - was successful!"
+            echo "- - - - -"
+            echo "Archive details:"
+            ls -al $output
+        else
+            echo "Backup of - $input - directory for user - $user - failed!"
+        fi
+
+        echo " *** END - - - - -"
     else
-        echo "Backup of - $input - directory for user - $user - failed!"
-    fi
-
-    echo " *** END - - - - -"
+        echo "There are no directories to back up - program will exit."
+    fi    
 
 }
 
