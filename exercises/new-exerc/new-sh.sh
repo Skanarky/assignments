@@ -61,3 +61,5 @@ echo "24. 'DollarSign*' contains all the passed params in a fn or script file"
 echo "- - - - -"
 echo "Execute script Backup for user 'owner'"
 ./backup-exerc.sh owner
+
+echo "next - read while loop and change while loop addition in the actual loop - scr-every file; read until loop; do -exercise- at the end of Loops' Section; Bash Arithmetics."

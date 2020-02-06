@@ -3,7 +3,7 @@
 # VARIABLES
 theNum=0
 # needs to be odd num
-delayTimeInSecs=35
+delayTimeInSecs=5
 # timesToRun var needs to be even num so Safari can be closed at the end
 timesToRun=4
 
@@ -45,13 +45,14 @@ checkNumAndDoActn () {
     killall Safari
   fi
 
-  ((theNum+=delayTimeInSecs))
-
-  countTimesCalledMsg $theNum
-
 }
 
 # delay before first open of Safari
-sleep 50
+# sleep 50
 
-while [ $(countTimesCalledNum $theNum) -le $(timesToRunFn) ]; do checkNumAndDoActn; sleep $delayTimeInSecs; done
+while [ $(countTimesCalledNum $theNum) -le $(timesToRunFn) ]; do 
+  checkNumAndDoActn
+  ((theNum+=delayTimeInSecs))
+  countTimesCalledMsg $theNum
+  sleep $delayTimeInSecs
+done
