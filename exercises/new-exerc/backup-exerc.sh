@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # this, script will backup the Music folder for any (if permission OK) user of this computer and output it to desktop
+# user name parameter need to be passed -> ./backup-exerc.sh <name-of-user>
 
 runsNum=0
 
@@ -38,11 +39,19 @@ theBackupFn () {
         tar -tzf $1 | grep  /$ | wc -l
     }
 
+    function lsit_directories_names {
+        local varForLoop="$input/*"
+        for aVar in  $( ls $varForLoop ); do echo "$aVar has $(echo -n $aVar | wc -c | awk '{$1=$1;print}') bytes/characters!"; done
+    }
+
     echo " *** START - - - - -"
     echo "- - - - -"
     echo "Start of backing up - $input - with recording script output in file outp-backup.txt"
     echo "- - - - -"
     echo "Number of directories to be archived: $(total_directories $input)"
+    echo "- - - - -"
+    echo "Directories' names and character number (if name has space it splits the name):"
+    lsit_directories_names
     echo "- - - - -"
 
     tar -czf  $output $input &> outp-backup.txt

@@ -20,6 +20,16 @@ echo "- - - - -"
 echo "done with cal"
 echo "- - - - -"
 
+for aVar in  $( cat a-list.txt ); do echo $aVar; done
+echo "- - - - -"
+for aVar in  $( cat a-list.txt ); do echo -n $aVar | wc -c; done
+
+echo "- - - - -"
+echo "done with example for 'for' loop and accessing another file"
+echo "- - - - -"
+
+
+
 echo "some notes:"
 echo "1. some command + '>' + <new-file-name> can create the file and wrtie the output of that command"
 echo "2. like note above but with '>>' + existing file will write directly into the file (output no error), or use '2>' to output error, or '&>' to output both - normal and error"
