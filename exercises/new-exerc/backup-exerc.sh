@@ -4,9 +4,10 @@
 # user name parameter need to be passed -> ./backup-exerc.sh <name-of-user>
 
 runsNum=0
+totDirsBUp=0
 
 theBackupFn () {
-    ((runsNum+=1))
+    (( runsNum+=1 ))
     
     echo ""
     echo "RUN No. $runsNum; Executing with Bash ver. $BASH_VERSION"
@@ -54,7 +55,7 @@ theBackupFn () {
     lsit_directories_names
     echo "- - - - -"
 
-    if [ $(total_directories $input) -gt 0 ]
+    if [ $( total_directories $input ) -gt 0 ]
     then 
         tar -czf  $output $input &> outp-backup.txt
         # OR
@@ -70,9 +71,10 @@ theBackupFn () {
         # echo "$(< date-for-bup.txt)"
         # echo "- - - - -"
 
-        if [ $(total_archived_directories $output) -gt 0  -a  $(total_archived_directories $output) -eq $(total_directories $input) ]
+        if [ $( total_archived_directories $output ) -gt 0  -a  $(total_archived_directories $output) -eq $( total_directories $input ) ]
         then
-            echo "Number of archived directories: $(total_archived_directories $output)"
+            echo "Number of archived directories: $( total_archived_directories $output )"
+            (( totDirsBUp+=$( total_archived_directories $output) ))
             echo "- - - - -"
             echo "Backup of - $input - directory for user - $user - was successful!"
             echo "- - - - -"
@@ -91,4 +93,8 @@ theBackupFn () {
 
 for theUser in $*; do
     theBackupFn $theUser
+    let allBUpDir=$allBUpDir+$totDirsBUp
+    (( totDirsBUp=0 ))
 done;
+
+echo "Total dir backed up for all users: $allBUpDir"
