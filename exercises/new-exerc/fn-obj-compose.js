@@ -115,3 +115,8 @@ console.log(returnedTarget2);
 c.c.d = 7;
 console.log(returnedTarget);
 console.log(returnedTarget2);
+
+// CONCL
+// 1. There’s more than one way to do it.
+// 2. Some ways are better than others.
+// 3. You want to select the simplest, MOST FLEXIBLE solution for the task at hand.
