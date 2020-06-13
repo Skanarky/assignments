@@ -10,15 +10,15 @@ const callNumCounter = callNum();
 // Categories of JS/ES6 Design Patterns ("Design pattern -> general, reusable solution to a commonly occurring problem in software design"):
 
 // 1. Creational (object creation mechanism) - Constructor Pattern, Factory Pattern, Prototype Pattern, and Singleton Pattern
-categoryFn('Creational')([ constructorPattern, factoryPattern ]);
+categoryFn('creational')([ constructorPattern, factoryPattern ]);
 
 // 2. Structural (class and object composition) - Adapter Pattern, Composite Pattern, Decorator Pattern,
 // Façade Pattern, Flyweight Pattern, and Proxy Pattern
-categoryFn('Structural')([ ()=> console.warn("test function for STRUCTURAL pattern") ]);
+categoryFn('structural')([ ]);
 
 // 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern, and Template Pattern
-categoryFn('Behavioral');
+categoryFn('behavioral')([ ]);
 
 
 
@@ -52,6 +52,7 @@ categoryFn('Behavioral');
 // (includes functions that return logs and examples, simulating flash cards in order to help memorizing the material (call a pattern or category
 // function and get the examples and the theory/text))
 
+// helpers
 function callNum() {
     let count = 0;
     return () => {
@@ -68,8 +69,13 @@ function separator(sep, times) {
     console.log(sepStr);
 }
 
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+
+// main
 function categoryFn(type) {
-    console.log(`${callNumCounter()}. ${type} Category:`);
+    console.log(`${callNumCounter()}. ${capitalize(type)} Category:`);
     return (patternFnArr) => {
 
         separator("v", 3);
@@ -180,6 +186,5 @@ function factoryPattern() {
     soccer.kick();
     // soccer.bounce(); // -> soccer.bounce is not a function
 
-    separator("-", 7);
     basketBall.roll();
 }
