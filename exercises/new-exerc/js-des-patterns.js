@@ -1,6 +1,6 @@
 "use strict";
 
-let callNum = 0;
+const callNumCounter = callNum();
 
 // THEORY: (remove it eventually - it will all come from the function call)
 // Categories of JS/ES6 Design Patterns ("Design pattern -> general, reusable solution to a commonly occurring problem in software design")
@@ -8,7 +8,7 @@ let callNum = 0;
 categoryFn('Creational')([ constructorPattern ]);
 // 2. Structural (class and object composition) - Adapter Pattern, Composite Pattern, Decorator Pattern,
 // Façade Pattern, Flyweight Pattern, and Proxy Pattern
-categoryFn('Structural');
+categoryFn('Structural')([ ()=> console.warn("test STRUCTURAL pattern") ]);
 // 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern, and Template Pattern
 categoryFn('Behavioral');
@@ -45,6 +45,14 @@ categoryFn('Behavioral');
 // (includes functions that return logs and examples, simulating flash cards in order to help memorizing the material (call a pattern or category
 // function and get the examples and the theory/text))
 
+function callNum() {
+    let count = 0;
+    return () => {
+        count += 1;
+        return count;
+    }
+}
+
 function separator(sep, times) {
     let sepStr = '';
     for (let i = 0; i < times; ++i) {
@@ -54,13 +62,17 @@ function separator(sep, times) {
 }
 
 function categoryFn(type) {
-    callNum = callNum + 1;
-    console.log(`${callNum}. ${type} Category:`)
-    separator("v", 3);
-    return (patternArr) => patternArr.map(pattern => {
-        pattern();
-        separator("-", 7);
-    })
+    console.log(`${callNumCounter()}. ${type} Category:`)
+    return (patternFnArr) => {
+        
+        separator("v", 3);
+        
+        patternFnArr.map(patternFn => {
+            patternFn();
+            separator("-", 7);
+        });
+
+    }
 }
 
 // - - - Patterns - - -
