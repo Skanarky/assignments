@@ -1,11 +1,17 @@
-// THEORY: (remove text eventually - it will all come from the function call)
+"use strict";
+
+let callNum = 0;
+
+// THEORY: (remove it eventually - it will all come from the function call)
 // Categories of JS/ES6 Design Patterns ("Design pattern -> general, reusable solution to a commonly occurring problem in software design")
 // 1. Creational (object creation mechanism) - Constructor Pattern, Factory Pattern, Prototype Pattern, and Singleton Pattern
-creationalCategory();
+categoryFn('Creational')([ constructorPattern ]);
 // 2. Structural (class and object composition) - Adapter Pattern, Composite Pattern, Decorator Pattern,
 // Façade Pattern, Flyweight Pattern, and Proxy Pattern
+categoryFn('Structural');
 // 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern, and Template Pattern
+categoryFn('Behavioral');
 
 
 
@@ -39,10 +45,22 @@ creationalCategory();
 // (includes functions that return logs and examples, simulating flash cards in order to help memorizing the material (call a pattern or category
 // function and get the examples and the theory/text))
 
-// - - - Categories - - -
-function creationalCategory() {
-    console.log("Creational Category:")
-    constructorPattern();
+function separator(sep, times) {
+    let sepStr = '';
+    for (let i = 0; i < times; ++i) {
+        sepStr += i === times ? sep : (sep + " ");
+    }
+    console.log(sepStr);
+}
+
+function categoryFn(type) {
+    callNum = callNum + 1;
+    console.log(`${callNum}. ${type} Category:`)
+    separator("v", 3);
+    return (patternArr) => patternArr.map(pattern => {
+        pattern();
+        separator("-", 7);
+    })
 }
 
 // - - - Patterns - - -
