@@ -5,52 +5,30 @@ const callNumCounter = callNum();
 // SRC: https://medium.com/better-programming/javascript-design-patterns-25f0faaaa15
 // CREDITS: https://medium.com/@drenther
 
-// THEORY: (remove eventually - it will all come from function calls)
+// SOME THEORY:
 
-// Categories of JS/ES6 Design Patterns ("Design pattern -> general, reusable solution to a commonly occurring problem in software design"):
+// Categories of JS/ES6 Design Patterns:
+// (call main categoryFn with the category name and get the examples and the theory/text)
 
 // 1. Creational (object creation mechanism) - Constructor Pattern, Factory Pattern, Prototype Pattern, and Singleton Pattern
-categoryFn('creational')([ constructorPattern, factoryPattern ]);
+categoryFn('creational')([
+    constructorPattern,
+    factoryPattern,
+    prototypePattern,
+    singletonPattern
+]);
 
 // 2. Structural (class and object composition) - Adapter Pattern, Composite Pattern, Decorator Pattern,
 // Façade Pattern, Flyweight Pattern, and Proxy Pattern
-categoryFn('structural')([ ]);
+categoryFn('structural')([
+    adapterPattern
+]);
 
 // 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern, and Template Pattern
 categoryFn('behavioral')([ ]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // CODE:
-// (includes functions that return logs and examples, simulating flash cards in order to help memorizing the material (call a pattern or category
-// function and get the examples and the theory/text))
 
 // helpers
 function callNum() {
@@ -69,13 +47,13 @@ function separator(sep, times) {
     console.log(sepStr);
 }
 
-function capitalize(string) {
+function capitalizeOne(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
 // main
 function categoryFn(type) {
-    console.log(`${callNumCounter()}. ${capitalize(type)} Category:`);
+    console.log(`${callNumCounter()}. ${capitalizeOne(type)} Category:`);
     return (patternFnArr) => {
 
         separator("v", 3);
@@ -89,7 +67,8 @@ function categoryFn(type) {
 }
 
 // - - - Patterns - - -
-// 1.
+
+// 1.1.
 
 function constructorPattern() {
     console.log("- Constructor Pattern")
@@ -124,7 +103,7 @@ function constructorPattern() {
     console.log(deGea.getDetails());
 }
 
-// 2.
+// 1.2.
 
 function factoryPattern() {
     console.log("- Factory Pattern")
@@ -187,4 +166,141 @@ function factoryPattern() {
     // soccer.bounce(); // -> soccer.bounce is not a function
 
     basketBall.roll();
+}
+
+// 1.3.
+
+function prototypePattern() {
+    console.log("- Prototype Pattern")
+    console.log("* object-based creational design pattern")
+    console.log("* we use a sort of a “skeleton” of an existing object to create or instantiate new objects")
+    console.log("* specifically important and beneficial to JavaScript because it utilizes prototypal inheritance instead of a classic object-oriented inheritance -> JavaScript’s strength and has native support")
+    console.log("* EXAMPLE: ")
+
+    const car = {
+        noOfWheels: 4,
+        start() {
+            return 'br-r-r-r';
+        },
+        stop() {
+            return 'crickets...';
+        },
+    };
+
+    // using Object.create as was recommended by ES5 standard
+    const myCar = Object.create(car, { owner: { value: 'John' } });
+
+    console.log(myCar.__proto__ === car);
+    console.log(myCar.start());
+    console.log(myCar.stop());
+    console.log(myCar.noOfWheels === car.noOfWheels);
+}
+
+// 1.4.
+
+function singletonPattern() {
+    console.log("- Singleton Pattern")
+    console.log("* special creational design pattern in which only one instance of a class can exist")
+    console.log("* real-life examples: angular services; mongoose library for MongoDB")
+    console.log("* specifically important and beneficial to JavaScript because it utilizes prototypal inheritance instead of a classic object-oriented inheritance -> JavaScript’s strength and has native support")
+    console.log("* EXAMPLE: ")
+
+    class Database {
+        constructor(data) {
+            // if (Database.exists) {
+            //     return Database.instance;
+            // }
+            if (Database.instance) {
+                return Database.instance;
+            }
+            this._data = data;
+            Database.instance = this;
+            // Database.exists = true;
+            return this;
+        }
+      
+        getData() {
+          return this._data;
+        }
+      
+        setData(data) {
+          this._data = data;
+        }
+    }
+
+    const httpService = new Database('httpService');
+    console.log(httpService.getData()); // httpService
+    
+    const eventService = new Database('eventService');
+    console.log(eventService.getData());
+    eventService.setData('lastServiceSet');
+    console.log(eventService.getData());
+}
+
+// 2.1.
+
+function adapterPattern() {
+    console.log("- Adapter Pattern")
+    console.log("* structural pattern where the interface of one class is translated into another")
+    console.log("* it lets classes work together that could not otherwise because of incompatible interfaces")
+    console.log("* often used to create wrappers for new refactored APIs so that other existing old APIs can still work with them")
+    console.log("* EXAMPLE: ")
+
+    class OldCalculator {
+        constructor() {
+            this.operations = function(term1, term2, operation) {
+                switch (operation) {
+                case 'add':
+                    return term1 + term2;
+                case 'sub':
+                    return term1 - term2;
+                default:
+                    return NaN;
+                }
+            };
+        }
+    }
+
+    class NewCalculator {
+        constructor() {
+            this.add = function(term1, term2) {
+                return term1 + term2;
+            };
+            this.sub = function(term1, term2) {
+                return term1 - term2;
+            };
+        }
+    }
+
+    class CalcAdapter {
+        constructor() {
+            const newCalc = new NewCalculator();
+            
+            // !!! adapting 'operations' method, since the old software uses that method
+            this.operations = function(term1, term2, operation) {
+                switch (operation) {
+                case 'add':
+                    // using the new implementation under the hood
+                    return newCalc.add(term1, term2);
+                case 'sub':
+                    return newCalc.sub(term1, term2);
+                default:
+                    return NaN;
+                }
+            };
+        }
+
+    }
+
+    console.log('Calculator implementations... ');
+
+    const oldCalc = new OldCalculator();
+    console.log(oldCalc.operations(10, 5, 'add'));
+    
+    const newCalc = new NewCalculator();
+    console.log(newCalc.add(10, 5));
+    
+    const adaptedCalc = new CalcAdapter();
+    console.log(adaptedCalc.operations(10, 5, 'add'));
+
 }
