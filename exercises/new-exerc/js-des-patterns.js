@@ -10,7 +10,7 @@ const callNumCounter = callNum();
 // Categories of JS/ES6 Design Patterns:
 // (call main categoryFn with the category name and get the examples and the theory/text)
 
-// 1. Creational (object creation mechanism) - Constructor Pattern, Factory Pattern, Prototype Pattern, and Singleton Pattern
+// 1. Creational (object creation mechanism) - Constructor Pattern, Factory Pattern, Prototype Pattern and Singleton Pattern
 categoryFn('creational')([
     constructorPattern,
     factoryPattern,
@@ -19,13 +19,14 @@ categoryFn('creational')([
 ]);
 
 // 2. Structural (class and object composition) - Adapter Pattern, Composite Pattern, Decorator Pattern,
-// Façade Pattern, Flyweight Pattern, and Proxy Pattern
+// Façade Pattern, Flyweight Pattern and Proxy Pattern
 categoryFn('structural')([
-    adapterPattern
+    adapterPattern,
+    compositePattern
 ]);
 
 // 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
-// Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern, and Template Pattern
+// Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern and Template Pattern
 categoryFn('behavioral')([ ]);
 
 // CODE:
@@ -220,11 +221,11 @@ function singletonPattern() {
         }
       
         getData() {
-          return this._data;
+            return this._data;
         }
       
         setData(data) {
-          this._data = data;
+            this._data = data;
         }
     }
 
@@ -302,5 +303,122 @@ function adapterPattern() {
     
     const adaptedCalc = new CalcAdapter();
     console.log(adaptedCalc.operations(10, 5, 'add'));
+
+}
+
+// 2.2.
+
+function compositePattern() {
+    console.log("- Composite Pattern")
+    console.log("* structural design pattern that composes objects into tree-like structures to represent whole-part hierarchies")
+    console.log("* each node in the tree-like structure can be either an individual object (Leaf Component) or a composed collection of objects (Composite Component)")
+    console.log("* each node is treated uniformly")
+    console.log("* EXAMPLE: ")
+
+    class Component {
+        constructor(name) {
+            this._name = name;
+        }
+      
+        getNodeName() {
+            return this._name;
+        }
+      
+        // abstract methods that need to be overridden
+        getType() {}
+      
+        addChild(component) {}
+      
+        removeChildByName(componentName) {}
+      
+        removeChildByIndex(index) {}
+      
+        getChildByName(componentName) {}
+      
+        getChildByIndex(index) {}
+      
+        noOfChildren() {}
+      
+        static logTreeStructure(root) {
+            let treeStructure = '';
+            function traverse(node, indent = 0) {
+                treeStructure += `${'--'.repeat(indent)}${node.getNodeName()}\n`;
+                indent++;
+                for (let i = 0, length = node.noOfChildren(); i < length; i++) {
+                    traverse(node.getChildByIndex(i), indent);
+                }
+            }
+      
+            traverse(root);
+            return treeStructure;
+        }
+    }
+      
+    class Leaf extends Component {
+        constructor(name) {
+            super(name);
+            this._type = 'Leaf Node';
+        }
+      
+        getType() {
+            return this._type;
+        }
+      
+        noOfChildren() {
+            return 0;
+        }
+    }
+      
+    class Composite extends Component {
+        constructor(name) {
+            super(name);
+            this._type = 'Composite Node';
+            this._children = [];
+        }
+
+        getType() {
+            return this._type;
+        }
+
+        addChild(component) {
+            this._children = [...this._children, component];
+        }
+
+        removeChildByName(componentName) {
+            this._children = [...this._children].filter(component => component.getNodeName() !== componentName);
+        }
+
+        removeChildByIndex(index) {
+            this._children = [...this._children.slice(0, index), ...this._children.slice(index + 1)];
+        }
+
+        getChildByName(componentName) {
+            return this._children.find(component => component.name === componentName);
+        }
+
+        getChildByIndex(index) {
+            return this._children[index];
+        }
+
+        noOfChildren() {
+            return this._children.length;
+        }
+    }
+
+    const tree = new Composite('root');
+    tree.addChild(new Leaf('left'));
+    const middle = new Composite('middle');
+    tree.addChild(middle);
+    middle.addChild(new Leaf('middle-middle'));
+    const right = new Composite('right');
+    tree.addChild(right);
+    right.addChild(new Leaf('right-left'));
+    const rightMid = new Composite('right-middle');
+    right.addChild(rightMid);
+    right.addChild(new Leaf('right-right'));
+    rightMid.addChild(new Leaf('left-end'));
+    rightMid.addChild(new Leaf('right-end'));
+
+    console.log(Component.logTreeStructure(tree));
 
 }
