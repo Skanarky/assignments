@@ -11,7 +11,10 @@ const callNumCounter = callNum();
 // (call main categoryFn with the category name and get the examples and the theory/text)
 
 // 1. Creational (object creation mechanism) - Constructor Pattern, Factory Pattern, Prototype Pattern and Singleton Pattern
-categoryFn('creational')([
+
+const creationalPattern = categoryFn('creational');
+
+creationalPattern([
     constructorPattern,
     factoryPattern,
     prototypePattern,
@@ -20,7 +23,10 @@ categoryFn('creational')([
 
 // 2. Structural (class and object composition) - Adapter Pattern, Composite Pattern, Decorator Pattern,
 // Façade Pattern, Flyweight Pattern and Proxy Pattern
-categoryFn('structural')([
+
+const structuralPattern = categoryFn('structural');
+
+structuralPattern([
     adapterPattern,
     compositePattern,
     decoratorPattern,
@@ -29,7 +35,12 @@ categoryFn('structural')([
 
 // 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern and Template Pattern
-categoryFn('behavioral')([ ]);
+
+const behavioralPattern = categoryFn('behavioral');
+
+behavioralPattern([ ]);
+
+
 
 // CODE:
 
@@ -586,7 +597,7 @@ function façadePattern() {
     console.log(reportProduct2);
 
     console.log(registry.findComplaint(2));
-    console.log(registry.findComplaint(1));
     console.log(registry.findComplaint(4));
+    console.log(registry.findComplaint(1));
 
 }
