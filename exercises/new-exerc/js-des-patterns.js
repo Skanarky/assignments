@@ -22,7 +22,8 @@ categoryFn('creational')([
 // Façade Pattern, Flyweight Pattern and Proxy Pattern
 categoryFn('structural')([
     adapterPattern,
-    compositePattern
+    compositePattern,
+    decoratorPattern
 ]);
 
 // 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
@@ -420,5 +421,69 @@ function compositePattern() {
     rightMid.addChild(new Leaf('right-end'));
 
     console.log(Component.logTreeStructure(tree));
+
+}
+
+// 2.3.
+
+function decoratorPattern() {
+    console.log("- Decorator Pattern")
+    console.log("* structural design pattern that focuses on the ability to add behavior or functionalities to existing classes dynamically")
+    console.log("* another viable alternative to sub-classing")
+    console.log("* EXAMPLE: ")
+
+    class Photographer {
+        constructor(name, website, type) {
+            this._name = name;
+            this._website = website;
+            this.type = type;
+            this.minHourlyRate = 30;
+        }
+
+        getDescription() {
+            return `Photographers name is ${this._name} - ${this.type}\nTheir website is '${this._website}'. Hourly rate $${this.minHourlyRate}.`
+        }
+    }
+
+    function isFashion(photographer) {
+        photographer.type = 'Fashion Professional';
+        photographer.minHourlyRate += 120;
+
+        return photographer;
+    }
+    function isSport(photographer) {
+        photographer.type = 'Sport Professional';
+        photographer.minHourlyRate += 70;
+
+        return photographer;
+    }
+    function bookedPhotographer(photographer) {
+        photographer.isBooked = true;
+
+        photographer.getSchedule = function () {
+            return `${photographer._name} is booked.`
+        }
+    }
+    function unbookedPhotographer(photographer) {
+        photographer.isBooked = false;
+
+        photographer.getSchedule = function () {
+            return `${photographer._name} is available.`
+        }
+    }
+
+    const rankinUK = isFashion(new Photographer('Rankin', 'www.rankinphoto.co.uk', 'Portrait'));
+    console.log(rankinUK.getDescription());
+
+    bookedPhotographer(rankinUK);
+    console.log(rankinUK.getSchedule());
+
+    unbookedPhotographer(rankinUK);
+    console.log(rankinUK.getSchedule());
+
+    const someSport = isSport(new Photographer('Some Name', 'www.somesite.com', 'Nature'));
+    unbookedPhotographer(someSport);
+    console.log(someSport.getDescription());
+    console.log(someSport.getSchedule());
 
 }
