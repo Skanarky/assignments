@@ -23,7 +23,8 @@ categoryFn('creational')([
 categoryFn('structural')([
     adapterPattern,
     compositePattern,
-    decoratorPattern
+    decoratorPattern,
+    façadePattern
 ]);
 
 // 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
@@ -485,5 +486,107 @@ function decoratorPattern() {
     unbookedPhotographer(someSport);
     console.log(someSport.getDescription());
     console.log(someSport.getSchedule());
+
+}
+
+// 2.4.
+
+function façadePattern() {
+    console.log("- Façade Pattern")
+    console.log("* structural design pattern that is widely used in JavaScript libraries")
+    console.log("* it is used to provide a unified and simpler, public-facing, interface for ease of use that shields away from the complexities of its consisting subsystems or subclasses")
+    console.log("* EXAMPLE: ")
+
+    let currentId = 0;
+
+    class ComplaintRegistry {
+        registerComplaint(customer, type, details) {
+            const id = ComplaintRegistry._uniqueIdGenerator();
+            let complaint;
+            if (type === 'service') {
+                complaint = new ServiceComplaints();
+            } else {
+                complaint = new ProductComplaints();
+            }
+            return complaint.addComplaint({ id, customer, details });
+        }
+
+        findComplaint(id) {
+            // if (new ServiceComplaints().getComplaint(id)) {
+            //     return new ServiceComplaints().getComplaint(id);
+            // } else {
+            //     return new ProductComplaints().getComplaint(id);
+            // }
+            return [ ...new ProductComplaints().complaints, ...new ServiceComplaints().complaints ].find(complaint => complaint.id === id);
+        }
+
+        static _uniqueIdGenerator() {
+            return ++currentId;
+        }
+    }
+
+    class Complaints {
+        constructor() {
+            this.complaints = [];
+        }
+
+        addComplaint(complaint) {
+            this.complaints.push(complaint);
+            return this.replyMessage(complaint);
+        }
+
+        // getComplaint(id) {
+        //     return this.complaints.find(complaint => complaint.id === id);
+        // }
+
+        replyMessage(complaint) {}
+    }
+
+    class ProductComplaints extends Complaints {
+        constructor() {
+            super();
+            if (ProductComplaints.exists) {
+            return ProductComplaints.instance;
+            }
+            ProductComplaints.instance = this;
+            ProductComplaints.exists = true;
+            return this;
+        }
+
+        replyMessage({ id, customer, details }) {
+            return `Complaint No. ${id} reported by ${customer} regarding '${details}' have been filed with the Products Complaint Department.\nReplacement/Repairment of the product as per terms and conditions will be carried out soon.`;
+        }
+    }
+
+    class ServiceComplaints extends Complaints {
+        constructor() {
+            super();
+            if (ServiceComplaints.exists) {
+            return ServiceComplaints.instance;
+            }
+            ServiceComplaints.instance = this;
+            ServiceComplaints.exists = true;
+            return this;
+        }
+
+        replyMessage({ id, customer, details }) {
+            return `Complaint No. ${id} reported by ${customer} regarding '${details}' have been filed with the Service Complaint Department.\nThe issue will be resolved or the purchase will be refunded as per terms and conditions.`;
+        }
+    }
+
+    const registry = new ComplaintRegistry();
+
+    const reportService = registry.registerComplaint('Martha', 'service', 'availability');
+
+    const reportProduct = registry.registerComplaint('Jane', 'product', 'faded color');
+    const reportProduct2 = registry.registerComplaint('Karen', 'product', 'yellow spots');
+
+    console.log(reportService);
+    console.log(reportProduct);
+    console.log(reportProduct2);
+
+    console.log(registry.findComplaint(2));
+    console.log(registry.findComplaint(1));
+    console.log(registry.findComplaint(4));
 
 }
