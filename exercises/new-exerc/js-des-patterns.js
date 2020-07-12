@@ -35,7 +35,8 @@ structuralPattern([
     adapterPattern,
     compositePattern,
     decoratorPattern,
-    façadePattern
+    façadePattern,
+    flyweightPattern
 ]);
 behavioralPattern([ ]);
 
@@ -554,7 +555,7 @@ function façadePattern() {
         constructor() {
             super();
             if (ProductComplaints.exists) {
-            return ProductComplaints.instance;
+                return ProductComplaints.instance;
             }
             ProductComplaints.instance = this;
             ProductComplaints.exists = true;
@@ -570,7 +571,7 @@ function façadePattern() {
         constructor() {
             super();
             if (ServiceComplaints.exists) {
-            return ServiceComplaints.instance;
+                return ServiceComplaints.instance;
             }
             ServiceComplaints.instance = this;
             ServiceComplaints.exists = true;
@@ -596,5 +597,59 @@ function façadePattern() {
     console.log(registry.findComplaint(2));
     console.log(registry.findComplaint(4));
     console.log(registry.findComplaint(1));
+
+}
+
+// 2.5.
+
+function flyweightPattern() {
+    console.log("- Flyweight Pattern")
+    console.log("* structural design pattern focused on efficient data sharing through fine-grained objects")
+    console.log("* it is used for efficiency and memory conservation purposes")
+    console.log("* EXAMPLE: ")
+
+    class Programming {
+        constructor(paradigm, skillLevel) {
+            this.paradigm = paradigm;
+            this.skillLevel = skillLevel;
+        }
+    }
+
+    class ProgrammingFactory {
+
+        constructor() {
+            this.programmingInstances = [];
+        }
+
+        createProgramming(paradigm, skillLevel) {
+            const parLC = paradigm.toLowerCase();
+            return this.findProgramming(parLC) || this.createOneProgramming(parLC, skillLevel);
+        }
+
+        createOneProgramming(paradigm, skillLevel) {
+            const programming = new Programming(paradigm, skillLevel);
+            this.programmingInstances = [ ...this.programmingInstances, programming ];
+            return programming;
+        }
+
+        findProgramming(paradigm) {
+            return this.programmingInstances.find(pr => pr.paradigm === paradigm);
+        }
+
+    }
+
+    const factory = new ProgrammingFactory();
+
+    const objOrPr = factory.createProgramming('OOP', 2);
+    const oOPr = factory.createProgramming('OOp', 2);
+
+    const functional = factory.createProgramming('functional', 3);
+
+    console.log(objOrPr.paradigm);
+    console.log(oOPr.paradigm);
+    console.log('objOrPr equals oOPr: ', objOrPr === oOPr);
+
+    console.log(functional.paradigm);
+    console.log('objOrPr equals functional: ', objOrPr === functional);
 
 }
