@@ -5,7 +5,7 @@ const callNumCounter = callNum();
 // SRC: https://medium.com/better-programming/javascript-design-patterns-25f0faaaa15
 // CREDITS: https://medium.com/@drenther
 
-// SOME THEORY:
+// THEORY:
 
 // Categories of JS/ES6 Design Patterns:
 // (call main categoryFn with the category name and get the examples and the theory/text)
@@ -14,35 +14,32 @@ const callNumCounter = callNum();
 
 const creationalPattern = categoryFn('creational');
 
-creationalPattern([
-    constructorPattern,
-    factoryPattern,
-    prototypePattern,
-    singletonPattern
-]);
-
 // 2. Structural (class and object composition) - Adapter Pattern, Composite Pattern, Decorator Pattern,
 // Façade Pattern, Flyweight Pattern and Proxy Pattern
 
 const structuralPattern = categoryFn('structural');
-
-structuralPattern([
-    adapterPattern,
-    compositePattern,
-    decoratorPattern,
-    façadePattern
-]);
 
 // 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern and Template Pattern
 
 const behavioralPattern = categoryFn('behavioral');
 
+// IMPLEMENTATION:
+creationalPattern([
+    constructorPattern,
+    factoryPattern,
+    prototypePattern,
+    singletonPattern
+]);
+structuralPattern([
+    adapterPattern,
+    compositePattern,
+    decoratorPattern,
+    façadePattern
+]);
 behavioralPattern([ ]);
 
-
-
-// CODE:
+// - - - - - - -
 
 // helpers
 function callNum() {
@@ -80,7 +77,7 @@ function categoryFn(type) {
     }
 }
 
-// - - - Patterns - - -
+// patterns
 
 // 1.1.
 
