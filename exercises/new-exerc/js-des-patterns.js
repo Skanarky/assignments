@@ -646,10 +646,24 @@ function flyweightPattern() {
     const functional = factory.createProgramming('functional', 3);
 
     console.log(objOrPr.paradigm);
-    console.log(oOPr.paradigm);
+    console.log(objOrPr.skillLevel);
     console.log('objOrPr equals oOPr: ', objOrPr === oOPr);
+    console.log(oOPr.paradigm);
 
     console.log(functional.paradigm);
+    console.log(functional.skillLevel);
     console.log('objOrPr equals functional: ', objOrPr === functional);
+
+}
+
+// 2.6.
+
+function proxyPattern() {
+    console.log("- Proxy Pattern")
+    // console.log("* structural design pattern focused on efficient data sharing through fine-grained objects")
+    // console.log("* it is used for efficiency and memory conservation purposes")
+    // console.log("* EXAMPLE: ")
+
+    
 
 }
