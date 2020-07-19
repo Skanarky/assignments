@@ -36,7 +36,8 @@ structuralPattern([
     compositePattern,
     decoratorPattern,
     façadePattern,
-    flyweightPattern
+    flyweightPattern,
+    proxyPattern
 ]);
 behavioralPattern([ ]);
 
@@ -660,10 +661,31 @@ function flyweightPattern() {
 
 function proxyPattern() {
     console.log("- Proxy Pattern")
-    // console.log("* structural design pattern focused on efficient data sharing through fine-grained objects")
-    // console.log("* it is used for efficiency and memory conservation purposes")
-    // console.log("* EXAMPLE: ")
+    console.log("* structural design pattern; acts as a surrogate or placeholder for another object to control access to it")
+    console.log("* it is used in situations in which a target object is under constraints and may not be able to handle all its responsibilities efficiently")
+    console.log("* a proxy will provide the same interface to the client and adds a level of indirection to support controlled access to the target object to avoid undue pressure on it")
+    console.log("* EXAMPLE: ")
 
+    function networkFetch(url) {
+        return `${url} - Response from network`;
+    }
     
+    // Proxy
+    // ES6 Proxy API = new Proxy(target, handler);
+    const cache = [];
+    const proxiedNetworkFetch = new Proxy(networkFetch, {
+        apply(target, thisArg, args) {
+            const urlParam = args[0];
+            if (cache.includes(urlParam)) {
+                return `${urlParam} - Response from cache`;
+            } else {
+                cache.push(urlParam);
+                return Reflect.apply(target, thisArg, args);
+            }
+        }
+    });
+
+    console.log(proxiedNetworkFetch('www.apigetdogs.com/dogPic.jpg')); // from network
+    console.log(proxiedNetworkFetch('www.apigetdogs.com/dogPic.jpg')); // from cache'
 
 }
