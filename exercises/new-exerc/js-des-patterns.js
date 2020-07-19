@@ -25,21 +25,22 @@ const structuralPattern = categoryFn('structural');
 const behavioralPattern = categoryFn('behavioral');
 
 // IMPLEMENTATION:
-creationalPattern([
+
+creationalPattern(
     constructorPattern,
     factoryPattern,
     prototypePattern,
     singletonPattern
-]);
-structuralPattern([
+);
+structuralPattern(
     adapterPattern,
     compositePattern,
     decoratorPattern,
     façadePattern,
     flyweightPattern,
     proxyPattern
-]);
-behavioralPattern([ ]);
+);
+behavioralPattern();
 
 // - - - - - - -
 
@@ -58,6 +59,7 @@ function separator(sep, times) {
         sepStr += i === times ? sep : (sep + " ");
     }
     console.log(sepStr);
+    console.log();
 }
 
 function capitalizeOne(string) {
@@ -66,12 +68,12 @@ function capitalizeOne(string) {
 
 // main
 function categoryFn(type) {
-    console.log(`${callNumCounter()}. ${capitalizeOne(type)} Category:`);
-    return (patternFnArr) => {
+    return function ( ...someArgs ) {
 
+        console.log(`${callNumCounter()}. ${capitalizeOne(type)} Category:`);
         separator("v", 3);
 
-        patternFnArr.map(patternFn => {
+        someArgs.map(patternFn => {
             patternFn();
             separator("-", 7);
         });
