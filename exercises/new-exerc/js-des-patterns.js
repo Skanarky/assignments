@@ -41,7 +41,8 @@ structuralPattern(
     proxyPattern
 );
 behavioralPattern(
-    chainOfResponsibilityPattern
+    chainOfResponsibilityPattern,
+    commandPattern
 );
 
 // - - - - - - -
@@ -700,7 +701,7 @@ function chainOfResponsibilityPattern() {
     console.log("- Chain of Responsibility Pattern")
     console.log("* behavioral design pattern that provides a chain of loosely coupled objects")
     console.log("* each of these objects can choose to act on or handle the request of the client")
-    console.log("* event bubbling in DOM in which an event propagates through a series of nested DOM elements, one of which may have an “event listener” attached to listen to and act on the event")
+    console.log("* good example is event bubbling in DOM in which an event propagates through a series of nested DOM elements, one of which may have an “event listener” attached to listen to and act on the event")
     console.log("* EXAMPLE: ")
 
     class CumulativeSum {
@@ -721,4 +722,51 @@ function chainOfResponsibilityPattern() {
     console.log(sum2.add(10).add(3).sum);
 
     console.log(sum2.add(sum1.sum).sum); // 40
+}
+
+// 3.2.
+
+function commandPattern() {
+    console.log("- Command Pattern")
+    console.log("* behavioral design pattern that aims to encapsulate actions or operations as objects")
+    console.log("* it allows loose coupling of systems and classes by separating the objects that request an operation or invoke a method from the ones that execute or process the actual implementation")
+    console.log("* good example are Redux, Clipboard API")
+    console.log("* EXAMPLE: ")
+
+    class ToyotaCar {
+        constructor(model, price, built) {
+            this._model = model;
+            this._price = price;
+            this._built = built;
+        }
+        price() {
+            return `Toyota ${this._model} costs: $${this._price}`;
+        }
+        built() {
+            return `Toyota ${this._model} is manufactured in: ${this._built}`;
+        }
+    }
+
+    class CarInfo {
+        constructor(toyotaModel) {
+            this._toyotaModel = toyotaModel;
+            this._providedInfo = [];
+        }
+        getInfo(info) {
+            this._providedInfo = [ ...this._providedInfo, info ];
+            return this._toyotaModel[info]();
+        }
+    }
+
+    const tacoma = new ToyotaCar('Tacoma', 35000, 'Mexico');
+    const fourRunner = new ToyotaCar('4Runner', 45000, 'Japan');
+
+    const info4Run = new CarInfo(tacoma);
+    const infoTacoma = new CarInfo(fourRunner);
+
+    console.log(infoTacoma.getInfo('price'));
+    console.log(infoTacoma.getInfo('built'));
+
+    console.log(info4Run.getInfo('price'));
+    console.log(info4Run.getInfo('built'));
 }
