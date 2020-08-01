@@ -40,7 +40,9 @@ structuralPattern(
     flyweightPattern,
     proxyPattern
 );
-behavioralPattern();
+behavioralPattern(
+    chainOfResponsibilityPattern
+);
 
 // - - - - - - -
 
@@ -690,4 +692,33 @@ function proxyPattern() {
     console.log(proxiedNetworkFetch('www.apigetdogs.com/dogPic.jpg')); // from network
     console.log(proxiedNetworkFetch('www.apigetdogs.com/dogPic.jpg')); // from cache'
 
+}
+
+// 3.1.
+
+function chainOfResponsibilityPattern() {
+    console.log("- Chain of Responsibility Pattern")
+    console.log("* behavioral design pattern that provides a chain of loosely coupled objects")
+    console.log("* each of these objects can choose to act on or handle the request of the client")
+    console.log("* event bubbling in DOM in which an event propagates through a series of nested DOM elements, one of which may have an “event listener” attached to listen to and act on the event")
+    console.log("* EXAMPLE: ")
+
+    class CumulativeSum {
+        constructor(initialValue = 0) {
+            this.sum = initialValue;
+        }
+      
+        add(value) {
+            this.sum += value;
+            return this;
+        }
+    }
+
+    const sum1 = new CumulativeSum();
+    console.log(sum1.add(10).add(5).add(2).sum);
+    
+    const sum2 = new CumulativeSum(10);
+    console.log(sum2.add(10).add(3).sum);
+
+    console.log(sum2.add(sum1.sum).sum); // 40
 }
