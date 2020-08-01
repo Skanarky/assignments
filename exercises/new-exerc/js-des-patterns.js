@@ -42,7 +42,8 @@ structuralPattern(
 );
 behavioralPattern(
     chainOfResponsibilityPattern,
-    commandPattern
+    commandPattern,
+    iteratorPattern
 );
 
 // - - - - - - -
@@ -769,4 +770,71 @@ function commandPattern() {
 
     console.log(info4Run.getInfo('price'));
     console.log(info4Run.getInfo('built'));
+}
+
+// 3.3.
+
+function iteratorPattern() {
+    console.log("- Iterator Pattern")
+    console.log("* behavioral design pattern that provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation")
+    console.log("* iterators have a special kind of behavior where we step through an ordered set of values one at a time by calling next() until we reach the end")
+    console.log("* the introduction of Iterator and Generators in ES6 made the implementation of the iterator pattern extremely straightforward")
+    console.log("* EXAMPLE: ")
+
+    // using Iterator
+    class IteratorClass {
+        constructor(data) {
+            this.index = 0;
+            this.data = data;
+        }
+
+        [Symbol.iterator]() {
+            return {
+                next: () => {
+                        if (this.index < this.data.length) {
+                            return { value: this.data[this.index++], done: false };
+                        } else {
+                            this.index = 0; // to reset iteration status
+                            return { done: true };
+                        }
+                    }
+                };
+        }
+    }
+
+    // using Generator
+    function* iteratorUsingGenerator(collection) {
+        var nextIndex = 0;
+
+        while (nextIndex < collection.length) {
+            yield collection[nextIndex++];
+        }
+    }
+
+    const withIter = new IteratorClass(['Testing', 'iterator', 'using', 'Iterator']);
+
+    console.log(withIter[Symbol.iterator]().next().value);
+    console.log(withIter[Symbol.iterator]().next().value);
+    console.log(withIter[Symbol.iterator]().next().value);
+    console.log(withIter[Symbol.iterator]().next().value);
+
+    const withGen = iteratorUsingGenerator(['Testing', 'iterator', 'using', 'Generator']);
+    console.log(withGen.next().value);
+    console.log(withGen.next().value);
+    console.log(withGen.next().value);
+    // console.log(withGen.next().done); // false -> but it will make the next next() value undefined
+    // => next can be called only collection.length times
+    console.log(withGen.next().value);
+    console.log(withGen.next().done); // true
+    console.log(withGen.next().value); // undefined
+
+
+
+    // OR USE:
+    const withIter2 = new IteratorClass(['Testing', 'iterator', 'using', 'Iterator', '- 2']);
+    const withGen2 = iteratorUsingGenerator(['Testing', 'iterator', 'using', 'Generator', '- 2']);
+
+    console.log(...withIter2);
+    console.log(...withGen2);
+
 }
