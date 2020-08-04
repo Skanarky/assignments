@@ -44,7 +44,8 @@ behavioralPattern(
     chainOfResponsibilityPattern,
     commandPattern,
     iteratorPattern,
-    mediatorPattern
+    mediatorPattern,
+    observerPattern
 );
 
 // - - - - - - -
@@ -839,6 +840,7 @@ function iteratorPattern() {
     console.log(...withGen2);
 
 }
+
 // 3.4.
 
 function mediatorPattern() {
@@ -906,5 +908,85 @@ function mediatorPattern() {
     tower.deregister(airplanes[1]);
 
     console.log(airplanes.map(airplane => airplane.requestCoordinates()));
+
+}
+
+// 3.5.
+
+function observerPattern() {
+    console.log("- Observer Pattern")
+    console.log("* behavioral design pattern that defines one-to-many dependencies between objects")
+    console.log("* when one object (publisher) changes its state, all the other dependent objects (subscribers) are notified and updated automatically")
+    console.log("* it's publisher/subscribers or event dispatcher/listeners pattern (the publisher is sometimes called the subject, and the subscribers observers)")
+    console.log("* EXAMPLE: ")
+
+    class Subject {
+        constructor() {
+            this._observers = [];
+        }
+      
+        subscribe(observer) {
+            this._observers.push(observer);
+        }
+      
+        unsubscribe(observer) {
+            this._observers = this._observers.filter(obs => observer !== obs);
+        }
+      
+        fire(change) {
+            this._observers.forEach(observer => {
+                observer.update(change);
+            });
+        }
+    }
+    
+    class Observer {
+        constructor(state) {
+            this.state = state;
+            this.initialState = state;
+        }
+        
+        update(change) {
+            let state = this.state;
+            switch (change) {
+                case 'INC':
+                    this.state = ++state;
+                    break;
+                case 'DEC':
+                    this.state = --state;
+                    break;
+                default:
+                    this.state = this.initialState;
+            }
+        }
+    }
+    
+    // usage
+    const sub = new Subject();
+    
+    const obs1 = new Observer(1);
+    const obs2 = new Observer(19);
+    
+    sub.subscribe(obs1);
+    sub.subscribe(obs2);
+    
+    sub.fire('INC');
+    sub.fire('INC');
+    sub.fire('INC');
+    
+    console.log(obs1.state);
+    console.log(obs2.state);
+
+    sub.fire('DEC');
+
+    console.log(obs1.state);
+    console.log(obs2.state);
+
+    sub.unsubscribe(obs2);
+
+    sub.fire('NONE'); // to initial state
+
+    console.log(obs1.state);
+    console.log(obs2.state); // no change
 
 }
