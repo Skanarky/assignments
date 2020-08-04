@@ -43,7 +43,8 @@ structuralPattern(
 behavioralPattern(
     chainOfResponsibilityPattern,
     commandPattern,
-    iteratorPattern
+    iteratorPattern,
+    mediatorPattern
 );
 
 // - - - - - - -
@@ -836,5 +837,74 @@ function iteratorPattern() {
 
     console.log(...withIter2);
     console.log(...withGen2);
+
+}
+// 3.4.
+
+function mediatorPattern() {
+    console.log("- Mediator Pattern")
+    console.log("* behavioral design pattern that encapsulates how a set of objects interact with each other")
+    console.log("* it provides the central authority over a group of objects by promoting loose coupling, keeping objects from referring to each other explicitly")
+    console.log("* EXAMPLE: ")
+
+    class TrafficTower {
+
+        constructor() {
+            this._airplanes = [];
+        }
+
+        register(airplane) {
+            this._airplanes.push(airplane);
+            airplane.register(this);
+        }
+
+        deregister(airplane) {
+            this._airplanes = this._airplanes.filter(arpl => arpl.coordinates !== airplane.coordinates);
+            airplane.deregister();
+        }
+      
+        requestCoordinates(airplane) {
+            return this._airplanes.filter(plane => airplane !== plane).map(plane => plane.coordinates);
+        }
+    }
+      
+    class Airplane {
+
+        constructor(coordinates) {
+            this.coordinates = coordinates;
+            this.trafficTower = null;
+        }
+
+        register(trafficTower) {
+            this.trafficTower = trafficTower;
+        }
+
+        deregister() {
+            this.trafficTower = null;
+        }
+
+        requestCoordinates() {
+            if (this.trafficTower) {
+                return this.trafficTower.requestCoordinates(this);
+            } else {
+                return null;
+            }
+        }
+
+    }
+      
+    const tower = new TrafficTower();
+    
+    const airplanes = [new Airplane(10), new Airplane(20), new Airplane(30)];
+
+    airplanes.forEach(airplane => {
+        tower.register(airplane);
+    });
+    
+    console.log(airplanes.map(airplane => airplane.requestCoordinates()));
+
+    tower.deregister(airplanes[1]);
+
+    console.log(airplanes.map(airplane => airplane.requestCoordinates()));
 
 }
