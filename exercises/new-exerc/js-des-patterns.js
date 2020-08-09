@@ -46,7 +46,8 @@ behavioralPattern(
     iteratorPattern,
     mediatorPattern,
     observerPattern,
-    statePattern
+    statePattern,
+    strategyPattern
 );
 
 // - - - - - - -
@@ -1088,5 +1089,54 @@ function statePattern() {
     console.log(trafficLight.sign());
     trafficLight.change();
     console.log(trafficLight.sign());
+
+}
+
+// 3.7.
+
+function strategyPattern() {
+    console.log("- Strategy Pattern")
+    console.log("* behavioral design pattern that allows encapsulation of alternative algorithms for a particular task")
+    console.log("* It defines a family of algorithms and encapsulates them in such a way that they are interchangeable at runtime without client interference or knowledge.")
+    console.log("* EXAMPLE: ")
+
+    class Trip {
+        getPricing(place) {
+            return place.price();
+        }
+    }
+
+    class Place {
+        constructor(name) {
+            this._name = name;
+        }
+        price() {
+            return `A trip to ${this._name} costs $${this._price}.`;
+        }
+    }
+
+    class Cancun extends Place {
+        constructor() {
+            super('Cancun');
+            this._price = 3000;
+        }
+    }
+    class Bahamas extends Place {
+        constructor() {
+            super('Bahamas');
+            this._price = 2500;
+        }
+    }
+    class Bali extends Place {
+        constructor() {
+            super('Bali');
+            this._price = 15000;
+        }
+    }
+
+    const tripPlan = new Trip();
+
+    console.log(tripPlan.getPricing(new Bahamas));
+    console.log(tripPlan.getPricing(new Bali));
 
 }
