@@ -47,7 +47,8 @@ behavioralPattern(
     mediatorPattern,
     observerPattern,
     statePattern,
-    strategyPattern
+    strategyPattern,
+    templatePattern
 );
 
 // - - - - - - -
@@ -1097,7 +1098,7 @@ function statePattern() {
 function strategyPattern() {
     console.log("- Strategy Pattern")
     console.log("* behavioral design pattern that allows encapsulation of alternative algorithms for a particular task")
-    console.log("* It defines a family of algorithms and encapsulates them in such a way that they are interchangeable at runtime without client interference or knowledge.")
+    console.log("* it defines a family of algorithms and encapsulates them in such a way that they are interchangeable at runtime without client interference or knowledge")
     console.log("* EXAMPLE: ")
 
     class Trip {
@@ -1136,7 +1137,56 @@ function strategyPattern() {
 
     const tripPlan = new Trip();
 
-    console.log(tripPlan.getPricing(new Bahamas));
-    console.log(tripPlan.getPricing(new Bali));
+    console.log(tripPlan.getPricing(new Bahamas()));
+    console.log(tripPlan.getPricing(new Bali()));
+
+}
+
+// 3.8.
+
+function templatePattern() {
+    console.log("- Template Pattern")
+    console.log("* behavioral design pattern based on defining the skeleton of the algorithm or implementation of an operation, but deferring some steps to subclasses")
+    console.log("* it lets subclasses redefine certain steps of an algorithm without changing the algorithm’s outward structure")
+    console.log("* EXAMPLE: ")
+
+    class Pet {
+        constructor(name, speak) {
+            this._name = name;
+            this._speak = speak;
+        }
+        whatPet() {
+            return `Your pet is a ${this.getType()} with name ${this._name}.`;
+        }
+        whatSpeaks() {
+            return `${this._name} can ${this._speak}.`;
+        }
+    }
+
+    class Cat extends Pet {
+        constructor(name, speak) {
+            super(name, speak);
+        }
+        getType() {
+            return 'cat';
+        }
+    }
+
+    class Dog extends Pet {
+        constructor(name, speak) {
+            super(name, speak);
+        }
+        getType() {
+            return 'dog';
+        }
+    }
+
+    const sparky = new Dog('Sparky', 'bark and growl');
+    const tutsy = new Cat('Tutsy', 'meows very loud and annoyingly');
+
+    console.log(sparky.whatPet());
+    console.log(sparky.whatSpeaks());
+    console.log(tutsy.whatPet());
+    console.log(tutsy.whatSpeaks());
 
 }
