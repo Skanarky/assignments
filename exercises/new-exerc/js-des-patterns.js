@@ -373,6 +373,7 @@ function compositePattern() {
       
         static logTreeStructure(root) {
             let treeStructure = '';
+
             function traverse(node, indent = 0) {
                 treeStructure += `${'--'.repeat(indent)}${node.getNodeName()}\n`;
                 indent++;
@@ -425,7 +426,7 @@ function compositePattern() {
         }
 
         getChildByName(componentName) {
-            return this._children.find(component => component.name === componentName);
+            return this._children.find(component => component._name === componentName);
         }
 
         getChildByIndex(index) {
@@ -438,18 +439,23 @@ function compositePattern() {
     }
 
     const tree = new Composite('root');
-    tree.addChild(new Leaf('left'));
+
+    const left = new Leaf('left');
     const middle = new Composite('middle');
-    tree.addChild(middle);
-    middle.addChild(new Leaf('middle-middle'));
     const right = new Composite('right');
+
+    tree.addChild(left);
+    tree.addChild(middle);
     tree.addChild(right);
+
+    middle.addChild(new Leaf('middle-middle'));
+
     right.addChild(new Leaf('right-left'));
-    const rightMid = new Composite('right-middle');
-    right.addChild(rightMid);
+    right.addChild(new Composite('right-middle'));
     right.addChild(new Leaf('right-right'));
-    rightMid.addChild(new Leaf('left-end'));
-    rightMid.addChild(new Leaf('right-end'));
+
+    tree.getChildByName('right').getChildByName('right-middle').addChild(new Leaf('left-end'));
+    tree.getChildByName('right').getChildByName('right-middle').addChild(new Leaf('right-end'));
 
     console.log(Component.logTreeStructure(tree));
 
