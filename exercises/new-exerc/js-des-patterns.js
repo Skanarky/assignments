@@ -32,6 +32,7 @@ creationalPattern(
     prototypePattern,
     singletonPattern
 );
+
 structuralPattern(
     adapterPattern,
     compositePattern,
@@ -40,6 +41,7 @@ structuralPattern(
     flyweightPattern,
     proxyPattern
 );
+
 behavioralPattern(
     chainOfResponsibilityPattern,
     commandPattern,
@@ -50,8 +52,6 @@ behavioralPattern(
     strategyPattern,
     templatePattern
 );
-
-// - - - - - - -
 
 // helpers
 function callNum() {
@@ -71,22 +71,27 @@ function capitalizeOne(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
-// main
 function categoryFn(type) {
     return function ( ...someArgs ) {
 
         console.log(`${callNumCounter()}. ${capitalizeOne(type)} Category:`);
+
         separator("v ", 3);
 
-        someArgs.map(patternFn => {
+        someArgs.map((patternFn, idx) => {
             patternFn();
-            separator("- ", 7);
+            if (idx < (someArgs.length - 1)) {
+                separator("- ", 7);
+            } else {
+                separator(" ", 1);
+                separator("Finito!", 1);
+            }
         });
 
     }
 }
 
-// patterns
+// the patterns
 
 // 1.1.
 
