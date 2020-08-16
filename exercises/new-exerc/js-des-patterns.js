@@ -220,6 +220,7 @@ function prototypePattern() {
     console.log(myCar.__proto__ === car);
     console.log(myCar.start());
     console.log(myCar.stop());
+    console.log(myCar.owner);
     console.log(myCar.noOfWheels === car.noOfWheels);
 }
 
@@ -234,6 +235,7 @@ function singletonPattern() {
 
     class Database {
         constructor(data) {
+            // exists not needed!?
             // if (Database.exists) {
             //     return Database.instance;
             // }
@@ -260,8 +262,12 @@ function singletonPattern() {
     
     const eventService = new Database('eventService');
     console.log(eventService.getData());
+
+    const eventService2 = new Database('eventService');
+
     eventService.setData('lastServiceSet');
-    console.log(eventService.getData());
+    console.log(eventService.getData()); // -> lastServiceSet
+    console.log(eventService2.getData()); // -> lastServiceSet
 }
 
 // 2.1.
