@@ -14,12 +14,12 @@ const callNumCounter = callNum();
 
 const creationalPattern = categoryFn('creational');
 
-// 2. Structural (class and object composition) - Adapter Pattern, Composite Pattern, Decorator Pattern,
+// 2. Structural (class and object composition and communication, SIMILAR!? objects) - Adapter Pattern, Composite Pattern, Decorator Pattern,
 // Façade Pattern, Flyweight Pattern and Proxy Pattern
 
 const structuralPattern = categoryFn('structural');
 
-// 3. Behavioral (communication between dissimilar objects) - Chain of Responsibility Pattern, Command Pattern,
+// 3. Behavioral (composition and communication of objects, DISSIMILAR!? objects) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern and Template Pattern
 
 const behavioralPattern = categoryFn('behavioral');
@@ -702,7 +702,7 @@ function proxyPattern() {
     function networkFetch(url) {
         return `${url} - Response from network`;
     }
-    
+
     // Proxy
     // ES6 Proxy API = new Proxy(target, handler);
     const cache = [];
@@ -781,8 +781,12 @@ function commandPattern() {
             this._providedInfo = [];
         }
         getInfo(info) {
-            this._providedInfo = [ ...this._providedInfo, info ];
-            return this._toyotaModel[info]();
+            if (this._toyotaModel[info]) {
+                this._providedInfo = [ ...this._providedInfo, info ];
+                return this._toyotaModel[info]();
+            } else {
+                return 'No such information!'
+            }
         }
     }
 
@@ -794,9 +798,12 @@ function commandPattern() {
 
     console.log(infoTacoma.getInfo('price'));
     console.log(infoTacoma.getInfo('built'));
+    console.log(infoTacoma._providedInfo);
 
     console.log(info4Run.getInfo('price'));
     console.log(info4Run.getInfo('built'));
+    console.log(info4Run.getInfo('curb weight'));
+    console.log(info4Run._providedInfo);
 }
 
 // 3.3.
