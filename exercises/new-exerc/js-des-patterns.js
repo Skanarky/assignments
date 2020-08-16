@@ -14,12 +14,12 @@ const callNumCounter = callNum();
 
 const creationalPattern = categoryFn('creational');
 
-// 2. Structural (class and object composition and communication, SIMILAR!? objects) - Adapter Pattern, Composite Pattern, Decorator Pattern,
+// 2. Structural (class and object composition and communication, for more SIMILAR!? objects) - Adapter Pattern, Composite Pattern, Decorator Pattern,
 // Façade Pattern, Flyweight Pattern and Proxy Pattern
 
 const structuralPattern = categoryFn('structural');
 
-// 3. Behavioral (composition and communication of objects, DISSIMILAR!? objects, loose coupling) - Chain of Responsibility Pattern, Command Pattern,
+// 3. Behavioral (composition and communication of objects, convenient if more DISSIMILAR!? objects, loose coupling) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern and Template Pattern
 
 const behavioralPattern = categoryFn('behavioral');
@@ -864,7 +864,6 @@ function iteratorPattern() {
     console.log(withGen.next().value); // undefined
 
 
-
     // OR USE:
     const withIter2 = new IteratorClass(['Testing', 'iterator', 'using', 'Iterator', '- 2']);
     const withGen2 = iteratorUsingGenerator(['Testing', 'iterator', 'using', 'Generator', '- 2']);
@@ -918,7 +917,7 @@ function mediatorPattern() {
             this.trafficTower = null;
         }
 
-        requestCoordinates() {
+        requestAPCoordinates() {
             if (this.trafficTower) {
                 return this.trafficTower.requestCoordinates(this);
             } else {
@@ -936,11 +935,11 @@ function mediatorPattern() {
         tower.register(airplane);
     });
     
-    console.log(airplanes.map(airplane => airplane.requestCoordinates()));
+    console.log(airplanes.map(airplane => airplane.requestAPCoordinates()));
 
     tower.deregister(airplanes[1]);
 
-    console.log(airplanes.map(airplane => airplane.requestCoordinates()));
+    console.log(airplanes.map(airplane => airplane.requestAPCoordinates()));
 
 }
 
