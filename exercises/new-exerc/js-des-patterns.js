@@ -14,12 +14,12 @@ const callNumCounter = callNum();
 
 const creationalPattern = categoryFn('creational');
 
-// 2. Structural (class and object composition and communication, for more SIMILAR!? objects) - Adapter Pattern, Composite Pattern, Decorator Pattern,
+// 2. Structural (class and object composition and communication, for more SIMILAR!? objects but not only) - Adapter Pattern, Composite Pattern, Decorator Pattern,
 // Façade Pattern, Flyweight Pattern and Proxy Pattern
 
 const structuralPattern = categoryFn('structural');
 
-// 3. Behavioral (composition and communication of objects, convenient if more DISSIMILAR!? objects, loose coupling) - Chain of Responsibility Pattern, Command Pattern,
+// 3. Behavioral (composition and communication of objects, convenient if more DISSIMILAR!? objects but not only) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern and Template Pattern
 
 const behavioralPattern = categoryFn('behavioral');
@@ -1018,8 +1018,8 @@ function observerPattern() {
 
     sub.fire('NONE'); // to initial state
 
-    console.log(obs1.state);
-    console.log(obs2.state); // no change
+    console.log(obs1.state); // changed to initial state
+    console.log(obs2.state); // no change, unsubscribed
 
 }
 
