@@ -63,11 +63,7 @@ function callNum() {
 }
 
 function separator(sep, times) {
-    let sepStr = '';
-    for (let i = 0; i < times; ++i) {
-        sepStr += i === times ? sep : (sep + " ");
-    }
-    console.log(sepStr);
+    console.log(sep.repeat(times));
     console.log();
 }
 
@@ -80,11 +76,11 @@ function categoryFn(type) {
     return function ( ...someArgs ) {
 
         console.log(`${callNumCounter()}. ${capitalizeOne(type)} Category:`);
-        separator("v", 3);
+        separator("v ", 3);
 
         someArgs.map(patternFn => {
             patternFn();
-            separator("-", 7);
+            separator("- ", 7);
         });
 
     }
