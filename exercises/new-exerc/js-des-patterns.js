@@ -893,7 +893,7 @@ function mediatorPattern() {
         }
 
         deregister(airplane) {
-            this._airplanes = this._airplanes.filter(arpl => arpl.coordinates !== airplane.coordinates);
+            this._airplanes = this._airplanes.filter(plane => plane.coordinates !== airplane.coordinates);
             airplane.deregister();
         }
       
@@ -1027,7 +1027,7 @@ function observerPattern() {
 
 function statePattern() {
     console.log("- State Pattern")
-    console.log("* behavioral design pattern that allows an object to alter its behaviour based on changes to its internal state")
+    console.log("* behavioral design pattern that allows an object to alter its behavior based on changes to its internal state")
     console.log("* the object returned by a state pattern class seems to change its class")
     console.log("* it provides state-specific logic to a limited set of objects in which each object type represents a particular state")
     console.log("* EXAMPLE: ")
@@ -1139,9 +1139,10 @@ function strategyPattern() {
     class Place {
         constructor(name) {
             this._name = name;
+            this._dogSitterPrice = 300;
         }
         price() {
-            return `A trip to ${this._name} costs $${this._price}.`;
+            return `A trip to ${this._name} costs $${(this._price + this._dogSitterPrice)}. Category: ${this._price <=   2500 ? '$' : this._price > 3000 ? '$$$' : '$$'}`;
         }
     }
 
@@ -1168,6 +1169,7 @@ function strategyPattern() {
 
     console.log(tripPlan.getPricing(new Bahamas()));
     console.log(tripPlan.getPricing(new Bali()));
+    console.log(tripPlan.getPricing(new Cancun()));
 
 }
 
