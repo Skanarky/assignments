@@ -19,7 +19,7 @@ const creationalPattern = categoryFn('creational');
 
 const structuralPattern = categoryFn('structural');
 
-// 3. Behavioral (composition and communication of objects, DISSIMILAR!? objects) - Chain of Responsibility Pattern, Command Pattern,
+// 3. Behavioral (composition and communication of objects, DISSIMILAR!? objects, loose coupling) - Chain of Responsibility Pattern, Command Pattern,
 // Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern and Template Pattern
 
 const behavioralPattern = categoryFn('behavioral');
@@ -781,9 +781,10 @@ function commandPattern() {
             this._providedInfo = [];
         }
         getInfo(info) {
-            if (this._toyotaModel[info]) {
-                this._providedInfo = [ ...this._providedInfo, info ];
-                return this._toyotaModel[info]();
+            const infToLC = info.toLowerCase();
+            if (this._toyotaModel[infToLC]) {
+                this._providedInfo = [ ...this._providedInfo, infToLC ];
+                return this._toyotaModel[infToLC]();
             } else {
                 return 'No such information!'
             }
