@@ -97,7 +97,7 @@ function categoryFn(type) {
 
 function constructorPattern() {
     console.log("- Constructor Pattern")
-    console.log("* class-based creational design pattern")
+    console.log("* !!!class-based (or function-based) creational design pattern")
     console.log("* it's a special functions that is used to instantiate new objects with methods and properties defined by that function")
     console.log("* it's more of a basic language construct than a pattern in most object-oriented languages")
     console.log("* EXAMPLE: ")
@@ -136,7 +136,7 @@ function constructorPattern() {
 
 function factoryPattern() {
     console.log("- Factory Pattern")
-    console.log("* class-based creational design pattern")
+    console.log("* !!!class-based creational design pattern")
     console.log("* provide a generic interface that delegates the responsibility of object instantiation to its subclasses")
     console.log("* frequently used when we need to manage or manipulate collections of objects that are different yet have many similar characteristics")
     console.log("* EXAMPLE: ")
@@ -200,7 +200,7 @@ function factoryPattern() {
 
 function prototypePattern() {
     console.log("- Prototype Pattern")
-    console.log("* object-based creational design pattern")
+    console.log("* !!!object-based creational design pattern")
     console.log("* we use a sort of a “skeleton” of an existing object to create or instantiate new objects")
     console.log("* specifically important and beneficial to JavaScript because it utilizes prototypal inheritance instead of a classic object-oriented inheritance -> JavaScript’s strength and has native support")
     console.log("* EXAMPLE: ")
@@ -229,9 +229,8 @@ function prototypePattern() {
 
 function singletonPattern() {
     console.log("- Singleton Pattern")
-    console.log("* special creational design pattern in which only one instance of a class can exist")
+    console.log("* !!!class-based, special class-based creational design pattern in which only one instance of a class can exist")
     console.log("* real-life examples: angular services; mongoose library for MongoDB")
-    console.log("* specifically important and beneficial to JavaScript because it utilizes prototypal inheritance instead of a classic object-oriented inheritance -> JavaScript’s strength and has native support")
     console.log("* EXAMPLE: ")
 
     class Database {
