@@ -652,8 +652,7 @@ function flyweightPattern() {
         }
 
         createProgramming(paradigm, skillLevel) {
-            const parLC = paradigm.toLowerCase();
-            return this.findProgramming(parLC) || this.createOneProgramming(parLC, skillLevel);
+            return this.findProgramming(paradigm) || this.createOneProgramming(paradigm.toLowerCase(), skillLevel);
         }
 
         createOneProgramming(paradigm, skillLevel) {
@@ -663,7 +662,7 @@ function flyweightPattern() {
         }
 
         findProgramming(paradigm) {
-            return this.programmingInstances.find(pr => pr.paradigm === paradigm);
+            return this.programmingInstances.find(pr => pr.paradigm === paradigm.toLowerCase());
         }
 
     }
@@ -683,6 +682,11 @@ function flyweightPattern() {
     console.log(functional.paradigm);
     console.log(functional.skillLevel);
     console.log('objOrPr equals functional: ', objOrPr === functional);
+
+    console.log(factory.findProgramming('OOP'));
+    console.log(factory.findProgramming('oop'));
+    console.log(factory.findProgramming('Functional'));
+    console.log(factory.findProgramming('Procedural'));
 
 }
 
