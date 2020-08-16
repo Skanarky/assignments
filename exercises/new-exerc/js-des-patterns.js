@@ -1132,7 +1132,7 @@ function strategyPattern() {
 
     class Trip {
         getPricing(place) {
-            return place.price();
+            return place.price() + ` Category: ${place._price <=   2500 ? '$' : place._price > 3000 ? '$$$' : '$$'}`;
         }
     }
 
@@ -1142,7 +1142,7 @@ function strategyPattern() {
             this._dogSitterPrice = 300;
         }
         price() {
-            return `A trip to ${this._name} costs $${(this._price + this._dogSitterPrice)}. Category: ${this._price <=   2500 ? '$' : this._price > 3000 ? '$$$' : '$$'}`;
+            return `A trip to ${this._name} costs $${(this._price + this._dogSitterPrice)}.`;
         }
     }
 
