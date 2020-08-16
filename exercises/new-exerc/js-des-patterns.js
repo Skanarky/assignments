@@ -218,11 +218,45 @@ function prototypePattern() {
     // using Object.create as was recommended by ES5 standard
     const myCar = Object.create(car, { owner: { value: 'John' } });
 
-    console.log(myCar.__proto__ === car);
-    console.log(myCar.start());
-    console.log(myCar.stop());
-    console.log(myCar.owner);
-    console.log(myCar.noOfWheels === car.noOfWheels);
+    console.log('myCar: ', myCar.start());
+    console.log('myCar: ', myCar.stop());
+    console.log('myCar: ', myCar.owner);
+    console.log('PROTO myCar is car: ', myCar.__proto__ === car);
+    console.log('myCar: ', myCar.__proto__ === car.__proto__);
+    console.log('myCar: ', myCar.__proto__);
+    console.log('car: ', car.__proto__);
+    console.log('myCar: ', myCar.noOfWheels === car.noOfWheels);
+
+    // NON-PROTOTYPAL
+
+    separator(" ", 1);
+
+    // using Object.assign
+    const myCar2 = Object.assign(car, { owner: 'Michael' });
+
+    console.log('myCar2: ', myCar2.start());
+    console.log('myCar2: ', myCar2.stop());
+    console.log('myCar2: ', myCar2.owner);
+    console.log('PROTO myCar2 is car: ', myCar2.__proto__ === car);
+    console.log('myCar2: ', myCar2.__proto__ === car.__proto__);
+    console.log('myCar2: ', myCar2.__proto__);
+    console.log('car: ', car.__proto__);
+    console.log('myCar2: ', myCar2.noOfWheels === car.noOfWheels);
+
+    separator(" ", 1);
+
+    // using mixin, ES6
+    const myCar3 = { ...car, ...{ owner: 'Chris' } };
+
+    console.log('myCar3: ', myCar3.start());
+    console.log('myCar3: ', myCar3.stop());
+    console.log('myCar3: ', myCar3.owner);
+    console.log('PROTO myCar3 is car: ', myCar3.__proto__ === car);
+    console.log('myCar3: ', myCar3.__proto__ === car.__proto__);
+    console.log('myCar3: ', myCar3.__proto__);
+    console.log('car: ', car.__proto__);
+    console.log('myCar3: ', myCar3.noOfWheels === car.noOfWheels);
+
 }
 
 // 1.4.
