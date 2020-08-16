@@ -469,6 +469,7 @@ function decoratorPattern() {
     console.log("* another viable alternative to sub-classing")
     console.log("* EXAMPLE: ")
 
+    // main class
     class Photographer {
         constructor(name, website, type) {
             this._name = name;
@@ -482,6 +483,7 @@ function decoratorPattern() {
         }
     }
 
+    // decorators
     function isFashion(photographer) {
         photographer.type = 'Fashion Professional';
         photographer.minHourlyRate += 120;
@@ -509,7 +511,7 @@ function decoratorPattern() {
         }
     }
 
-    const rankinUK = isFashion(new Photographer('Rankin', 'www.rankinphoto.co.uk', 'Portrait'));
+    const rankinUK = isFashion(new Photographer('Rankin', 'www.rankinphoto.co.uk', 'Some'));
     console.log(rankinUK.getDescription());
 
     bookedPhotographer(rankinUK);
@@ -518,7 +520,7 @@ function decoratorPattern() {
     unbookedPhotographer(rankinUK);
     console.log(rankinUK.getSchedule());
 
-    const someSport = isSport(new Photographer('Some Name', 'www.somesite.com', 'Nature'));
+    const someSport = isSport(new Photographer('Some Name', 'www.somesite.com', undefined));
     unbookedPhotographer(someSport);
     console.log(someSport.getDescription());
     console.log(someSport.getSchedule());
@@ -553,6 +555,7 @@ function façadePattern() {
             // } else {
             //     return new ProductComplaints().getComplaint(id);
             // }
+            // return new ProductComplaints().getComplaint(id) || new ServiceComplaints().getComplaint(id);
             return [ ...new ProductComplaints().complaints, ...new ServiceComplaints().complaints ].find(complaint => complaint.id === id);
         }
 
@@ -571,9 +574,9 @@ function façadePattern() {
             return this.replyMessage(complaint);
         }
 
-        // getComplaint(id) {
-        //     return this.complaints.find(complaint => complaint.id === id);
-        // }
+        getComplaint(id) {
+            return this.complaints.find(complaint => complaint.id === id);
+        }
 
         replyMessage(complaint) {}
     }
@@ -612,14 +615,14 @@ function façadePattern() {
 
     const registry = new ComplaintRegistry();
 
-    const reportService = registry.registerComplaint('Martha', 'service', 'availability');
+    const reportedService = registry.registerComplaint('Martha', 'service', 'availability');
 
-    const reportProduct = registry.registerComplaint('Jane', 'product', 'faded color');
-    const reportProduct2 = registry.registerComplaint('Karen', 'product', 'yellow spots');
+    const reportedProduct = registry.registerComplaint('Jane', 'product', 'faded color');
+    const reportedProduct2 = registry.registerComplaint('Karen', 'product', 'yellow spots');
 
-    console.log(reportService);
-    console.log(reportProduct);
-    console.log(reportProduct2);
+    console.log(reportedService);
+    console.log(reportedProduct);
+    console.log(reportedProduct2);
 
     console.log(registry.findComplaint(2));
     console.log(registry.findComplaint(4));
