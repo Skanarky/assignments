@@ -7,8 +7,8 @@ const callNumCounter = callNum();
 
 // THEORY:
 
-// Categories of JS/ES6 Design Patterns:
-// (call main categoryFn with the category name and get the examples and the theory/text)
+// Categories of JS/ES6 Design Patterns (selected patterns by the author, find more in the books provided as article references):
+// (call main categoryFn with the category name and get the examples and the theory text)
 
 // 1. Creational (object creation mechanism) - Constructor Pattern, Factory Pattern, Prototype Pattern and Singleton Pattern
 
@@ -103,11 +103,14 @@ function constructorPattern() {
 
     // Traditional Function-based syntax
     // function SoccerPlayer(name, position) {
-    //     this.name = name;
-    //     this.position = position;
+    //     return {
+    //         name: name,
 
-    //     this.getDetails = function() {
-    //         return this.name + " plays as " + this.position
+    //         position: position,
+
+    //         getDetails: function() {
+    //             return this.name + " plays as " + this.position
+    //         }
     //     }
     // }
     
@@ -124,6 +127,7 @@ function constructorPattern() {
     }
 
     const deGea = new SoccerPlayer('De Gea', 'goalkeeper');
+    // const deGea = SoccerPlayer('De Gea', 'goalkeeper');
     console.log(deGea.getDetails());
 }
 
@@ -181,7 +185,6 @@ function factoryPattern() {
     const theFactory = new BallGameFactory();
 
     // const soccer = theFactory.createBall('football');
-    // const soccer = theFactory.createBall(Football);
     const soccer = theFactory.createBall(Football);
     const basketBall = theFactory.createBall(Basketball);
 
